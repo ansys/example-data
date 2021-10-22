@@ -15,114 +15,114 @@ mapdl.prep7()
 mapdl.shpp("off", "", "nowarn")  # turn off shape checking
 mapdl.cdread("comb", "disc_pad_model", "cdb", "", "")  # Read disc_pad_model.cdb file
 mapdl.allsel("all")
-# ###############################################################################################
-# isc_pad_model.cdb file contains the following information
+# ################################################################################################
+# disc_pad_model.cdb file contains the following information
 # 
-# . Nodes and elements of the brake disc pad model
-# ***************************************************
+# 1. Nodes and elements of the brake disc pad model
+# ****************************************************
 # 
-# . Element definition and their key-option settings
-# ***************************************************
+# 2. Element definition and their key-option settings
+# ****************************************************
 # 
-# he model is meshed with Solid186 elements with reduced integration
-# lement technology
+# The model is meshed with Solid186 elements with reduced integration
+# element technology
 # 
-# ----------------------------------------------------------------------
-# T1SOLID186
-# EYOPT120
+# -----------------------------------------------------------------------
+# ET,1,SOLID186
+# KEYOPT,1,2,0
+# ------------------------------------------------------------------------
+# 
+# 
+# 3. Material properties for the brake disc pad model
+# ******************************************************
+# 
+# All components of the disc pad model is assigned with
+# linear elastic isotropic materials
+# 
+# -----------------------------------------------------------------------
+# MP,DENS,1,7850.,
+# MP,EX,1,200000000000.,
+# MP,NUXY,1,0.3,
 # -----------------------------------------------------------------------
 # 
 # 
-# . Material properties for the brake disc pad model
-# *****************************************************
+# 4. Contact pair definition
+# ******************************
 # 
-# ll components of the disc pad model is assigned with
-# inear elastic isotropic materials
+# Frictional contact pairs are used to define contact between brake pads
+# and disc
 # 
-# ----------------------------------------------------------------------
-# PDENS17850.
-# PEX1200000000000.
-# PNUXY10.3
-# ----------------------------------------------------------------------
+# Bonded contact pairs are used to define contact for other components of
+# the braking system.
 # 
+# Friction contact pair definition
 # 
-# . Contact pair definition
-# *****************************
+# --------------------------------------------------------------------------
+# *set,tid,31
+# *set,cid,30
+# r,tid
+# r,cid
+# et,tid,targe170
+# et,cid,conta174
+# keyo,cid,10,2
+# keyo,cid,12,0
+# mp,mu,cid,0.3
+# keyo,cid,2,0
+# keyo,cid,9,1
+# keyo,cid,5,1
+# keyo,cid,7,0
+# ------------------------------------------------------------------------------
 # 
-# rictional contact pairs are used to define contact between brake pads
-# nd disc
-# 
-# onded contact pairs are used to define contact for other components of
-# he braking system.
-# 
-# riction contact pair definition
-# 
-# -------------------------------------------------------------------------
-# settid31
-# setcid30
-# tid
-# cid
-# ttidtarge170
-# tcidconta174
-# eyocid102
-# eyocid120
-# pmucid0.3
-# eyocid20
-# eyocid91
-# eyocid51
-# eyocid70
-# -----------------------------------------------------------------------------
-# 
-# onded contact pair definition
-# 
-# ---------------------------------------------------------------------------------
-# settid35
-# setcid34
-# tid
-# cid
-# ttidtarge170
-# tcidconta174
-# eyocid125
-# eyocid42
-# eyocid22
-# eyocid91
-# eyocid70
-# -----------------------------------------------------------------------------------
-# 
-# . Boundary conditions and loading applied on the brake disc and pads
-# ***********************************************************************
-# 
-# omponents are formed with nodes and element to specify boundary conditions
-# 
-# odes belonging to component FIXEDSU is fixed in all directions.
+# Bonded contact pair definition
 # 
 # ----------------------------------------------------------------------------------
-# mselsFIXEDSUnode
-# allall
-# -----------------------------------------------------------------------------------
-# 
-# odes belonging to the pads surface where pressure loading is applied are
-# rouped to form components named _ZERODISPUX and _ZERODISPUY.
-# 
-# odes belonging to component _ZERODISPUX are constrained in X direction
-# 
-# odes belonging to component _ZERODISPUY are constrained in Y direction
-# 
+# *set,tid,35
+# *set,cid,34
+# r,tid
+# r,cid
+# et,tid,targe170
+# et,cid,conta174
+# keyo,cid,12,5
+# keyo,cid,4,2
+# keyo,cid,2,2
+# keyo,cid,9,1
+# keyo,cid,7,0
 # ------------------------------------------------------------------------------------
-# msels_ZERODISPUXnode
-# allux0
-# msels_ZERODISPUYnode
-# alluy0
+# 
+# 5. Boundary conditions and loading applied on the brake disc and pads
+# ************************************************************************
+# 
+# Components are formed with nodes and element to specify boundary conditions
+# 
+# Nodes belonging to component FIXEDSU is fixed in all directions.
+# 
+# -----------------------------------------------------------------------------------
+# cmsel,s,FIXEDSU,node
+# d,all,all
+# ------------------------------------------------------------------------------------
+# 
+# Nodes belonging to the pads surface where pressure loading is applied are
+# grouped to form components named _ZERODISPUX and _ZERODISPUY.
+# 
+# Nodes belonging to component _ZERODISPUX are constrained in X direction
+# 
+# Nodes belonging to component _ZERODISPUY are constrained in Y direction
+# 
 # -------------------------------------------------------------------------------------
+# cmsel,s,_ZERODISPUX,node
+# d,all,ux,0
+# cmsel,s,_ZERODISPUY,node
+# d,all,uy,0
+# --------------------------------------------------------------------------------------
 # 
 # 
 # 
-# ##############################################################################################
+# ###############################################################################################
 mapdl.allsel("all")
 mapdl.run("fini")
-# ########################################
-# nalysis settings and solution control
 # #########################################
+# Analysis settings and solution control
+# ##########################################
 mapdl.run("/solu")
 mapdl.antype("modal")  # Perform modal analysis
 mapdl.mp("mu", 30, 0.0)  # Coefficient of friction = 0.0
