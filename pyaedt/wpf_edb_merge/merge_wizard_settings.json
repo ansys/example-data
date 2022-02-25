@@ -1,0 +1,22 @@
+{
+    "desktop_version": "2021.2",
+    "host": "C:\\ansysdev\\GIT\\repos\\example-data\\pyaedt\\wpf_edb_merge\\board.aedb",
+    "merge": "C:\\ansysdev\\GIT\\repos\\example-data\\pyaedt\\wpf_edb_merge\\package.aedb",
+    "load_layout_on_init": "0",
+    "evaluate_placement_on_init": "0",
+    "execute_merge_on_init": "0",
+    "host_component": "U100",
+    "merge_component": "BGA",
+    "design_1_pin1": "A12",
+    "design_1_pin2": "A14",
+    "design_2_pin1": "A12",
+    "design_2_pin2": "A14",
+    "yoffset": "5",
+    "rotation": "10",
+    "xoffset": "3",
+    "zoffset": "200",
+    "flip_layout": "0",
+    "place_on_top": "1",
+    "open_3d_layout": "1",
+    "placement_3d": "1"
+}
