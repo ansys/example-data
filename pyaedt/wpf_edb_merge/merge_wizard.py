@@ -19,7 +19,11 @@ class ApplicationWindow(WPFToolkit):
                 config = json.load(f)
             desktop_version= config.get("desktop_version", "2021.2")
             host = config.get("host","")
+            if host and not os.path.exists(os.path.join(os.path.dirname(__file__), host)):
+                host = os.path.join(os.path.dirname(__file__), host)
             merge =  config.get("merge","")
+            if merge and not os.path.exists(os.path.join(os.path.dirname(__file__), host)):
+                merge = os.path.join(os.path.dirname(__file__), merge)
             self.load_layout_on_init = config.get("load_layout_on_init", "0") == "1"
             self.host_component = config.get("host_component", None)
             self.merge_component = config.get("merge_component", None)
