@@ -1,7 +1,7 @@
 {
     "desktop_version": "2021.2",
-    "host": "C:\\ansysdev\\GIT\\repos\\example-data\\pyaedt\\wpf_edb_merge\\board.aedb",
-    "merge": "C:\\ansysdev\\GIT\\repos\\example-data\\pyaedt\\wpf_edb_merge\\package.aedb",
+    "host": "wpf_edb_merge\\board.aedb",
+    "merge": "wpf_edb_merge\\package.aedb",
     "load_layout_on_init": "0",
     "evaluate_placement_on_init": "0",
     "execute_merge_on_init": "0",
