@@ -1,5 +1,6 @@
 {
-    "desktop_version": "2021.2",
+    "enable_automatic_placement": "1",
+    "desktop_version": "2022.1",
     "host": "wpf_edb_merge\\board.aedb",
     "merge": "wpf_edb_merge\\package.aedb",
     "load_layout_on_init": "0",
@@ -12,11 +13,11 @@
     "design_2_pin1": "A12",
     "design_2_pin2": "A14",
     "yoffset": "5",
-    "rotation": "10",
+    "rotation": "90",
     "xoffset": "3",
-    "zoffset": "200",
-    "flip_layout": "0",
-    "place_on_top": "1",
+    "zoffset": "0",
+    "flip_merged_layout": "0",
+    "flip_host_layout": "0",
     "open_3d_layout": "1",
     "placement_3d": "1"
 }
