@@ -1,8 +1,9 @@
 import math
 import os
 import time
+import sys
 
-from pyaedt import Edb, Hfss3dLayout
+from pyaedt import Edb, Hfss3dLayout, is_ironpython
 from pyaedt.generic.toolkit import WPFToolkit, launch, select_directory
 import json
 
@@ -31,12 +32,13 @@ class ApplicationWindow(WPFToolkit):
             self.design_1_pin2 = config.get("design_1_pin2", None)
             self.design_2_pin1 = config.get("design_2_pin1", None)
             self.design_2_pin2 = config.get("design_2_pin2", None)
+            self.enable_automatic_placement = config.get("enable_automatic_placement", "0") == "1"
             xoffset = config.get("xoffset", "0.0")
             yoffset = config.get("yoffset", "0.0")
             zoffset = config.get("zoffset", "0.0")
             rotation = config.get("rotation", "0")
             flip_layout = config.get("flip_layout", "0") == "1"
-            place_on_top = config.get("place_on_top", "0") == "1"
+            flip_host_layout = config.get("flip_host_layout", "0") == "1"
             open_3d_layout = config.get("open_3d_layout", "0") == "1"
             placement_3d = config.get("placement_3d", "0") == "1"
             self.evaluate_placement_on_init = config.get("evaluate_placement_on_init", "0") == "1"
@@ -57,73 +59,79 @@ class ApplicationWindow(WPFToolkit):
             zoffset = "0.0"
             rotation = "0"
             flip_layout = True
-            place_on_top = True
+            flip_host_layout = True
             open_3d_layout = False
             placement_3d = False
             self.evaluate_placement_on_init = False
             self.execute_merge_on_init = False
+            self.enable_automatic_placement = True
         self.valid_project = True
         self.design1_edb = None
         self.design2_edb = None
         self.copy_xaml_template()
         self.edit_window_size(900, 400, "Pyaedt EDB Merge Utility")
         #Edit the UI
-        self.add_label("label1", "Merged Layout", 10, 10)
-        self.add_text_box(name="merged", x_pos=150, y_pos=10, width=400)
-        self.add_button("merged_path_button", "Browse...", x_pos=600,  y_pos=10, callback_method=self.browse_design1)
 
-        self.add_label("label2", "Host Layout", 10, 50)
-        self.add_text_box(name="host", x_pos=150, y_pos=50, width=400)
-        self.add_button("host_path_button", "Browse...", x_pos=600,  y_pos=50, callback_method=self.browse_design2)
+        self.add_label("label1", "Merged Layout", 10, 50)
+        self.add_text_box(name="merged", x_pos=150, y_pos=50, width=600)
+        self.add_button("merged_path_button", "Browse...", x_pos=760,  y_pos=50, callback_method=self.browse_design1)
 
-        self.add_label("label7", "Desktop Version", 10, 130)
-        self.add_text_box(name="desktop_version", x_pos=200, y_pos=130, callback_method=self.validate_string_no_spaces,
+        self.add_label("label2", "Host Layout", 10, 90)
+        self.add_text_box(name="host", x_pos=150, y_pos=90, width=600)
+        self.add_button("host_path_button", "Browse...", x_pos=760,  y_pos=90, callback_method=self.browse_design2)
+
+        self.add_label("label7", "Desktop Version", 10, 10)
+        self.add_text_box(name="desktop_version", x_pos=150, y_pos=10, callback_method=self.validate_string_no_spaces,
+                          callback_action='LostFocus')
+        self.add_check_box("placement_3d", "3d Placement", x_pos=300, y_pos=10)
+
+        y_pos = 165
+        self.add_check_box("place_on_top_check", "Flip host design", x_pos=150, y_pos=125)
+        self.add_check_box("flip_check", "Flip merged layout", x_pos=275, y_pos=125)
+        self.add_check_box("open_layout", "Open 3d Layout after merge", x_pos=400, y_pos=125)
+
+        if self.enable_automatic_placement:
+            self.add_button("load_layout_button", "Load project", x_pos=600, y_pos=120, callback_method=self.load_layout)
+            self.add_button("evaluate_vector_button", "Evaluate placement", x_pos=750, y_pos=120,
+                            callback_method=self.evaluate_component_placement)
+
+            self.add_label("label36", "Merged Component", 10, 165)
+            self.add_combo_box("combo_box_merged_cmp", x_pos=150, y_pos=165, callback_action='SelectionChanged',
+                               callback_method=self.update_merged_cmp)
+            self.add_label("label17", "Host Component", 10, 205)
+            self.add_combo_box("combo_box_host_cmp", x_pos=150, y_pos=205, callback_action='SelectionChanged',
+                               callback_method=self.update_host_cmp)
+            self.add_label("label_pin_matching", "Pin matching", 300, 165)
+            self.add_label("label_pin_matching2", "Pin matching", 300, 205)
+            self.add_combo_box("merged_pin1", x_pos=400, y_pos=165)
+            self.add_combo_box("merged_pin2", x_pos=550, y_pos=165)
+
+            self.add_combo_box("host_pin1", x_pos=400, y_pos=205)
+            self.add_combo_box("host_pin2", x_pos=550, y_pos=205)
+            y_pos = 250
+        self.merged_edb = None
+        self.host_edb = None
+        mod = sys.modules["__main__"]
+        if "oDesktop" in dir(mod):
+            desktop_version = mod.oDesktop.GetVersion()[0:6]
+
+        self.add_label("label4", "Rotation (deg)", 10, y_pos)
+        self.add_text_box(name="rotation", x_pos=100, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
 
-        self.add_label("label4", "Rotation (deg)", 10, 160)
-        self.add_text_box(name="rotation", x_pos=200, y_pos=160, callback_method=self.validate_float,
+        self.add_label("label5", "X Offset (mm)", 200, y_pos)
+        self.add_text_box(name="xoffset", x_pos=300, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
 
-        self.add_label("label5", "X Offset (mm)", 10, 190)
-        self.add_text_box(name="xoffset", x_pos=200, y_pos=190, callback_method=self.validate_float,
+        self.add_label("label6", "Y Offset (mm)", 400, y_pos)
+        self.add_text_box(name="yoffset", x_pos=500, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
 
-        self.add_label("label6", "Y Offset (mm)", 10, 220)
-        self.add_text_box(name="yoffset", x_pos=200, y_pos=220, callback_method=self.validate_float,
+        self.add_label("label3", "Solder ball height (um)", 600, y_pos)
+        self.add_text_box(name="zoffset", x_pos=750, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
-
-        self.add_label("label3", "Optional Solder ball height (um)", 10, 250)
-        self.add_text_box(name="zoffset", x_pos=200, y_pos=250, callback_method=self.validate_float,
-                          callback_action='LostFocus')
-
-        self.add_button("load_layout_button", "Load project", x_pos=600, y_pos=90, callback_method=self.load_layout)
-        self.add_check_box("placement_3d", "3d Placement", x_pos=100, y_pos=280)
-
-        self.add_button("execute_button", "Merged layout", x_pos=200, y_pos=280, callback_method=self.launch_merge)
-        self.add_button("evaluate_vector_button", "Evaluate placement", x_pos=600, y_pos=130,
-                        callback_method=self.evaluate_component_placement)
-
-
-        self.add_label("label36", "Merged Component", 350, 160)
-        self.add_combo_box("combo_box_merged_cmp", x_pos=350, y_pos=185, callback_action='SelectionChanged',
-                           callback_method=self.update_merged_cmp)
-        self.add_label("label17", "Host Component", 350, 205)
-        self.add_combo_box("combo_box_host_cmp", x_pos=350, y_pos=230, callback_action='SelectionChanged',
-                           callback_method=self.update_host_cmp)
-
-        self.add_check_box("place_on_top_check", "Place on top", x_pos=350, y_pos=100)
-        self.add_check_box("flip_check", "Flip merged design before placing", x_pos=350, y_pos=120)
-        self.add_check_box("open_layout", "Open 3d Layout after merge", x_pos=350, y_pos=140)
-
-        self.add_label("label_pin_matching", "Pin matching", 600, 160)
-        self.add_label("merge_1_pins", "Host", 530, 205)
-        self.add_combo_box("merged_pin1", x_pos=500, y_pos=185)
-        self.add_combo_box("merged_pin2", x_pos=500, y_pos=230)
-
-        self.add_label("host_2_pins", "Merged", 680, 205)
-        self.add_combo_box("host_pin1", x_pos=650, y_pos=185)
-        self.add_combo_box("host_pin2", x_pos=650, y_pos=230)
-
+        y_pos += 50
+        self.add_button("execute_button", "Merge layouts", x_pos=350, y_pos=y_pos, callback_method=self.launch_merge)
         self.launch_gui()
 
         self.set_text_value("desktop_version", desktop_version)
@@ -133,7 +141,7 @@ class ApplicationWindow(WPFToolkit):
         self.set_text_value("xoffset", xoffset)
         self.set_text_value("yoffset", yoffset)
         self.set_text_value("zoffset", zoffset)
-        self.set_chechbox_status("place_on_top_check", place_on_top)
+        self.set_chechbox_status("place_on_top_check", flip_host_layout)
         self.set_chechbox_status("placement_3d",placement_3d )
         self.set_chechbox_status("flip_check",flip_layout)
         self.set_chechbox_status("open_layout", open_3d_layout)
@@ -145,8 +153,10 @@ class ApplicationWindow(WPFToolkit):
                 self.launch_merge(None, None)
 
     def load_layout(self, sender, e):
+        desktop_version = self.get_text_value("desktop_version")
+
         if os.path.isdir(self.ui.text_value("merged")):
-            self.merged_edb = Edb(edbpath=self.ui.text_value("merged"), edbversion="2021.2")
+            self.merged_edb = Edb(edbpath=self.ui.text_value("merged"), edbversion=desktop_version)
         else:
             self.valid_project = False
             self.message_box("Failed to load design {}".format(self.ui.text_value("merged")), icon="Error")
@@ -238,7 +248,7 @@ class ApplicationWindow(WPFToolkit):
     def launch_merge(self, sender, e):
         start_time = time.time()
         flip = self.get_checkbox_status("flip_check")
-        place_on_top = self.get_checkbox_status("place_on_top_check")
+        place_on_top = not self.get_checkbox_status("place_on_top_check")
         desktop_version = self.get_text_value("desktop_version")
         pos_x = float(self.get_text_value("xoffset")) * 1e-3
         pos_y = float(self.get_text_value("yoffset")) * 1e-3
@@ -274,9 +284,14 @@ class ApplicationWindow(WPFToolkit):
         merged_project.save_edb_as(out_project)
         merged_project.close_edb()
         hosting_project.close_edb()
-        if self.get_checkbox_status("open_layout"):
+        mod = sys.modules["__main__"]
+        if self.get_checkbox_status("open_layout") and is_ironpython:
+            oTool = mod.oDesktop.GetTool("ImportExport")
+            oTool.ImportEDB(os.path.join(out_project, "edb.def"))
+        else:
             hfss3d = Hfss3dLayout(os.path.join(out_project, "edb.def"),specified_version=desktop_version)
             hfss3d.release_desktop(False, False)
+
         if not self.execute_merge_on_init:
             if result:
                 self.message_box("Merge completed Successfully")
@@ -288,4 +303,9 @@ class ApplicationWindow(WPFToolkit):
 
 # Launch the toolkit
 if __name__ == '__main__':
-    launch(__file__, specified_version="2021.2", new_desktop_session=False, autosave=False)
+    mod = sys.modules["__main__"]
+    if "oDesktop" in dir(mod):
+        desktop_version = mod.oDesktop.GetVersion()[0:6]
+    else:
+        desktop_version = None
+    launch(__file__, specified_version=desktop_version, new_desktop_session=False, autosave=False)
