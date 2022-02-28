@@ -3,6 +3,11 @@ import os
 import time
 import sys
 
+#Uncomment this if the script will run within AEDT with Ironpython. Setup the path where pyaedt folder is.
+#path_to_pyaedt_root_folder=""
+#sys.path.append(path_to_pyaedt_root_folder)
+
+
 from pyaedt import Edb, Hfss3dLayout, is_ironpython
 from pyaedt.generic.toolkit import WPFToolkit, launch, select_directory
 import json
@@ -72,7 +77,7 @@ class ApplicationWindow(WPFToolkit):
         self.edit_window_size(900, 400, "Pyaedt EDB Merge Utility")
         #Edit the UI
 
-        self.add_label("label1", "Merged Layout", 10, 50)
+        self.add_label("label1", "Source Layout", 10, 50)
         self.add_text_box(name="merged", x_pos=150, y_pos=50, width=600)
         self.add_button("merged_path_button", "Browse...", x_pos=760,  y_pos=50, callback_method=self.browse_design1)
 
@@ -86,8 +91,8 @@ class ApplicationWindow(WPFToolkit):
         self.add_check_box("placement_3d", "3d Placement", x_pos=300, y_pos=10)
 
         y_pos = 165
-        self.add_check_box("place_on_top_check", "Flip host design", x_pos=150, y_pos=125)
-        self.add_check_box("flip_check", "Flip merged layout", x_pos=275, y_pos=125)
+        self.add_check_box("place_on_top_check", "Flip host layout", x_pos=150, y_pos=125)
+        self.add_check_box("flip_check", "Flip source layout", x_pos=275, y_pos=125)
         self.add_check_box("open_layout", "Open 3d Layout after merge", x_pos=400, y_pos=125)
 
         if self.enable_automatic_placement:
@@ -127,7 +132,7 @@ class ApplicationWindow(WPFToolkit):
         self.add_text_box(name="yoffset", x_pos=500, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
 
-        self.add_label("label3", "Solder ball height (um)", 600, y_pos)
+        self.add_label("label3", "Solder height (Optional, um)", 575, y_pos)
         self.add_text_box(name="zoffset", x_pos=750, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
         y_pos += 50
