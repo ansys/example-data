@@ -220,14 +220,20 @@ class ApplicationWindow(WPFToolkit):
 
     def evaluate_component_placement(self, send, e):
         try:
+
             mounted_cmp = self.merged_edb.core_components. \
                 get_component_by_name(self.get_combobox_selection("combo_box_merged_cmp"))
             hosting_cmp = self.host_edb.core_components. \
                 get_component_by_name(self.get_combobox_selection("combo_box_host_cmp"))
-            mounted_cmp_pin1 = self.get_combobox_selection("merged_pin1")
-            mounted_cmp_pin2 = self.get_combobox_selection("merged_pin2")
+            if self.get_checkbox_status("flip_check") != self.get_checkbox_status("place_on_top_check"):
+                mounted_cmp_pin1 = self.get_combobox_selection("merged_pin2")
+                mounted_cmp_pin2 = self.get_combobox_selection("merged_pin1")
+            else:
+                mounted_cmp_pin1 = self.get_combobox_selection("merged_pin1")
+                mounted_cmp_pin2 = self.get_combobox_selection("merged_pin2")
             hosting_cmp_pin1 = self.get_combobox_selection("host_pin1")
             hosting_cmp_pin2 = self.get_combobox_selection("host_pin2")
+
             res, vector, rotation, solder_ball_height = self.host_edb.core_components. \
                 get_component_placement_vector(
                 mounted_component=mounted_cmp,
@@ -236,6 +242,8 @@ class ApplicationWindow(WPFToolkit):
                 mounted_component_pin2=mounted_cmp_pin2,
                 hosting_component_pin1=hosting_cmp_pin1,
                 hosting_component_pin2=hosting_cmp_pin2)
+            if self.get_checkbox_status("flip_check") != self.get_checkbox_status("place_on_top_check"):
+                rotation += math.pi
             self.set_text_value("rotation", str(round(rotation * 180 / math.pi, 3)))
             self.set_text_value("xoffset", str(round(vector[0] * 1e3, 3)))
             self.set_text_value("yoffset", str(round(vector[1] * 1e3, 3)))
@@ -290,7 +298,7 @@ class ApplicationWindow(WPFToolkit):
         merged_project.close_edb()
         hosting_project.close_edb()
         mod = sys.modules["__main__"]
-        if self.get_checkbox_status("open_layout") and is_ironpython:
+        if self.get_checkbox_status("open_layout") and is_ironpython and "oDesktop" in dir(mod):
             oTool = mod.oDesktop.GetTool("ImportExport")
             oTool.ImportEDB(os.path.join(out_project, "edb.def"))
         else:
