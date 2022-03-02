@@ -1,5 +1,5 @@
 {
-    "enable_automatic_placement": "0",
+    "enable_automatic_placement": "1",
     "desktop_version": "2022.1",
     "host": "wpf_edb_merge\\board.aedb",
     "merge": "wpf_edb_merge\\package.aedb",
