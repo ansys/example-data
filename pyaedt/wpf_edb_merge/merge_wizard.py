@@ -102,7 +102,7 @@ class ApplicationWindow(WPFToolkit):
         self.add_combo_box("source_design_layers", x_pos=275, y_pos=130)
         #self.add_check_box("place_on_top_check", "Flip host layout", x_pos=150, y_pos=125)
         #self.add_check_box("flip_check", "Flip source layout", x_pos=275, y_pos=125)
-        self.add_check_box("open_layout", "Open 3d Layout after merge", x_pos=400, y_pos=130)
+        self.add_check_box("open_layout", "Open 3D Layout after merge", x_pos=400, y_pos=130)
 
         if self.enable_automatic_placement:
             self.add_button("load_layout_button", "Load project", x_pos=600, y_pos=120, callback_method=self.load_layout)
