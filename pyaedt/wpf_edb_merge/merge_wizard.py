@@ -10,6 +10,7 @@ import sys
 
 
 from pyaedt import Edb, Hfss3dLayout, is_ironpython
+from pyaedt.generic.general_methods import number_aware_string_key
 from pyaedt.generic.toolkit import WPFToolkit, launch, select_directory
 import json
 
@@ -212,7 +213,7 @@ class ApplicationWindow(WPFToolkit):
             default=self.source_edb_bottom_layer)
 
         component_names = [str(i) for i in self.merged_edb.core_components.components.keys()]
-        component_names.sort()
+        component_names.sort(key=number_aware_string_key)
         self.add_combo_items("combo_box_merged_cmp", component_names, default=self.merge_component)
 
         self.message_box("Loaded source design {}".format(aedb_folder))
@@ -249,7 +250,7 @@ class ApplicationWindow(WPFToolkit):
             default=self.host_edb_top_layer)
 
         component_names = [str(i) for i in self.host_edb.core_components.components.keys()]
-        component_names.sort()
+        component_names.sort(key=number_aware_string_key)
         self.add_combo_items("combo_box_host_cmp", component_names, default=self.host_component)
 
         self.message_box("Loaded host design {}".format(aedb_folder))
@@ -282,7 +283,7 @@ class ApplicationWindow(WPFToolkit):
 
         cmp_pins = [str(pin.GetName())
                     for pin in self.merged_edb.core_components.get_pin_from_component(sender.SelectedItem)]
-        cmp_pins.sort()
+        cmp_pins.sort(key=number_aware_string_key)
         self.add_combo_items("merged_pin1", cmp_pins, default=self.design_1_pin1)
         self.add_combo_items("merged_pin2", cmp_pins, default=self.design_1_pin2)
 
@@ -294,7 +295,7 @@ class ApplicationWindow(WPFToolkit):
 
         cmp_pins = [str(pin.GetName())
                     for pin in self.host_edb.core_components.get_pin_from_component(sender.SelectedItem)]
-        cmp_pins.sort()
+        cmp_pins.sort(key=number_aware_string_key)
         self.add_combo_items("host_pin1", cmp_pins, default=self.design_2_pin1)
         self.add_combo_items("host_pin2", cmp_pins, default=self.design_2_pin2)
 
