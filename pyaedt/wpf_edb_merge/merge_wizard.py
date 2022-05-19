@@ -1,3 +1,4 @@
+from heapq import merge
 import math
 import os
 import time
@@ -9,6 +10,7 @@ import sys
 
 
 from pyaedt import Edb, Hfss3dLayout, is_ironpython
+from pyaedt.generic.general_methods import number_aware_string_key
 from pyaedt.generic.toolkit import WPFToolkit, launch, select_directory
 import json
 
@@ -74,19 +76,16 @@ class ApplicationWindow(WPFToolkit):
             self.evaluate_placement_on_init = False
             self.execute_merge_on_init = False
             self.enable_automatic_placement = True
-        self.valid_project = True
-        self.design1_edb = None
-        self.design2_edb = None
         self.copy_xaml_template()
         self.edit_window_size(900, 400, "Pyaedt EDB Merge Utility")
         #Edit the UI
 
         self.add_label("label1", "Source Layout", 10, 50)
-        self.add_text_box(name="merged", x_pos=150, y_pos=50, width=600)
+        self.add_text_box(name="merged", x_pos=150, y_pos=50, width=600, callback_method=self.load_source_design)
         self.add_button("merged_path_button", "Browse...", x_pos=760,  y_pos=50, callback_method=self.browse_design1)
 
         self.add_label("label2", "Host Layout", 10, 90)
-        self.add_text_box(name="host", x_pos=150, y_pos=90, width=600)
+        self.add_text_box(name="host", x_pos=150, y_pos=90, width=600, callback_method=self.load_host_design)
         self.add_button("host_path_button", "Browse...", x_pos=760,  y_pos=90, callback_method=self.browse_design2)
 
         self.add_label("label7", "Desktop Version", 10, 10)
@@ -105,7 +104,7 @@ class ApplicationWindow(WPFToolkit):
         self.add_check_box("open_layout", "Open 3D Layout after merge", x_pos=400, y_pos=130)
 
         if self.enable_automatic_placement:
-            self.add_button("load_layout_button", "Load project", x_pos=600, y_pos=120, callback_method=self.load_layout)
+            # self.add_button("load_layout_button", "Load project", x_pos=600, y_pos=120, callback_method=self.load_layout)
             self.add_button("evaluate_vector_button", "Evaluate placement", x_pos=750, y_pos=120,
                             callback_method=self.evaluate_component_placement)
 
@@ -141,13 +140,12 @@ class ApplicationWindow(WPFToolkit):
         self.add_text_box(name="yoffset", x_pos=500, y_pos=y_pos, width=75, callback_method=self.validate_float,
                           callback_action='LostFocus')
 
-        self.add_label("label3", "Solder height (Optional, um)", 575, y_pos)
-        self.add_text_box(name="zoffset", x_pos=750, y_pos=y_pos, width=75, callback_method=self.validate_float,
-                          callback_action='LostFocus')
+        self.add_label("label3", "Solder height (read-only, um)", 575, y_pos)
+        self.add_text_box(name="zoffset", x_pos=750, y_pos=y_pos, width=75)
+
         y_pos += 50
         self.add_button("execute_button", "Merge layouts", x_pos=350, y_pos=y_pos, callback_method=self.launch_merge)
         self.launch_gui()
-        self.is_project_loaded = False
         self.set_text_value("desktop_version", desktop_version)
         self.set_text_value("merged", merge)
         self.set_text_value("host", host)
@@ -155,6 +153,8 @@ class ApplicationWindow(WPFToolkit):
         self.set_text_value("xoffset", xoffset)
         self.set_text_value("yoffset", yoffset)
         self.set_text_value("zoffset", zoffset)
+        solder_height_box = self.get_ui_object("zoffset")
+        solder_height_box.IsEnabled = False
         #self.set_chechbox_status("place_on_top_check", flip_host_layout)
         #self.set_chechbox_status("placement_3d", placement_3d )
         #self.set_chechbox_status("flip_check", flip_layout)
@@ -166,58 +166,105 @@ class ApplicationWindow(WPFToolkit):
             if self.execute_merge_on_init:
                 self.launch_merge(None, None)
 
+    @property
+    def is_source_project_loaded(self):
+        return self.merged_edb is not None and not self.merged_edb.db.IsNull()
+
+    @property
+    def is_host_project_loaded(self):
+        return self.host_edb is not None and not self.host_edb.db.IsNull()
+
+    @property
+    def are_projects_loaded(self):
+        return self.is_host_project_loaded and self.is_source_project_loaded
+
     def load_layout(self, sender, e):
-        if not self.is_project_loaded:
-            desktop_version = self.get_text_value("desktop_version")
-            if os.path.isdir(self.ui.text_value("merged")):
-                self.merged_edb = Edb(edbpath=self.ui.text_value("merged"), edbversion=desktop_version)
+        self.load_source_design(sender, e)
+        self.load_host_design(sender, e)
+
+    def unload_source_design(self):
+        if self.merged_edb is not None:
+            print("Closing source design")
+            self.merged_edb.close_edb()
+        self.clear_combobox_items("source_design_layers")
+        self.clear_combobox_items("combo_box_merged_cmp")
+
+    def load_source_design(self, sender, e):
+        aedb_folder = self.ui.text_value("merged")
+        if not os.path.isdir(aedb_folder):
+            self.message_box("Source design path must be a directory")
+            self.unload_source_design()
+            return
+        if self.is_source_project_loaded:
+            if os.path.abspath(aedb_folder) == os.path.abspath(self.merged_edb.edbpath):
+                return
             else:
-                self.valid_project = False
-                self.message_box("Failed to load design {}".format(self.ui.text_value("merged")), icon="Error")
-            if os.path.isdir(self.ui.text_value("host")):
-                self.host_edb = Edb(edbpath=self.ui.text_value("host"), edbversion="2021.2")
+                self.unload_source_design()
+
+        desktop_version = self.get_text_value("desktop_version")
+        self.merged_edb = Edb(edbpath=aedb_folder, edbversion=desktop_version)
+        if self.merged_edb.db.IsNull():
+            self.message_box("Failed to load design {}".format(aedb_folder), icon="Error")
+            return
+
+        merged_edb_layers = [str(i) for i in self.merged_edb.core_stackup.signal_layers.keys()]
+        self.source_edb_top_layer, self.source_edb_bottom_layer = merged_edb_layers[-1], merged_edb_layers[0]
+        self.add_combo_items("source_design_layers", [self.source_edb_top_layer, self.source_edb_bottom_layer],
+            default=self.source_edb_bottom_layer)
+
+        component_names = [str(i) for i in self.merged_edb.core_components.components.keys()]
+        component_names.sort(key=number_aware_string_key)
+        self.add_combo_items("combo_box_merged_cmp", component_names, default=self.merge_component)
+
+        self.message_box("Loaded source design {}".format(aedb_folder))
+        return
+
+    def unload_host_design(self):
+        if self.host_edb is not None:
+            print("Closing host design")
+            self.host_edb.close_edb()
+        self.clear_combobox_items("host_design_layers")
+        self.clear_combobox_items("combo_box_host_cmp")
+
+    def load_host_design(self, sender, e):
+        aedb_folder = self.ui.text_value("host")
+        if not os.path.isdir(aedb_folder):
+            self.message_box("Host design path must be a directory")
+            self.unload_host_design()
+            return
+        if self.is_host_project_loaded:
+            if os.path.abspath(aedb_folder) == os.path.abspath(self.host_edb.edbpath):
+                return
             else:
-                self.valid_project = False
-                self.message_box("Failed to load design {}".format(self.ui.text_value("host")), icon="Error")
+                self.unload_host_design()
 
-            if self.valid_project:
-                design1_components = [str(i) for i in list(self.merged_edb.core_components.components.keys())]
-                if design1_components:
-                    self.clear_combobox_items("combo_box_merged_cmp")
-                    self.add_combo_items("combo_box_merged_cmp", design1_components, default=self.merge_component)
-                design2_components = [str(i) for i in list(self.host_edb.core_components.components.keys())]
+        desktop_version = self.get_text_value("desktop_version")
+        self.host_edb = Edb(edbpath=aedb_folder, edbversion=desktop_version)
+        if self.host_edb.db.IsNull():
+            self.message_box("Failed to load design {}".format(aedb_folder), icon="Error")
+            return
 
-                if design2_components:
-                    self.clear_combobox_items("combo_box_host_cmp")
-                    self.add_combo_items("combo_box_host_cmp", design2_components, default=self.host_component)
-                if not self.load_layout_on_init:
-                    self.message_box("Models Loaded correctly")
+        host_edb_layers = [str(i) for i in self.host_edb.core_stackup.signal_layers.keys()]
+        self.host_edb_top_layer, self.host_edb_bottom_layer = host_edb_layers[-1], host_edb_layers[0]
+        self.add_combo_items("host_design_layers", [self.host_edb_top_layer, self.host_edb_bottom_layer],
+            default=self.host_edb_top_layer)
 
-            host_edb_layers = list(self.host_edb.core_stackup.signal_layers.keys())
-            self.host_edb_top_layer, self.host_edb_bottom_layer = host_edb_layers[-1], host_edb_layers[0]
-            merged_edb_layers = list(self.merged_edb.core_stackup.signal_layers.keys())
-            self.source_edb_top_layer, self.source_edb_bottom_layer = merged_edb_layers[-1], merged_edb_layers[0]
-            self.clear_combobox_items("host_design_layers")
-            self.clear_combobox_items("source_design_layers")
-            self.add_combo_items("host_design_layers", [self.host_edb_top_layer, self.host_edb_bottom_layer],
-                                 default=self.host_edb_top_layer)
-            self.add_combo_items("source_design_layers", [self.source_edb_top_layer, self.source_edb_bottom_layer],
-                                 default=self.source_edb_bottom_layer)
-            self.is_project_loaded = True
-            print("host top layer = {}".format(self.host_edb_top_layer))
-            print("host bot layer = {}".format(self.host_edb_bottom_layer))
-            print("source top layer = {}".format(self.source_edb_top_layer))
-            print("source bot layer = {}".format(self.source_edb_bottom_layer))
-        else:
-            self.message_box("Project already loaded")
+        component_names = [str(i) for i in self.host_edb.core_components.components.keys()]
+        component_names.sort(key=number_aware_string_key)
+        self.add_combo_items("combo_box_host_cmp", component_names, default=self.host_component)
+
+        self.message_box("Loaded host design {}".format(aedb_folder))
+        return
 
     def browse_design1(self, sender, e):
         aedb_folder = select_directory(description="Merged Aedb Path")
         self.set_text_value("merged", aedb_folder)
+        self.load_source_design(sender, e)
 
     def browse_design2(self, sender, e):
         aedb_folder = select_directory(description="Host Aedb Path")
         self.set_text_value("host", aedb_folder)
+        self.load_host_design(sender, e)
 
     def enable_checkbox(self, sender, e):
         print("Enabled")
@@ -229,34 +276,42 @@ class ApplicationWindow(WPFToolkit):
         self.aedtdesign.logger.info(text)
 
     def update_merged_cmp(self, sender, e):
+        self.clear_combobox_items("merged_pin1")
+        self.clear_combobox_items("merged_pin2")
+        if not self.is_source_project_loaded:
+            return
 
         cmp_pins = [str(pin.GetName())
                     for pin in self.merged_edb.core_components.get_pin_from_component(sender.SelectedItem)]
-        self.clear_combobox_items("merged_pin1")
-        self.clear_combobox_items("merged_pin2")
+        cmp_pins.sort(key=number_aware_string_key)
         self.add_combo_items("merged_pin1", cmp_pins, default=self.design_1_pin1)
         self.add_combo_items("merged_pin2", cmp_pins, default=self.design_1_pin2)
 
     def update_host_cmp(self, sender, e):
+        self.clear_combobox_items("host_pin1")
+        self.clear_combobox_items("host_pin2")
+        if not self.is_host_project_loaded:
+            return
 
         cmp_pins = [str(pin.GetName())
                     for pin in self.host_edb.core_components.get_pin_from_component(sender.SelectedItem)]
-        self.clear_combobox_items("host_pin1")
-        self.clear_combobox_items("host_pin2")
+        cmp_pins.sort(key=number_aware_string_key)
         self.add_combo_items("host_pin1", cmp_pins, default=self.design_2_pin1)
         self.add_combo_items("host_pin2", cmp_pins, default=self.design_2_pin2)
 
     def evaluate_component_placement(self, send, e):
         try:
             place_on_top, flip = self.get_place_on_top_flip()
-            mounted_cmp = self.merged_edb.core_components. \
-                get_component_by_name(self.get_combobox_selection("combo_box_merged_cmp"))
-            hosting_cmp = self.host_edb.core_components. \
-                get_component_by_name(self.get_combobox_selection("combo_box_host_cmp"))
+            mounted_cmp_name = self.get_combobox_selection("combo_box_merged_cmp")
+            mounted_cmp = self.merged_edb.core_components.get_component_by_name(mounted_cmp_name)
+            hosting_cmp_name = self.get_combobox_selection("combo_box_host_cmp")
+            hosting_cmp = self.host_edb.core_components.get_component_by_name(hosting_cmp_name)
             mounted_cmp_pin1 = self.get_combobox_selection("merged_pin1")
             mounted_cmp_pin2 = self.get_combobox_selection("merged_pin2")
             hosting_cmp_pin1 = self.get_combobox_selection("host_pin1")
             hosting_cmp_pin2 = self.get_combobox_selection("host_pin2")
+            print("Host: {} {} {}".format(hosting_cmp_name, hosting_cmp_pin1, hosting_cmp_pin2))
+            print("Source: {} {} {}".format(mounted_cmp_name, mounted_cmp_pin1, mounted_cmp_pin2))
 
             res, vector, rotation, solder_ball_height = self.host_edb.core_components. \
                 get_component_placement_vector(
@@ -269,7 +324,7 @@ class ApplicationWindow(WPFToolkit):
                 flipped=flip
                 )
             print("rotation before correction = {}".format(rotation))
-            self.set_text_value("rotation", str(round(rotation * 180 / math.pi, 3)))
+            self.set_text_value("rotation", str(round(rotation * 180 / math.pi, 1)))
             self.set_text_value("xoffset", str(round(vector[0] * 1e3, 3)))
             self.set_text_value("yoffset", str(round(vector[1] * 1e3, 3)))
             z_pos = 0.0
@@ -305,8 +360,8 @@ class ApplicationWindow(WPFToolkit):
         return place_on_top, flip
 
     def launch_merge(self, sender, e):
-        if not self.is_project_loaded:
-            self.message_box("Projects not loaded !!")
+        if not self.are_projects_loaded:
+            self.message_box("Projects not loaded!!")
         else:
             start_time = time.time()
             place_on_top, flip = self.get_place_on_top_flip()
@@ -322,6 +377,17 @@ class ApplicationWindow(WPFToolkit):
             rotation = float(self.get_text_value("rotation"))
 
             d1 = self.ui.text_value("host")
+            out_edb = d1[:-5] + "_merged.aedb"
+            out_project = d1[:-5] + "_merged.aedt"
+            if os.path.exists(out_edb) or os.path.exists(out_project):
+                i = 1
+                root, _ = os.path.splitext(out_edb)
+                out_edb = "{}_{}.aedb".format(root, i)
+                out_project = "{}_{}.aedt".format(root, i)
+                while os.path.exists(out_edb) or os.path.exists(out_project):
+                    i += 1
+                    out_edb = "{}_{}.aedb".format(root, i)
+                    out_project = "{}_{}.aedt".format(root, i)
             d2 = self.ui.text_value("merged")
             if self.merged_edb:
                 merged_project = self.merged_edb
@@ -332,7 +398,6 @@ class ApplicationWindow(WPFToolkit):
             else:
                 hosting_project = Edb(edbpath=d1, edbversion=desktop_version)
 
-            out_project = d1[:-5] + "_merged.aedb"
             result = merged_project.core_stackup.place_in_layout_3d_placement(hosting_project, angle=rotation,
                                                                                   offset_x=pos_x,
                                                                                   offset_y=pos_y, flipped_stackup=flip,
@@ -343,16 +408,15 @@ class ApplicationWindow(WPFToolkit):
             #                                                          place_on_top=place_on_top)
             end_time = time.time()-start_time
             merged_project.logger.info("Placement Total Time {}".format(end_time))
-            merged_project.save_edb_as(out_project)
+            merged_project.save_edb_as(out_edb)
             merged_project.close_edb()
             hosting_project.close_edb()
-            self.is_project_loaded = False
             mod = sys.modules["__main__"]
             if self.get_checkbox_status("open_layout") and is_ironpython and "oDesktop" in dir(mod):
                 oTool = mod.oDesktop.GetTool("ImportExport")
-                oTool.ImportEDB(os.path.join(out_project, "edb.def"))
+                oTool.ImportEDB(os.path.join(out_edb, "edb.def"))
             elif self.get_checkbox_status("open_layout"):
-                hfss3d = Hfss3dLayout(os.path.join(out_project, "edb.def"), specified_version=desktop_version)
+                hfss3d = Hfss3dLayout(os.path.join(out_edb, "edb.def"), specified_version=desktop_version)
                 hfss3d.release_desktop(False, False)
 
             if not self.execute_merge_on_init:
