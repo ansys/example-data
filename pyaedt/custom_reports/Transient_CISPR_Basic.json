@@ -1,0 +1,26 @@
+{
+    "Help": "This Report Template is applicable to CISPR25 Plots from Transient data.",
+    "report_category": "Standard",
+    "report_type": "Rectangular Plot",
+	"plot_name": "Transient CISPR25",
+    "context": {
+        "domain": "Time",
+        "primary_sweep": "Time",
+        "primary_sweep_range": [
+            "All"
+        ],
+        "variations": {
+            "Time": [
+                "All"
+            ]
+        },
+        "time_start": "5us",
+        "time_stop": "5.3us"
+    },
+    "expressions": {
+        "V(CLK_1)" : {},
+		"V(Load_1)" : {}
+    },
+	"general": {
+    }
+}
