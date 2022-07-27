@@ -1,0 +1,12 @@
+<Project type="object" class="PFolder">
+    <URL class="string" value=""/>
+    <Metadata type="object" class="ansys::Project::MetadataHoof">
+        <FormatVersion class="int" value="2"/>
+        <ReleaseID class="string" value="22.2"/>
+        <Subclass class="string" value="SimProject"/>
+        <ProjectStoragePolicy::FolderEnabled class="string" value="true"/>
+        <ProjectStoragePolicy::FolderName class="string" value=""/>
+        <ProjectStoragePolicy::FolderSuffix class="string" value=".cffdb"/>
+        <ProjectStoragePolicy::SimFolder class="string" value=""/>
+    </Metadata>
+</Project>
