@@ -78,3 +78,4 @@ edb.def   binary
 *.stp   binary
 *.step  binary
 *.tab  binary
+*.mot  binary
