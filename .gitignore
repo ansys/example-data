@@ -4,3 +4,5 @@
 # Python cache
 *.pyc
 __pycache__/
+.vs
+.gitignore
