@@ -1,0 +1,17 @@
+{
+    "pole_number": 6,
+    "slot_number": 72,
+    "Maximum_Phase_I": 1103,
+    "symmetry_factor": 6,
+    "flux_symmetry": 360,
+    "_samples": 32,
+    "_if_rated": 53,
+    "_if_max": 80,
+    "_ifsteps": 5,
+    "delta": false,
+    "autosync": false,
+    "shift": -0.00379022384215892,
+    "_stator_steps_inst": 9,
+    "clockwise_rotation": true,
+    "compute_nodes": 2
+}
