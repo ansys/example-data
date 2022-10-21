@@ -1,0 +1,38 @@
+<CouplingParticipant>
+	<ExecutionControl>
+		<WorkingDirectory>MAPDL</WorkingDirectory>
+		<InitialInput>mapdl.dat</InitialInput>
+	</ExecutionControl>
+	<CosimulationControl>
+		<Type>MAPDL</Type>
+		<AnalysisType>Transient</AnalysisType>
+		<DisplayName>MAPDL Transient</DisplayName>
+		<Regions>
+			<Region>
+				<Name>FSIN_1</Name>
+				<DisplayName>FSIN_1_Fluid Solid Interface</DisplayName>
+				<Topology>Surface</Topology>
+				<OutputVariables>
+					<Variable>INCD</Variable>
+				</OutputVariables>
+				<InputVariables>
+					<Variable>FORC</Variable>
+				</InputVariables>
+			</Region>
+		</Regions>
+		<Variables>
+			<Variable>
+				<Name>FORC</Name>
+				<DisplayName>Force</DisplayName>
+				<QuantityType>Force</QuantityType>
+				<Location>Node</Location>
+			</Variable>
+			<Variable>
+				<Name>INCD</Name>
+				<DisplayName>Incremental Displacement</DisplayName>
+				<QuantityType>Incremental Displacement</QuantityType>
+				<Location>Node</Location>
+			</Variable>
+		</Variables>
+	</CosimulationControl>
+</CouplingParticipant>
