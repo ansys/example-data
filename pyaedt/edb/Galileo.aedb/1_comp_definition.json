@@ -1,0 +1,28 @@
+{
+    "SParameterModel": {
+        "GRM32_DC0V_25degC_series": "C:/ansysdev/Jupyter_Examples/Edb_config/models/GRM32_DC0V_25degC_series.s2p"
+    },
+    "SPICEModel": {
+        "GRM32_DC0V_25degC": "C:/ansysdev/Jupyter_Examples/Edb_config/models/GRM32_DC0V_25degC.mod"
+    },
+    "Definitions": {
+        "602431-005": {
+            "Component_type": "Capacitor",
+            "Model_type": "RLC",
+            "Res": 1,
+            "Ind": 2,
+            "Cap": 3,
+            "Is_parallel": false
+        },
+        "602433-026": {
+            "Component_type": "Capacitor",
+            "Model_type": "SParameterModel",
+            "Model_name": "GRM32_DC0V_25degC_series"
+        },
+        "602433-038": {
+            "Component_type": "Capacitor",
+            "Model_type": "SPICEModel",
+            "Model_name": "GRM32_DC0V_25degC"
+        }
+    }
+}
