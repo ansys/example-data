@@ -1,0 +1,17 @@
+{
+    "version": "0.1.0",
+    "model": {
+        "inputs": {
+            "Clutch1_in": 1.0,
+            "Clutch2_in": 1.0,
+            "Clutch3_in": 1.0,
+            "INVALID_INPUT_KEY": 1.234
+        },
+        "parameters": {
+            "CoupledClutches1_Inert1_J": 2.0,
+            "CoupledClutches1_Inert2_J": 2.0,
+            "CoupledClutches1_Inert3_J": 2.0,
+            "INVALID_PARAMETER_KEY": 1.234
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "version": "0.1.0",
+    "model": {
+        "parameters": {
+            "CoupledClutches1_Inert1_J": 2.0,
+            "CoupledClutches1_Inert2_J": 2.0,
+            "CoupledClutches1_Inert3_J": 2.0,
+            "CoupledClutches1_Inert4_J": 2.0
+        }
+    }
+}
