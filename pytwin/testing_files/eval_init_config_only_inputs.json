@@ -1,0 +1,11 @@
+{
+    "version": "0.1.0",
+    "model": {
+        "inputs": {
+            "Clutch1_in": 1.0,
+            "Clutch2_in": 1.0,
+            "Clutch3_in": 1.0,
+            "Torque_in": 1.0
+        }
+    }
+}
