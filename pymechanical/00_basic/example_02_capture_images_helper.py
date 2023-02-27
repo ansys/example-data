@@ -116,11 +116,11 @@ for analysis in Model.Analyses:
         Graphics.ExportImage(pathvar + "_" + "Right" + ".png", GraphicsImageExportFormat.PNG, set2d)
 
 # Exporting a result animation to wmv video file with given resolution, frames and duration
-Graphics.ResultAnimationOptions.NumberOfFrames = 10
-Graphics.ResultAnimationOptions.Duration = Quantity(2, 's')
-settings = Ansys.Mechanical.Graphics.AnimationExportSettings(width = 1000, height = 665)
-
-result = Tree.FirstActiveObject
-pathvar = os.path.join(image_dir, result.Name)
-result.ExportAnimation(pathvar + ".wmv",GraphicsAnimationExportFormat.WMV,settings)
+# Graphics.ResultAnimationOptions.NumberOfFrames = 10
+# Graphics.ResultAnimationOptions.Duration = Quantity(2, 's')
+# settings = Ansys.Mechanical.Graphics.AnimationExportSettings(width = 1000, height = 665)
+#
+# result = Tree.FirstActiveObject
+# pathvar = os.path.join(image_dir, result.Name)
+# result.ExportAnimation(pathvar + ".wmv",GraphicsAnimationExportFormat.WMV,settings)
 
