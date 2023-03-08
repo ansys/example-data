@@ -2,9 +2,6 @@ import os
 
 # the following needs to be set
 # image_dir - path where images need to be saved
-# mechdat_path - path to example_03_simple_bolt_new.mechdat
-
-ExtAPI.DataModel.Project.Open(mechdat_path)
 
 #Add results for the bolt model based on tags
 # Get the number of steps for the analysis
@@ -116,12 +113,11 @@ for analysis in Model.Analyses:
         Graphics.ExportImage(pathvar + "_" + "Right" + ".png", GraphicsImageExportFormat.PNG, set2d)
 
 # Exporting a result animation to wmv video file with given resolution, frames and duration
-# ISSUE #139
-# Graphics.ResultAnimationOptions.NumberOfFrames = 10
-# Graphics.ResultAnimationOptions.Duration = Quantity(2, 's')
-# settings = Ansys.Mechanical.Graphics.AnimationExportSettings(width = 1000, height = 665)
-#
-# result = Tree.FirstActiveObject
-# pathvar = os.path.join(image_dir, result.Name)
-# result.ExportAnimation(pathvar + ".wmv",GraphicsAnimationExportFormat.WMV,settings)
+Graphics.ResultAnimationOptions.NumberOfFrames = 10
+Graphics.ResultAnimationOptions.Duration = Quantity(2, 's')
+settings = Ansys.Mechanical.Graphics.AnimationExportSettings(width = 1000, height = 665)
+
+result = Tree.FirstActiveObject
+pathvar = os.path.join(image_dir, result.Name)
+result.ExportAnimation(pathvar + ".wmv",GraphicsAnimationExportFormat.WMV,settings)
 
