@@ -1,0 +1,63 @@
+$begin 'EDB'
+	Version='5.0'
+	LastUpdateTimeStamp=1524595118
+	$begin 'PropList'
+	$end 'PropList'
+	$begin 'ProjectDatasets'
+		NextUniqueID=0
+		MoveBackwards=false
+		DatasetType='ProjectDatasetType'
+		$begin 'DatasetDefinitions'
+		$end 'DatasetDefinitions'
+	$end 'ProjectDatasets'
+	$begin 'Materials'
+		$begin 'copper'
+			CoordinateSystemType='Cartesian'
+			BulkOrSurfaceType=1
+			permittivity='1'
+			permeability='0.999991'
+			conductivity='58000000'
+			ModTime=1524595118
+			Library=''
+			LibLocation='Project'
+			ModSinceLib=false
+		$end 'copper'
+		$begin 'FR4_epoxy'
+			CoordinateSystemType='Cartesian'
+			BulkOrSurfaceType=1
+			permittivity='4.4'
+			permeability='1'
+			conductivity='0'
+			dielectric_loss_tangent='0.02'
+			ModTime=1524595118
+			Library=''
+			LibLocation='Project'
+			ModSinceLib=false
+		$end 'FR4_epoxy'
+	$end 'Materials'
+	$begin 'Components'
+	$end 'Components'
+	$begin 'APDBondwireDef'
+	$end 'APDBondwireDef'
+	$begin 'JEDEC4BondwireDef'
+		$begin 'Default'
+			BondwireDef='bwd(nm=\'Default\', h=\'200um\')'
+		$end 'Default'
+	$end 'JEDEC4BondwireDef'
+	$begin 'JEDEC5BondwireDef'
+		$begin 'Default'
+			BondwireDef='bwd(nm=\'Default\', h=\'200um\', a=\'90deg\', b=\'30deg\')'
+		$end 'Default'
+	$end 'JEDEC5BondwireDef'
+	$begin 'ProdPropMaxAttrId'
+		'0'=16
+		'1'=1
+		'2'=5
+	$end 'ProdPropMaxAttrId'
+	$begin 'ProdPropAttr'
+	$end 'ProdPropAttr'
+	$begin 'ProdProp'
+	$end 'ProdProp'
+	$begin 'Packages'
+	$end 'Packages'
+$end 'EDB'
