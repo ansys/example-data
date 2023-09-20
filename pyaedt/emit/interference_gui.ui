@@ -72,6 +72,13 @@
        </widget>
       </item>
      </layout>
+    </item>    
+    <item>
+     <widget class="QLabel" name="warnings">
+      <property name="text">
+       <string>Warnings</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QTabWidget" name="tab_widget">
