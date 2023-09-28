@@ -7,4 +7,4 @@
 *.pmdb binary
 *.stp binary
 
-*cdb eol=lf
+*cdb text eol=lf
