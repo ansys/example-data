@@ -3,4 +3,8 @@
 *.fmd binary
 *.pmdat binary
 *.scdoc binary
+*.dsco binary
+*.pmdb binary
 *.stp binary
+
+*cdb eol=lf
