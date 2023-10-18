@@ -23,7 +23,7 @@
         "plot_continous_spectrum": false
     },
     "expressions": {
-        "dBu(V(Antenna_V))+pwl(Antenna_Factor_dB,Spectrum)" : {}
+        "dBu(V(EMI))+pwl(Antenna_Factor_dB,Spectrum)" : {}
     },
 	"general": {
     }
