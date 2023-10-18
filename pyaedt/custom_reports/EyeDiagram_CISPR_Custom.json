@@ -91,7 +91,7 @@
         }
     },
 	"general": {
-		"show_rectangular_plot":false,
+		"show_rectangular_plot":true,
         "axisx": {
             "font": "Arial",
             "font_size": 10,
