@@ -202,7 +202,7 @@ MP,RSVX,1,1.7e-07,	! kg m^3 A^-2 s^-3
 MP,EX,1,200000000000,	! Pa
 MP,NUXY,1,0.3,
 MP,MURX,1,10000,
-!MP,UVID,1,6a302e30-541f-4c0a-9614-5d4f9dd007b5
+MP,UVID,1,6a302e30-541f-4c0a-9614-5d4f9dd007b5
 MP,UMID,1,59002a79-71c2-428e-906b-55d7dbee100e
 
 /wb,mat,end                !  done sending materials
