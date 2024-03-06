@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="ami_std_log.xsl"?>
+<Log>
+<Event ><Type >Info</Type>
+<Group ></Group>
+<Description >Nexxim version: 2024.1.0 WIN64, build time: Nov 27 2023, 22:23:12
+</Description>
+</Event>
+
+<Event ><Type >Info</Type>
+<Group ></Group>
+<Description >Parameters File :C:/ansysdev/Models/Compliance/pcie/wf_pcie/project/models/pcieg5_32gt.ami</Description>
+</Event>
+
+<Event ><Type >Info</Type>
+<Group >PARSE</Group>
+<Description >
+... Reading C:/ansysdev/Models/Compliance/pcie/wf_pcie/project/models/pcieg5_32gt.ami
+</Description>
+</Event>
+
+<Event ><Type >Info</Type>
+<Group >PARSE</Group>
+<Description >Parse *.ami: Passed
+</Description>
+</Event>
+
+</Log>
