@@ -3,9 +3,13 @@ $begin 'AnsoftProject'
 	Product='ElectronicsDesktop'
 	FileOwnedByWorkbench=false
 	$begin 'Desktop'
-		Version(2022, 1)
+		Version(2024, 1)
 		InfrastructureVersion(1, 0)
 		$begin 'FactoryHeader'
+			$begin 'geometry3deditor'
+				KernelVersion(2, 0)
+				ProjectContainsGeometry3D='1'
+			$end 'geometry3deditor'
 		$end 'FactoryHeader'
 	$end 'Desktop'
 	UsesAdvancedFeatures=true
@@ -53,15 +57,13 @@ $begin 'AnsoftProject'
 	$begin 'MechanicalEnvironment'
 		Version(1, 0)
 	$end 'MechanicalEnvironment'
-	$begin 'FilterDesignEnvironment'
-	$end 'FilterDesignEnvironment'
 	$begin 'SchematicEnvironment'
 		Version(1, 0)
 	$end 'SchematicEnvironment'
 	$begin 'geometry3deditor'
 		Version(1, 0)
 	$end 'geometry3deditor'
-	ReadVersion=9
+	ReadVersion=11
 	$begin 'DesignMgrEnvironment'
 		CompInstCounter=1
 		GPortCounter=0
@@ -77,19 +79,6 @@ $begin 'AnsoftProject'
 	$end 'ProjectDatasets'
 	VariableOrders[0:]
 	$begin 'Definitions'
-		$begin 'Folders'
-			Definitions(1604, 10000, 1, 1, 0, false, false)
-			Materials(1604, 9500, 9, 2, 1, false, false)
-			'Surface Materials'(1604, 9501, 33503, 3, 1, false, false)
-			Scripts(1604, 9502, 33500, 4, 1, false, false)
-			Padstacks(1604, 9003, 12, 105, 1, false, false)
-			Symbols(1604, 9001, 10, 103, 1, false, false)
-			Footprints(1604, 9002, 11, 104, 1, false, false)
-			Bondwires(1604, 9006, 12, 108, 1, false, false)
-			Components(1604, 9000, 8, 102, 1, false, false)
-			Models(1604, 9004, 13, 106, 1, false, false)
-			Packages(1604, 9005, 33502, 107, 1, false, false)
-		$end 'Folders'
 		$begin 'Materials'
 			$begin 'vacuum'
 				CoordinateSystemType='Cartesian'
@@ -168,7 +157,7 @@ $begin 'AnsoftProject'
 				$end 'Properties'
 				CompExtID=6
 				$begin 'Parameters'
-					ButtonProp('CosimDefinition', 'D', '', '', 'Edit', 40501, ButtonPropClientData())
+					ButtonProp('CosimDefinition', 'D', '', 'Edit', 'Edit', 40501, ButtonPropClientData())
 					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 				$end 'Parameters'
 				$begin 'CosimDefinitions'
@@ -193,6 +182,8 @@ $begin 'AnsoftProject'
 		DesignID=0
 		'Use Power S'=false
 		'Export FRTM After Simulation'=false
+		'Export Rays After Simulation'=false
+		'Export After Simulation'=false
 		'Allow Material Override'=false
 		'Perform Minimal validation'=false
 		$begin 'TemperatureSettings'
@@ -218,21 +209,6 @@ $begin 'AnsoftProject'
 			NextUniqueID=0
 			MoveBackwards=false
 		$end 'OutputVariable'
-		$begin 'CableSetup'
-			$begin 'CableManager'
-				CableNextUniqueID=1000
-				MoveBackwards=false
-				Version(1, 0)
-				$begin 'TDSources'
-				$end 'TDSources'
-				$begin 'Definitions'
-				$end 'Definitions'
-				$begin 'Harneses'
-				$end 'Harneses'
-				$begin 'HarnResults'
-				$end 'HarnResults'
-			$end 'CableManager'
-		$end 'CableSetup'
 		$begin 'ModelSetup'
 			$begin 'DesignDatasets'
 				NextUniqueID=0
@@ -252,9 +228,8 @@ $begin 'AnsoftProject'
 			$end 'Properties'
 			VariableOrders[7: 'plate1_x', 'plate2_x', 'plate2_y', 'src_x', 'src_y', 'p2_rot', 'src_rot']
 			$begin 'Editor3D Doc Preferences'
-				'Plane Background'=true
-				BackgroundColor1=16777215
-				BackgroundColor2=0
+				BackgroundColorVersion=1
+				'Plane Background'=0
 				'Need Lights'=true
 				'Ambient Light'=9671571
 				'Num Lights'=4
@@ -268,16 +243,18 @@ $begin 'AnsoftProject'
 			WorkingCS=103
 			$begin 'GeometryCore'
 				BlockVersionID=3
-				DataVersion=17
-				NativeKernel='ACIS'
-				NativeKernelVersionID=13
+				DataVersion=20
+				NativeKernel='PARASOLID'
+				NativeKernelVersionID=24
 				Units='meter'
+				ModelExtents=10000
 				InstanceID=-1
 				$begin 'ValidationOptions'
 					EntityCheckLevel='Strict'
 					IgnoreUnclassifiedObjects=false
 					SkipIntersectionChecks=false
 				$end 'ValidationOptions'
+				ContainsGeomLinkUDM=false
 				$begin 'GeometryOperations'
 					BlockVersionID=2
 					$begin 'AnsoftRangedIDServerManager'
@@ -432,16 +409,18 @@ $begin 'AnsoftProject'
 							MaterialReplaceNameMap()
 							SurfaceMaterialReplaceNameMap()
 							ShowLabel=true
+							ModelExtents=10000
 							OriginFilePath='D:/Project_1_Time_Domain/Cases/DEMO4/Tri_Plate_Config.a3dcomp'
 							IsLocal=false
-							ChecksumString='dcddb4d1d786e6aa23489e94d59e1f42'
-							ChecksumHistory()
-							VersionHistory()
-							FormatVersion=6
+							ChecksumString='ec36a47d766fdfb8d3f68047d0ad9cb3'
+							ChecksumHistory('dcddb4d1d786e6aa23489e94d59e1f42', '6c95f5b5736fb22a3dd7063be1703cf1')
+							VersionHistory('1.0', '2.0')
+							FormatVersion=11
 							IsDefinitionEncrypted=false
-							Version(2022, 1)
+							Version(2024, 1)
 							SubmodelTempFileName='Tri_Plate_Config17.a3dcomp'
 							GeometryOnlySubDef=false
+							UnsupportedDefinition=false
 						$end 'SubModelDefinition'
 						$begin 'NativeComponentDefinition'
 							SubmodelDefinitionID=89
@@ -477,6 +456,7 @@ $begin 'AnsoftProject'
 							$begin 'MaterialDefinitionParameters'
 								VariableOrders[0:]
 							$end 'MaterialDefinitionParameters'
+							DefReferenceCSID=1
 							UniqueDefinitionIdentifier='9277fddc-acb2-440c-9493-b0f59d7d600a'
 							OriginFilePath=''
 							IsLocal=false
@@ -486,6 +466,7 @@ $begin 'AnsoftProject'
 							$begin 'NativeComponentDefinitionProvider'
 								Type='Parametric Beam'
 								Unit='cm'
+								Version=0
 								'Is Parametric Array'=false
 								Size='0.1cm'
 								Sheet=6
@@ -520,6 +501,9 @@ $begin 'AnsoftProject'
 									ShowAsWire=false
 								$end 'OutlineVisAttributes'
 							$end 'Attributes'
+							$begin 'SubregionDependencyInformation'
+								ChildSubregions[0:]
+							$end 'SubregionDependencyInformation'
 							$begin 'Operations'
 							$end 'Operations'
 							$begin 'UserDefinedModelParameters'
@@ -585,6 +569,9 @@ $begin 'AnsoftProject'
 								GroupID=-1
 								SubModelDefinitionID=89
 							$end 'Attributes'
+							$begin 'SubregionDependencyInformation'
+								ChildSubregions[0:]
+							$end 'SubregionDependencyInformation'
 							$begin 'Operations'
 								$begin 'UDMOperation'
 									OperationType='UDMRotate'
@@ -638,6 +625,7 @@ $begin 'AnsoftProject'
 								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0cm'
+								ReferenceTemperature='20cel'
 								IsMaterialEditable=false
 								UseMaterialAppearance=false
 								IsLightweight=false
@@ -683,6 +671,9 @@ $begin 'AnsoftProject'
 									AttribNameForId='ATTRIB_XACIS_ID'
 								$end 'Operation'
 							$end 'Operations'
+							$begin 'SubregionDependencyInformation'
+								ChildSubregions[0:]
+							$end 'SubregionDependencyInformation'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
@@ -698,6 +689,7 @@ $begin 'AnsoftProject'
 								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0cm'
+								ReferenceTemperature='20cel'
 								IsMaterialEditable=false
 								UseMaterialAppearance=false
 								IsLightweight=false
@@ -743,6 +735,9 @@ $begin 'AnsoftProject'
 									AttribNameForId='ATTRIB_XACIS_ID'
 								$end 'Operation'
 							$end 'Operations'
+							$begin 'SubregionDependencyInformation'
+								ChildSubregions[0:]
+							$end 'SubregionDependencyInformation'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
@@ -758,6 +753,7 @@ $begin 'AnsoftProject'
 								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='0cm'
+								ReferenceTemperature='20cel'
 								IsMaterialEditable=false
 								UseMaterialAppearance=false
 								IsLightweight=false
@@ -803,6 +799,9 @@ $begin 'AnsoftProject'
 									AttribNameForId='ATTRIB_XACIS_ID'
 								$end 'Operation'
 							$end 'Operations'
+							$begin 'SubregionDependencyInformation'
+								ChildSubregions[0:]
+							$end 'SubregionDependencyInformation'
 						$end 'GeometryPart'
 						$begin 'GeometryPart'
 							$begin 'Attributes'
@@ -818,7 +817,8 @@ $begin 'AnsoftProject'
 								SolveInside=false
 								ShellElement=false
 								ShellElementThickness='nan '
-								IsMaterialEditable=false
+								ReferenceTemperature='20cel'
+								IsMaterialEditable=true
 								UseMaterialAppearance=false
 								IsLightweight=false
 								IsAlwaysHidden=false
@@ -863,7 +863,7 @@ $begin 'AnsoftProject'
 									AttribNameForId='ATTRIB_XACIS_ID'
 									BodyType='BRepBody'
 									$begin 'BodyBlock'
-										BodyFileNamesVec[1: '0000091.sab']
+										BodyFileNamesVec[1: '0000091.x_b']
 									$end 'BodyBlock'
 								$end 'Operation'
 								$begin 'Operation'
@@ -879,6 +879,9 @@ $begin 'AnsoftProject'
 									$end 'OperationIdentity'
 								$end 'Operation'
 							$end 'Operations'
+							$begin 'SubregionDependencyInformation'
+								ChildSubregions[0:]
+							$end 'SubregionDependencyInformation'
 						$end 'GeometryPart'
 					$end 'ToplevelParts'
 					$begin 'OperandParts'
@@ -983,6 +986,9 @@ $begin 'AnsoftProject'
 					$end 'DependencyInformation'
 				$end 'GeometryDependencies'
 			$end 'GeometryCore'
+			$begin 'AssignedEntities'
+				AssignedObject[4: 21, 31, 41, 91]
+			$end 'AssignedEntities'
 			GroupByMaterial=true
 			GroupSheetByMaterial=true
 			GroupCompByDefID=true
@@ -1180,6 +1186,7 @@ $begin 'AnsoftProject'
 							DefinitionPortName=''
 							DefinitionPortType=-3
 							NumModes=1
+							DoDeembed=false
 							ParentBndID=-1
 							RenormalizeAllTerminals=false
 							$begin 'Modes'
@@ -1188,7 +1195,6 @@ $begin 'AnsoftProject'
 									CharImp='Zpi'
 								$end 'Mode1'
 							$end 'Modes'
-							ShowReporterFilter=false
 						$end 'p1'
 					$end 'ExcitationsData'
 					$begin 'ExcitationsInstData'
@@ -1327,29 +1333,13 @@ $begin 'AnsoftProject'
 			$begin 'NativeComponentVisualization'
 				$begin 'OneVisualization'
 					ComponentInstID=89
+					ShowPattern=true
+					ShowAxis=true
 					Transparency=0
 					Scale=50
 					Polarization='Composite'
 					FarFieldScale='Decibel'
 					dBCutoff=-30
-					ShowDrawing=true
-					ShowAxis=true
-					ShowArrayLayout=false
-					ShowArrayAxis=false
-					ShowArrayPattern=false
-					ShowArrayElementLabels=false
-					ArrayElementNumber=1
-					ArrayMarkerColorByWeight=true
-					ArrayMarkerSizeByWeight=true
-					ArrayMarkerSizeScale=1
-					ArrayMarkerTransparency=0
-					ArrayMarkerSizeScaleType='Decibel'
-					ArrayMarkerColorScaleType='Decibel'
-					ArrayScale=1
-					ArrayPolarization='Composite'
-					ArrayFarFieldScale='Decibel'
-					ArraydBCutoff=-30
-					ArrayTransparency=0
 				$end 'OneVisualization'
 			$end 'NativeComponentVisualization'
 		$end '3DComponent'
@@ -1359,6 +1349,14 @@ $begin 'AnsoftProject'
 				GlobalMaterialEnv='vacuum'
 				UseTotalFieldFormulation=true
 				HybridRegionCouplingType='TwoWayCoupled'
+				$begin 'AntennaSourceToBlockageMap'
+				$end 'AntennaSourceToBlockageMap'
+				$begin 'HybridRegionIDToBlockageMap'
+				$end 'HybridRegionIDToBlockageMap'
+				$begin 'RegionGroupsOrderedByID'
+				$end 'RegionGroupsOrderedByID'
+				$begin 'HybridRegionSources'
+				$end 'HybridRegionSources'
 				'Current Source Conformance'='Disable'
 				'Thin Sources'=false
 			$end 'GlobalBoundData'
@@ -1391,6 +1389,7 @@ $begin 'AnsoftProject'
 					DefinitionPortName=''
 					DefinitionPortType=-3
 					NumModes=1
+					DoDeembed=false
 					ParentBndID=-1
 					RenormalizeAllTerminals=false
 					$begin 'Modes'
@@ -1399,7 +1398,6 @@ $begin 'AnsoftProject'
 							CharImp='Zpi'
 						$end 'Mode1'
 					$end 'Modes'
-					ShowReporterFilter=false
 				$end 'Tx1_p1'
 			$end 'Boundaries'
 			$begin 'ProductSpecificData'
@@ -1407,6 +1405,24 @@ $begin 'AnsoftProject'
 					MaxWedgeAngle='135deg'
 					IncludeSheetEdges=true
 					ApplySourceDistFilter=false
+					EnableWedgeEditing=false
+					EnableAutomaticWedges=true
+					EditType[0:]
+					SelectionType[0:]
+					ObjectID[0:]
+					FaceID[0:]
+					EdgeID[0:]
+					EdgeFaceID1[0:]
+					EdgeFaceID2[0:]
+					StartX[0:]
+					StartY[0:]
+					StartZ[0:]
+					MidX[0:]
+					MidY[0:]
+					MidZ[0:]
+					EndX[0:]
+					EndY[0:]
+					EndZ[0:]
 					ApplyBoxFilter=false
 				$end 'SBRWedgeSettings'
 				$begin 'SBRTxRxSettings'
@@ -1480,13 +1496,6 @@ $begin 'AnsoftProject'
 						ImportMesh=false
 					$end 'MeshLink'
 					IsSbrRangeDoppler=false
-					RayDensityPerWavelength=1
-					MaxNumberOfBounces=5
-					RadiationSetup=11
-					RadiationSetupIsNearField=true
-					PTDUTDSimulationSettings='PTD Correction + UTD Rays'
-					PTDEdgeDensity=20
-					FastFrequencyLooping=false
 					$begin 'Sweeps'
 						NextUniqueID=1
 						MoveBackwards=false
@@ -1498,11 +1507,21 @@ $begin 'AnsoftProject'
 							RangeCount=101
 						$end 'Sweep'
 					$end 'Sweeps'
-					ComputeFarFields=true
+					ComputeFields=true
+					RayDensityPerWavelength=1
+					MaxNumberOfBounces=5
+					RadiationSetup=11
+					RadiationSetupIsNearField=true
+					FastFrequencyLooping=false
+					UseSBRAdvOptionsGOBlockage=false
+					UseSBRAdvOptionsWedges=false
+					UseSBRAdvOptionsNFAccuracy=false
+					PTDUTDSimulationSettings='PTD Correction + UTD Rays'
 					IsSbrMultiStateArray=false
 					SbrMultiStateArrayFilename=''
 					SbrMultiStateArrayExportDir=''
 					SbrMultiStateArrayAntennaCompInstName=''
+					UseSBREnhancedRadiatedPowerCalculation=false
 				$end 'Setup1'
 			$end 'SolveSetups'
 		$end 'AnalysisSetup'
@@ -1530,6 +1549,7 @@ $begin 'AnsoftProject'
 		$begin 'FieldsReporter'
 			$begin 'FieldsCalculator'
 				Line_Discretization=1000
+				'Show Stack'=true
 				$begin 'SurfaceMeshSummary'
 					SolutionName=''
 					Variation=''
@@ -1540,8 +1560,6 @@ $begin 'AnsoftProject'
 			$begin 'PlotDefaults'
 				Default_SolutionId=40
 				Default_PlotFolder='Automatic'
-				Default_Phase='0deg'
-				Default_Freq='1GHz'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
 				NextUniqueID=0
@@ -1591,7 +1609,7 @@ $begin 'AnsoftProject'
 					FirstCellPosX='0meter'
 					FirstCellPosY='0meter'
 					FirstCellPosZ='0meter'
-					Behavior='UseScanAngle'
+					Behavior='UseSlaveSettings'
 					ScanAnglePhi='45deg'
 					ScanAngleTheta='45deg'
 					UDirnPhaseShift='0deg'
@@ -1647,12 +1665,12 @@ $begin 'AnsoftProject'
 					UseCustomRadiationSurface=false
 					Length='1meter'
 					Width='1meter'
-					LengthSamples=11
-					WidthSamples=11
+					LengthSamples='11'
+					WidthSamples='11'
 					CoordSystem='Near_Field'
 				$end 'Near_Field'
 			$end 'NearFieldSetups'
-			RadFieldComputationVersion=1.7
+			RadFieldComputationVersion=1.8
 			RadfieldHeaderFile='RAD61039816164424798117.tmp'
 			RadPowerMethod=0
 		$end 'RadField'
@@ -1714,41 +1732,6 @@ $begin 'AnsoftProject'
 								Increment=0.0872664625997165
 								CreateIndexedSubsweepFlag=false
 							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='plate1_x'
-								Column='50cm'
-								Units='cm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='plate2_x'
-								Column='-15cm'
-								Units='cm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='plate2_y'
-								Column='30cm'
-								Units='cm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='src_x'
-								Column='19.5cm'
-								Units='cm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='src_y'
-								Column='0cm'
-								Units='cm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='p2_rot'
-								Column='90deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='src_rot'
-								Column='180deg'
-								Units='deg'
-							$end 'Sweep'
 						$end 'Sweeps'
 						IsPortOnly=false
 					$end 'SimDataExtractor'
@@ -1764,11 +1747,8 @@ $begin 'AnsoftProject'
 					ID=42
 					Name='Sweep'
 					$begin 'SimDataExtractor'
-						SimValue('NearETotal', 1, 154, false, SimValueID=3818, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0)
-						SimValue('NearETotal', 1, 154, false, SimValueID=3819, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0, 'SineSpace', false, '0')
-						SimValue('NearEX', 2, 154, false, SimValueID=3820, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
-						SimValue('NearEY', 2, 154, false, SimValueID=3821, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
-						SimValue('NearEZ', 2, 154, false, SimValueID=3822, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0, 'SourceContext', false, '0')
+						SimValue('NearETotal', 1, 154, false, SimValueID=4177, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0)
+						SimValue('NearETotal', 1, 154, false, SimValueID=4178, 0, 0, 2, 0, false, false, 11, 1, 0, 1, 1, '', 0, 0, 'SineSpace', false, '0')
 						$begin 'Sweeps'
 							$begin 'Sweep'
 								Variable='Freq'
@@ -1873,19 +1853,19 @@ $begin 'AnsoftProject'
 				$end 'Solution'
 			$end 'SimSetup'
 			$begin 'Version ID Map'
-				V=2660
+				V=4175
 				$begin 'Setup'
 					N='Setup1'
-					V=3970
-					Soln(N='AdaptivePass', V=3970)
-					Soln(N='LastAdaptive', V=3970)
-					Soln(N='LastAdaptive_SBRContrib', V=3970)
-					Soln(N='Sweep', V=3970)
-					Soln(N='Sweep_Incident', V=3970)
-					Soln(N='Sweep_Scattered', V=3970)
-					Soln(N='Sweep_SBRContrib', V=3970)
+					V=4175
+					Soln(N='AdaptivePass', V=4175)
+					Soln(N='LastAdaptive', V=4175)
+					Soln(N='LastAdaptive_SBRContrib', V=4175)
+					Soln(N='Sweep', V=4175)
+					Soln(N='Sweep_Incident', V=4175)
+					Soln(N='Sweep_Scattered', V=4175)
+					Soln(N='Sweep_SBRContrib', V=4175)
 				$end 'Setup'
-				IQM=0
+				IQM=4176
 			$end 'Version ID Map'
 			$begin 'ID Map'
 				$begin 'Setup'
@@ -1913,7 +1893,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR6AF82451216480216817.tmp'
+		CacheHeaderFile='HDR175D6165617111011535.tmp'
 	$end 'HFSSModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -1929,7 +1909,7 @@ $begin 'AnsoftProject'
 				$end 'Properties'
 				$begin 'Parameters'
 					MenuProp('CoSimulator', 'OHD', '', 'DefaultNetlist', 0)
-					ButtonProp('CosimDefinition', 'OHD', '', '', 'Edit', 40501, ButtonPropClientData())
+					ButtonProp('CosimDefinition', 'OHD', '', 'Edit', 'Edit', 40501, ButtonPropClientData())
 				$end 'Parameters'
 			$end 'Compinst'
 		$end 'CompInstances'
@@ -1940,7 +1920,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 78, 78, 1098, 558), OrientationMatrix(-2.04982757568359, -2.1882905960083, 2.52630376815796, 0, 3.32434034347534, -1.02717912197113, 1.80736041069031, 0, -0.346912026405334, 3.08696794509888, 2.39229297637939, 0, 1.15670442581177, -3.14908027648926, -4.92795753479004, 1, 0, -2.0365149974823, 4.34285449981689, -5.23703908920288, -0.841360569000244, -3.50702285766602, 14.0071449279785), Drawings[7: 'Right', 'Left', 'Center', 'Tx_Footprint', 'Tri_Plate_Config1', 'Tx1:RadiationPattern', ''], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=0.05, dYForGrid=0.05, dZForGrid=0.05, dRForGrid=0.05, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -11, -45, 78, 78, 1010, 377), OrientationMatrix(-2.04982757568359, -2.1882905960083, 2.52630376815796, 0, 3.32434034347534, -1.02717912197113, 1.80736041069031, 0, -0.346912026405334, 3.08696794509888, 2.39229297637939, 0, 1.15670442581177, -3.14908027648926, -4.92795753479004, 1, 0, -2.46504163742065, 4.77138137817383, -5.23703908920288, -0.841360569000244, -3.50702285766602, 14.0071449279785), Drawings[7: 'Right', 'Left', 'Center', 'Tx_Footprint', 'Tri_Plate_Config1', 'Tx1:RadiationPattern', ''], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=0.1, dYForGrid=0.1, dZForGrid=0.1, dRForGrid=0.1, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -2884,6 +2864,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2900,6 +2881,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2916,6 +2898,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2932,6 +2915,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2948,6 +2932,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2964,6 +2949,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2980,6 +2966,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -2996,6 +2983,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3012,6 +3000,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3028,6 +3017,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3044,6 +3034,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3060,6 +3051,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3076,6 +3068,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3092,6 +3085,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3108,6 +3102,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3124,6 +3119,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3140,6 +3136,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3156,6 +3153,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3172,6 +3170,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3188,6 +3187,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3204,6 +3204,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3220,6 +3221,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3236,6 +3238,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3252,6 +3255,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3268,6 +3272,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3284,6 +3289,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3300,6 +3306,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3316,6 +3323,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3332,6 +3340,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3348,6 +3357,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3364,6 +3374,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3380,6 +3391,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3396,6 +3408,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3412,6 +3425,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3428,6 +3442,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3444,6 +3459,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3460,6 +3476,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3476,6 +3493,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3492,6 +3510,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3508,6 +3527,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3524,6 +3544,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3540,6 +3561,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3556,6 +3578,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3572,6 +3595,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3588,6 +3612,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3604,6 +3629,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3620,6 +3646,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3636,6 +3663,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3652,6 +3680,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3668,6 +3697,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3684,6 +3714,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3700,6 +3731,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3716,6 +3748,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3732,6 +3765,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3748,6 +3782,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3764,6 +3799,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3780,6 +3816,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3796,6 +3833,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3812,6 +3850,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3828,6 +3867,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3844,6 +3884,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3860,6 +3901,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3876,6 +3918,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3892,6 +3935,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3908,6 +3952,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3924,6 +3969,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3940,6 +3986,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3956,6 +4003,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3972,6 +4020,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -3988,6 +4037,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4004,6 +4054,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4020,6 +4071,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4036,6 +4088,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4052,6 +4105,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4068,6 +4122,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4084,6 +4139,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4100,6 +4156,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4116,6 +4173,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4132,6 +4190,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4148,6 +4207,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4164,6 +4224,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4180,6 +4241,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4196,6 +4258,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4212,6 +4275,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4228,6 +4292,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4244,6 +4309,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4260,6 +4326,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4276,6 +4343,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=247, G=147, B=30)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4292,6 +4360,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4308,6 +4377,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=146, B=69)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4324,6 +4394,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=255, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4340,6 +4411,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=0, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4356,6 +4428,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=102, G=102, B=102)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4372,6 +4445,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=198, G=156, B=109)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4388,6 +4462,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=125, G=155, B=61)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4404,6 +4479,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=79, G=17, B=25)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4420,6 +4496,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=128, G=158, B=173)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4436,6 +4513,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=155, G=93, B=112)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4452,6 +4530,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=237, G=28, B=36)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4468,6 +4547,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=255, B=0)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4484,6 +4564,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
+															ColorVersion=1
 															LineColor(R=0, G=181, B=255)
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
@@ -4517,7 +4598,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TitleFont'
 														$begin 'SubtitleFont'
@@ -4538,7 +4619,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'SubtitleFont'
 													$end 'HeaderRenderAttribute'
@@ -4568,7 +4649,7 @@ $begin 'AnsoftProject'
 																			PitchAndFamily=0
 																			FaceName='Arial'
 																		$end 'Font'
-																		Color(R=0, G=0, B=0)
+																		ColorVersion=1
 																	$end 'FontAttribute'
 																$end 'TableFontAttrib'
 																$begin 'TableTitleFontAttrib'
@@ -4589,17 +4670,18 @@ $begin 'AnsoftProject'
 																			PitchAndFamily=0
 																			FaceName='Arial'
 																		$end 'Font'
-																		Color(R=0, G=0, B=0)
+																		ColorVersion=1
 																	$end 'FontAttribute'
 																$end 'TableTitleFontAttrib'
 																TableBorderLineWidth=1
-																TableBorderLineColor=0
+																ColorVersion=1
 																TableGridLineWidth=1
 																TableGridLineColor=12632256
-																TableBackgroundColor=16777215
+																ColorVersion=1
 																TableHeaderBackgroundColor=14408667
 															$end 'TableRenderAttribute'
 														$end 'LegendTableAttrib'
+														LegendName=''
 														ShowTraceName=true
 														ShowSolutionName=true
 														ShowVariationKey=true
@@ -4615,7 +4697,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4641,7 +4723,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4666,7 +4748,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4692,7 +4774,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4717,7 +4799,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4743,7 +4825,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4768,7 +4850,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4794,7 +4876,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4819,7 +4901,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4845,7 +4927,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4870,7 +4952,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4896,7 +4978,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4921,7 +5003,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4947,7 +5029,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -4972,7 +5054,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -4998,7 +5080,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5023,7 +5105,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5049,7 +5131,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5074,7 +5156,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5100,7 +5182,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5125,7 +5207,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5151,7 +5233,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5176,7 +5258,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5202,7 +5284,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5227,7 +5309,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5253,7 +5335,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5278,7 +5360,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5304,7 +5386,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5329,7 +5411,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5355,7 +5437,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5380,7 +5462,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5406,7 +5488,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5431,7 +5513,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5457,7 +5539,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5482,7 +5564,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5508,7 +5590,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5533,7 +5615,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5559,7 +5641,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5584,7 +5666,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5610,7 +5692,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -5635,7 +5717,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -5661,7 +5743,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6019,7 +6101,7 @@ $begin 'AnsoftProject'
 																		PitchAndFamily=0
 																		FaceName='Arial'
 																	$end 'Font'
-																	Color(R=0, G=0, B=0)
+																	ColorVersion=1
 																$end 'FontAttribute'
 															$end 'LabelFont'
 														$end 'ColorMapSettings'
@@ -6093,7 +6175,7 @@ $begin 'AnsoftProject'
 																		PitchAndFamily=0
 																		FaceName='Arial'
 																	$end 'Font'
-																	Color(R=0, G=0, B=0)
+																	ColorVersion=1
 																$end 'FontAttribute'
 															$end 'LabelFont'
 														$end 'ColorMapSettings'
@@ -6138,7 +6220,7 @@ $begin 'AnsoftProject'
 														$begin 'LineRenderAttribute'
 															LineStyle='Solid'
 															LineWidth=3
-															LineColor(R=0, G=0, B=0)
+															ColorVersion=1
 														$end 'LineRenderAttribute'
 														TraceType='Continuous'
 														SymbolType='HollowHorizontalLeftTriangle'
@@ -6191,7 +6273,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TitleFont'
 														$begin 'SubtitleFont'
@@ -6212,7 +6294,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'SubtitleFont'
 													$end 'HeaderRenderAttribute'
@@ -6225,7 +6307,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6251,7 +6333,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6276,7 +6358,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6302,7 +6384,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6327,7 +6409,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6353,7 +6435,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6378,7 +6460,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6404,7 +6486,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6429,7 +6511,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6455,7 +6537,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6480,7 +6562,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6506,7 +6588,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6531,7 +6613,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6557,7 +6639,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6582,7 +6664,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6608,7 +6690,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6633,7 +6715,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6659,7 +6741,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6684,7 +6766,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6710,7 +6792,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6735,7 +6817,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6761,7 +6843,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6786,7 +6868,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6812,7 +6894,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6837,7 +6919,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6863,7 +6945,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6888,7 +6970,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6914,7 +6996,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6939,7 +7021,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -6965,7 +7047,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -6990,7 +7072,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -7016,7 +7098,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -7041,7 +7123,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -7067,7 +7149,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -7092,7 +7174,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -7118,7 +7200,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -7143,7 +7225,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -7169,7 +7251,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -7194,7 +7276,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -7220,7 +7302,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -7245,7 +7327,7 @@ $begin 'AnsoftProject'
 														DecimalFieldWidth=3
 														DecimalFieldPrecision=2
 														ManualTitle=''
-														AxisColor(R=0, G=0, B=0)
+														ColorVersion=1
 														MinScale=0
 														MaxScale=1
 														TickSpacing=1
@@ -7271,7 +7353,7 @@ $begin 'AnsoftProject'
 																	PitchAndFamily=0
 																	FaceName='Arial'
 																$end 'Font'
-																Color(R=0, G=0, B=0)
+																ColorVersion=1
 															$end 'FontAttribute'
 														$end 'TextFont'
 														InfMapMode=false
@@ -7475,47 +7557,53 @@ $end 'AnsoftProject'
 $begin 'AllReferencedFilesForProject'
 $begin 'Design_0.setup/NativeGeometryFiles'
 NumFiles= 1
-$begin 'sab'
-Design_0.setup/NativeGeometryFiles/0000091.sab
-BIN000000004642
-ACIS BinaryFileT             SpatialACIS 29.0.1 NTWed Mar 23 10:49:16 2022      ?çÌµ†˜∆∞>ªΩ◊Ÿﬂ|€=
-MRRHPAYVAJJATEW3PXYJBA57KY5MM6N6K9AUMQ467BB34QCPDF8J4RM77BA3CFGN77DQKP6763C3CR	body%      ˇˇˇˇˇˇˇˇˇˇˇˇ       ˇˇˇˇˇˇˇˇrgb_color%   st%   attrib%   ˇˇˇˇˇˇˇˇ   ˇˇˇˇ    ∆Óﬂ       ?                	lump%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ       string_attrib%   name_attrib%   gen%   %   ˇˇˇˇˇˇˇˇ          ¶Óﬂ AnsoftTransparency%90.5
-shell%
-   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ   ˇˇˇˇ   %   %   %   %   ˇˇˇˇˇˇˇˇ          ¶Óﬂ AnsoftShellElementThickness%11nan 	face%      ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ	      ˇˇˇˇ
-   
-
-úôôôôô©øúôôôôô©?úôôôôô©øúôôôôô©?%   %   %   %   ˇˇˇˇˇˇˇˇ          ¶Óﬂ AnsoftShellElement%130%   %   %   %   ˇˇˇˇˇˇˇˇ   ˇˇˇˇ   ¶Óﬂ ATTRIB_XACIS_ID%1416	loop%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ          
-plane%   surface%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ˛©Ò“Mb <{ÆG·zºÅWxeÅ<      ?\3&¶ëº˙—uÊÏ,ßº,s˛$™=º        {ÆG·zÑø%   %   %   %   ˇˇˇˇˇˇˇˇ          ¶Óﬂ AnsoftSolveInside%180id%   ansoft%   %   ˇˇˇˇˇˇˇˇˇˇˇˇ      •Ó€    coedge%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ      ˇˇˇˇ   	   ˇˇˇˇ%   %   %   %   ˇˇˇˇˇˇˇˇ          ¶Óﬂ ANSYS_SURFACE_MATERIAL_NAME%22 %   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ      ˇˇˇˇ   	   ˇˇˇˇ%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ      ˇˇˇˇ   	   ˇˇˇˇ	edge%      ˇˇˇˇˇˇˇˇˇˇˇˇ              öôôôôôπ?      unknown%   %   %   %   ˇˇˇˇˇˇˇˇ          ¶Óﬂ %146%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ      ˇˇˇˇ   	   ˇˇˇˇ%      ˇˇˇˇˇˇˇˇˇˇˇˇ              öôôôôôπ?      unknown%      ˇˇˇˇˇˇˇˇˇˇˇˇ               öôôôôôπ?   !   unknown%   %   %   %   ˇˇˇˇˇˇˇˇ"   ˇˇˇˇ   ¶Óﬂ %147vertex%   #   ˇˇˇˇˇˇˇˇˇˇˇˇ   $   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ   &   straight%   
-curve%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ        ¸©Ò“Mb@ø¸©Ò“Mb@øík©";ó&<{ÆG·zÑ?{ÆG·zD<properties%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ       •Ó€ Tx_Footprint            ˇÄ%   '   ˇˇˇˇˇˇˇˇˇˇˇˇ          Ä    öôôôôôπ?   (   unknown%   %   %   %   ˇˇˇˇˇˇˇˇ)   ˇˇˇˇ   ¶Óﬂ %148%   *   ˇˇˇˇˇˇˇˇˇˇˇˇ   +   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇVTµïÚ;¸©Ò“Mb@?˙©Ò“Mb@ø0s˛$™=<{ÆG·zDº{ÆG·zÑ?%   %   %   %   ˇˇˇˇˇˇˇˇ,   ˇˇˇˇ   ¶Óﬂ %1410%   -   ˇˇˇˇˇˇˇˇˇˇˇˇ   .   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇÛ(9ÀPª<˛©Ò“Mb@ø¸©Ò“Mb@?0s˛$™=º{ÆG·zD<{ÆG·zÑø%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ      •Ó€    %   %   %   %   ˇˇˇˇˇˇˇˇ/   ˇˇˇˇ   ¶Óﬂ %1411
-point%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ        ¸©Ò“Mb@ø¸©Ò“Mb@ø%   %   %   %   ˇˇˇˇˇˇˇˇ0   ˇˇˇˇ   ¶Óﬂ %1412%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇVTµïÚ;¸©Ò“Mb@?˙©Ò“Mb@ø%   %   %   %   ˇˇˇˇˇˇˇˇ1   ˇˇˇˇ   ¶Óﬂ %149%   %   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ˛©Ò“Mb<˙©Ò“Mb@?ˇ©Ò“Mb@?ík©";ó&º{ÆG·zÑø{ÆG·zDº%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ      •Ó€    %   %   %   %   ˇˇˇˇˇˇˇˇ2   ˇˇˇˇ   ¶Óﬂ %1413%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ˛©Ò“Mb<˙©Ò“Mb@?ˇ©Ò“Mb@?%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ      •Ó€ 
-   %   %   %   %   ˇˇˇˇˇˇˇˇ3   ˇˇˇˇ    ¶Óﬂ %1414%   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇÛ(9ÀPª<˛©Ò“Mb@ø¸©Ò“Mb@?%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ#      •Ó€    %   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ%      •Ó€    %   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ'      •Ó€ 	   %   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ*      •Ó€    %   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ-       •Ó€    End-of-ACIS-data
-
-# Ansoft project setting data. Non-Ansoft programs
-# should not read the rest of this file.
-B_SETNGS 1.03
-ACIS BinaryFileT             SpatialACIS 29.0.1 NTWed Mar 23 10:49:16 2022      ?çÌµ†˜∆∞>ªΩ◊Ÿﬂ|€=
-MPGQMFCD7U4NNGDYQVWS8WMDTV7JV37QHWA54KGNCK8GMNG647DKMQGQB39SCNA6CUCS3PGPAQB8VJtransform%      ˇˇˇˇ      ?                              ?                              ?                              ?
-point%      ˇˇˇˇˇˇˇˇˇˇˇˇ                        	flag%   ansoft%   attrib%   ˇˇˇˇˇˇˇˇ   ˇˇˇˇ    •Ó€     
-color%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇˇ   •Ó€ ˇ ˇÄ
-units%   %   %   ˇˇˇˇˇˇˇˇ          •Ó€ meters      ?%   %   %   ˇˇˇˇˇˇˇˇˇˇˇˇ       •Ó€ ¿¿¿ÄEnd-of-ACIS-data
-E_SETNGS 
-
-B_SYMTAB 
-E_SYMTAB 
-ANSOFT OFFSET: 3813 
-$end 'sab'
+$begin 'x_b'
+Design_0.setup/NativeGeometryFiles/0000091.x_b
+BIN000000005484
+**ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz**************************
+**PARASOLID !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~0123456789**************************
+**PART1;
+MC=unknown;
+MC_MODEL=unknown;
+MC_ID=unknown;
+OS=unknown;
+OS_RELEASE=unknown;
+FRU=sdl_parasolid_customer_support;
+APPL=Electronics Desktop;
+SITE=unknown;
+USER=unknown;
+FORMAT=binary;
+GUISE=transmit;
+KEY=C:/Users/slopez/AppData/Local/Temp/poc17811911217111011649.setup/Design_0.setup/NativeGeometryFiles/0000091.x_b;
+FILE=C:/Users/slopez/AppData/Local/Temp/poc17811911217111011649.setup/Design_0.setup/NativeGeometryFiles/0000091.x_b;
+DATE=unknown;
+**PART2;
+SCH=SCH_3501210_35102;
+USFLD_SIZE=0;
+**PART3;
+**END_OF_HEADER*****************************************************************
+B3   : TRANSMIT FILE created by modeller version 3501210   SCH_3501210_35102_13006Á     ∞ PART_XMT_BLOCK	Part list	n_entries   dindex_map_offset   d	index_mapR  schema_embedding_mapR  mesh_offset_dataŒ  entriesÌ                  $CCCIlatticeﬁ  CCCImeshÓ Ipolyline CCCCCCCDIowner CCCIboundary_latticeﬁ  CCCIboundary_meshÓ Iboundary_polyline CCCAindex_map_offset   dA	index_mapR  Anode_id_index_mapR  Aschema_embedding_mapR  Achild  Alowest_node_id   dAmesh_offset_dataŒ  Z 8                @è@:å0‚éyE>      	 
+                                      @è@:å0‚éyE>                           Q ˇ               F CI	list_type   uI
+notransmit   lCCCDCCDIfinger_index   dIfinger_blockÙ CZ                    ˇ             ˇ                                 	CCCCCCIframeÊ  CAowner  Z          V  ˇ           nôèíº¬ J CIindex_map_offset   dCCZ                                Q                Q                P CCCCCDIlegal_owners   lCZ       D                        S ˇ          ?O ˇ     SDL/TYSA_DENSITYP     ! " (#                     T ˇ    UNIT=metersO    " AEDT_EntityName_V1P     # $ (#                     S     {ÆG·zÑ?O    $ AEDT_ExtentScale_V1Q     8   %  &    ' F                  ( (         )    ) 2 ˇ	 #    )    +Úh„àµ¯î;%nÄN"7∏‘öÜjg`N∏      ?\3&¶ëº˛—uÊÏ,ßº˛—uÊÏ,ßº              ø ˇ
+     * +   +—öÜjg`û;Ùh„àµ¯‘æÒh„àµ¯‘>˝—uÊÏ,ßº      ∞<      ø       ,  —öÜjg`û;Ùh„àµ¯‘æÒh„àµ¯‘>           V  ˇ    -   nôèíº¬.  / +         0 1  2    nôèíº¬ Q    0 ,   3  4  5 6  7 8  ˇ1      9 *  . - 2 
+   6 :  ; ,   nôèíº¬ Q    6 -   3 2 <  0 =  > ?  :     2 .   @ - ;    = A 2 B C   nôèíº¬  ,     2 C  Úh„àµ¯§;Ôh„àµ¯‘>Ûh„àµ¯‘> C     ; D , 'nÄN"á;Òh„àµ¯‘>Óh„àµ¯‘æ D     B  C         Òh„àµ¯‘æÒh„àµ¯‘æ B    E 9 ;  D   nôèíº¬ Q    E /   3 B F  = G  H I  9  J K . B 1 *  L + ˇJ !    9 )   K  J @ 9 ; L M   + .  J 9 @  :    + *    5   nôèíº¬9 M  
+     L     B K M   - M    N   nôèíº¬K / * O    Q    N *   3 M P  Q 5  R S  /    Q   nôèíº¬@  M T     O 	    M  T  +        Òh„àµ¯‘æÒh„àµ¯‘æ
+\3&¶ë<      ?      ∞< T     / O +  +'nÄN"á;Òh„àµ¯‘>Óh„àµ¯‘æ˝—uÊÏ,ß<      ∞º      ? +      T 
+  +Úh„àµ¯§;Ôh„àµ¯‘>Ûh„àµ¯‘>
+\3&¶ëº      ø      ∞ºQ    Q )   3 / U  - N  V W  @  J . K 2 A /   + A     ; @ /  K -P    3 X Y (#                     Q    U    Z /  Q [ P  \ Q    - (   3  [  ] Q  ^ _ T    V ATTRIB_XACIS_IDT    W 8Q    [    Z   - ` U  a Q    ] '   3 ) b  c -  d e T    ^ ATTRIB_XACIS_IDT    _ 9 ˇ) "   ]   nôèíº¬  J  	 +     Q    b $   Z )  ] F   f Q    c %   3  g h  ]  i j T    d ATTRIB_XACIS_IDT    e 16Q    g     k  l c    m Q    h &     c n    o T    i ATTRIB_XACIS_IDT    j 6Q    n 0   p  h q     T    o Tx_FootprintP    p Z r (#                        Q    q 1   #  n G     P    # p s (#                       Q    G 2   3  q t E t  u v Q    t 3   3  G w G w  x y T    u AnsoftSolveInsideT    v 0Q    w 4   3  t z t z  { | T    x AnsoftShellElementT    y 0Q    z 5   3  w } w }  ~  T    { AnsoftShellElementThicknessT    | nan Q    } 6   3  z & z   Ä Å T    ~ AnsoftReferenceTemperatureT     nan Q    & 7   Ç  }    É T    Ä AnsoftTransparencyT    Å 0.5P    Ç Ñ Ö h                      S    É       ?                O    Ö SDL/TYSA_COLOUR_2O    s AEDT_SurfaceMaterial_V1O    r AEDT_MaterialName_V1P    k  Ü (#                     Q    l    Z   g  `  á R ˇ   m    ˇˇˇˇ  ˇÄ   P    Z k à (#                     Q    `    Z *  5 l [  â R    á    Q    5 +   3 * `  N 0  ä ã R    â 
+   T    ä ATTRIB_XACIS_IDT    ã 10O    à AEDT_EntityID_V1O    Ü AEDT_BODYFlagGroupColor_V1Q    F    Z B  E å b  ç R    f    Q    å    Z ;  = < F  é R    ç    Q    = .   3 ; å  6 E  è ê Q    <    Z 2  6 4 å  ë R    é    Q    4    Z   0 P <  í R    ë    Q    P    Z M  N U 4  ì R    í    R    ì    T    è ATTRIB_XACIS_IDT    ê 12R    a 	   R    \    O    Y AEDT_GenericNameProperty_V1T    R ATTRIB_XACIS_IDT    S 7T    H ATTRIB_XACIS_IDT    I 11T    > ATTRIB_XACIS_IDT    ? 13T    7 ATTRIB_XACIS_IDT    8 14J    (         b g } h n q &              P    % î ï Q             T    ' Tx_FootprintO    ï SDL/TYSA_NAME  $end 'x_b'
 $end 'Design_0.setup/NativeGeometryFiles'
 $begin 'Design_0.setup/UdmDefFiles'
 NumFiles= 1
 $begin 'a3dcomp'
 Design_0.setup/UdmDefFiles/Tri_Plate_Config17.a3dcomp
-BIN000000041450
+BIN000000030978
 $begin 'AnsoftComponentChkSum'
-	ChecksumString='dcddb4d1d786e6aa23489e94d59e1f42'
-	ChecksumHistory()
-	VersionHistory()
-	FormatVersion=6
-	Version(2022, 1)
+	ChecksumString='ec36a47d766fdfb8d3f68047d0ad9cb3'
+	ChecksumHistory('dcddb4d1d786e6aa23489e94d59e1f42', '6c95f5b5736fb22a3dd7063be1703cf1')
+	VersionHistory('1.0', '2.0')
+	FormatVersion=11
+	Version(2024, 1)
 	ComponentDefinitionType='DesignDerivedComponentDefinition'
 $end 'AnsoftComponentChkSum'
 $begin 'AnsoftComponentHeader'
@@ -7526,12 +7614,12 @@ $begin 'AnsoftComponentHeader'
 			'Company URL'=''
 			'Model Number'=''
 			'Help URL'=''
-			Version='1.0'
+			Version='3.0'
 			Notes=''
 			IconType=''
 			Owner='Ushe Chipengo'
 			Email='ushe.chipengo@ansys.com'
-			Date='10:14:15 AM  Feb 07, 2022'
+			Date='10:52:40 AM  Mar 22, 2024'
 			HasLabel=false
 			LabelImage=''
 		$end 'ComponentInfo'
@@ -7549,155 +7637,7 @@ $begin 'AnsoftComponentHeader'
 		$end 'Component Meshing'
 	$end 'DesignDataDescriptions'
 	$begin 'Preview'
-		Image='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\
-BAQICAQECAQEBAgICAgICAgICAQICAgICAgICAgL/2wBDAQEBAQEBAQEBAQECAQEBAgICAgICAgICAg\
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAMgDASIAAhEBAxEB/\
-8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQR\
-BRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUp\
-TVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5us\
-LDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAA\
-AECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHB\
-CSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ\
-3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4u\
-Pk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+/iiiigAooooAKKKKACiiigAooooAKKKKACiii\
-gAooooAKKKKACiivPdO+Lfwp1j4h658ItJ+J3w91T4r+GNLt9c8S/DDTvGnhu9+Ifh7RLtbJ7XWNc8F\
-W2pNqWk6XKupacY7i4to4XF/CVciVNwB6FRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFF\
-FABRRRQAUUUUAFFFFAGVrut6X4a0PWfEet3cWn6L4f0rUdb1e/nYJBZaXpVpNf393M7EBIo7SCV2JOA\
-EJNfx6/AL40aR4R/aE/Z2/4KV6rpnxf03xT+1D+2D8YPBvxm1nXfgr8bNA+FOn/s3/ABrbTfh/8DLC2\
-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\
-+1v/wAE2tD+JN5rXxQ/ZxTw74D+MXiDxFc674z8N+KfEPinS/hH8SpdbltzrWq3Vrpem6yPhd40S/N7\
-rEmqaBojw+Ib7VNWHiXTtQ1TVrXxJoP4d63onijwl4h1Twd478H+K/h/400PadX8JeNNDu9D1i3ge+1\
-LS4tV02SZWtPFnhSfVtE122sdf0W61Lw/qsuh3h0nVL6K3kkH9jNeB/tAfsz/AAf/AGl/C48P/E/wtZ\
-XmraZZarD4H+Iem2elW/xJ+F+o6u+mT3eufDnxZe6dcSeHr2W50TRje2xSfS9at9NXTNf0/VdHmutPn\
-8TMMmpYrmq0LUa73/lk/NLZ+a36pvU+czXh6hjXKvhrYfEvVq3uTf8AeS2b/mW71ab1P5U6/Uz/AII+\
-/wDJXv2uf+yb/sqf+pP+1bXxr+0r+yt8YP2Sftes/EltN8W/CC2/siNf2h/Dun2XhPwNZ6jrfmQ2ug+\
-PPB2qeM9U1T4ZakurW9xZw31zc6h4avmvdGij8Qwa/rsHhi0+yv8Agj7/AMle/a5/7Jv+yp/6k/7Vte\
-JldCth81oU69N05pT0f+CWqezXmm0fOZLhq+EzzDUcRSdKpH2mj6/u56p7Ndmm0+5+7lFFFfbH6MFFF\
-FABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAV8r/AL9jz4P/s0eP/jJ47+E\
-0Wv6HbfGaLwJa3vgGS80p/AHgHTvAE/ji/0vRvhppVtosN34e0CXVviJ4ouDp9xfXtlp6T22maFBpGi\
-2NlpkH1RRUShCUoTlFOdO/K+qurOz81oyJU6c506koKU6Tbi2tY3TTs+l07PuFFFFWWFFFFABRRRQAU\
-UUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQA\
-UUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQ\
-AUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/2Q=='
+		Image=''
 	$end 'Preview'
 	ContainsLightweightGeometry=false
 $end 'AnsoftComponentHeader'
@@ -7800,26 +7740,28 @@ $begin 'ComponentBody'
 		$begin 'Variables'
 			$begin 'LocalVariables'
 				VariableProp('rot_2', 'UD', '', '45deg')
-				VariableProp('indx', 'UD', '', '2')
-				VariableProp('w', 'UD', '', '10cm')
 				VariableProp('l', 'UD', '', '30cm')
 				VariableProp('rot_1', 'UD', '', '45deg')
+				VariableProp('indx', 'UD', '', '2')
+				VariableProp('w', 'UD', '', '10cm')
 			$end 'LocalVariables'
 		$end 'Variables'
 		$begin 'Datasets'
 		$end 'Datasets'
 		$begin 'GeometryCore'
 			BlockVersionID=3
-			DataVersion=3
-			NativeKernel='ACIS'
-			NativeKernelVersionID=13
+			DataVersion=4
+			NativeKernel='PARASOLID'
+			NativeKernelVersionID=24
 			Units='cm'
+			ModelExtents=10000
 			InstanceID=-1
 			$begin 'ValidationOptions'
 				EntityCheckLevel='Strict'
 				IgnoreUnclassifiedObjects=false
 				SkipIntersectionChecks=false
 			$end 'ValidationOptions'
+			ContainsGeomLinkUDM=false
 			$begin 'GeometryOperations'
 				BlockVersionID=2
 				$begin 'AnsoftRangedIDServerManager'
@@ -7916,6 +7858,7 @@ $begin 'ComponentBody'
 							SolveInside=false
 							ShellElement=false
 							ShellElementThickness='0cm'
+							ReferenceTemperature='20cel'
 							IsMaterialEditable=true
 							UseMaterialAppearance=false
 							IsLightweight=false
@@ -7945,7 +7888,7 @@ $begin 'ComponentBody'
 										NumFaces=0
 										NumWires=1
 										NumLoops=0
-										NumCoedges=4
+										NumCoedges=0
 										NumEdges=4
 										NumVertices=4
 									$end 'Topology'
@@ -8001,12 +7944,12 @@ $begin 'ComponentBody'
 													FaceTopol(1, 4, 4, 4)
 													$begin 'FaceGeometry'
 														Area=300
-														FcUVMid(1.7225464241988337e-15, -2.6645352591003757e-15, 3.5527136788005009e-15)
+														FcUVMid(1.7225464241988341e-15, -1.3877787807814457e-15, 3.4694469519536142e-15)
 														$begin 'FcTolVts'
-															TolVt(0, -15, -5, 0)
-															TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 0)
-															TolVt(3.4450928483976673e-15, 14.999999999999996, 5.0000000000000071, 0)
-															TolVt(1.6081226496766366e-15, -15.000000000000002, 5, 0)
+															TolVt(0, -15, -5, 4.9999999999999998e-07)
+															TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 4.9999999999999998e-07)
+															TolVt(3.4450928483976681e-15, 15, 5.0000000000000071, 4.9999999999999998e-07)
+															TolVt(1.6081226496766367e-15, -15.000000000000002, 5, 4.9999999999999998e-07)
 														$end 'FcTolVts'
 													$end 'FaceGeometry'
 												$end 'FaceGeomTopol'
@@ -8074,22 +8017,22 @@ $begin 'ComponentBody'
 												ID=28
 												EdgeFaces(16)
 												$begin 'EdTolVts'
-													TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
-													TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
+													TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
+													TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(2.0287081239856725e-15, 5, 4.8849813083506888e-15)
+												EdgeMidPoint(2.0287081239856721e-15, 5, 4.5102810375396977e-15)
 											$end 'Edge'
 										$end 'NewEdges'
 										$begin 'NewVertices'
 											$begin 'Vertex'
 												NormalizedSerialNum=0
-												ID=29
-												VtPos(1.2246467991473538e-15, 5, -4.9999999999999956)
+												ID=30
+												VtPos(2.8327694488239908e-15, 5, 5.0000000000000053)
 											$end 'Vertex'
 											$begin 'Vertex'
 												NormalizedSerialNum=1
-												ID=30
-												VtPos(2.8327694488239904e-15, 5, 5.0000000000000053)
+												ID=29
+												VtPos(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964)
 											$end 'Vertex'
 										$end 'NewVertices'
 									$end 'GeomTopolBasedOperationIdentityHelper'
@@ -8152,10 +8095,10 @@ $begin 'ComponentBody'
 												ID=44
 												EdgeFaces(16)
 												$begin 'EdTolVts'
-													TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 0)
-													TolVt(2.2204460492503139e-15, -5, 5.0000000000000027, 0)
+													TolVt(2.2204460492503139e-15, -5.0000000000000018, 5.0000000000000027, 4.9999999999999998e-07)
+													TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(1.4163847244119954e-15, -5, 2.2204460492503131e-15)
+												EdgeMidPoint(1.4163847244119954e-15, -5, 2.4286128663675295e-15)
 											$end 'Edge'
 										$end 'NewEdges'
 										$begin 'NewVertices'
@@ -8167,7 +8110,7 @@ $begin 'ComponentBody'
 											$begin 'Vertex'
 												NormalizedSerialNum=1
 												ID=46
-												VtPos(2.2204460492503139e-15, -5, 5.0000000000000027)
+												VtPos(2.2204460492503139e-15, -5.0000000000000018, 5.0000000000000027)
 											$end 'Vertex'
 										$end 'NewVertices'
 									$end 'GeomTopolBasedOperationIdentityHelper'
@@ -8214,6 +8157,9 @@ $begin 'ComponentBody'
 								TranformBaseOperationID=43
 							$end 'Operation'
 						$end 'Operations'
+						$begin 'SubregionDependencyInformation'
+							ChildSubregions[0:]
+						$end 'SubregionDependencyInformation'
 					$end 'GeometryPart'
 					$begin 'GeometryPart'
 						$begin 'Attributes'
@@ -8229,6 +8175,7 @@ $begin 'ComponentBody'
 							SolveInside=false
 							ShellElement=false
 							ShellElementThickness='0cm'
+							ReferenceTemperature='20cel'
 							IsMaterialEditable=true
 							UseMaterialAppearance=false
 							IsLightweight=false
@@ -8272,13 +8219,13 @@ $begin 'ComponentBody'
 												$begin 'FaceGeomTopol'
 													FaceTopol(1, 4, 4, 4)
 													$begin 'FaceGeometry'
-														Area=100
-														FcUVMid(2.3348698237725108e-15, 10, 5.773159728050814e-15)
+														Area=99.999999999999986
+														FcUVMid(2.3348698237725112e-15, 10, 5.5511151231257827e-15)
 														$begin 'FcTolVts'
-															TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
-															TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
-															TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 0)
-															TolVt(3.4450928483976673e-15, 14.999999999999996, 5.0000000000000071, 0)
+															TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
+															TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 4.9999999999999998e-07)
+															TolVt(3.4450928483976681e-15, 15, 5.0000000000000071, 4.9999999999999998e-07)
+															TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
 														$end 'FcTolVts'
 													$end 'FaceGeometry'
 												$end 'FaceGeomTopol'
@@ -8290,62 +8237,62 @@ $begin 'ComponentBody'
 												ID=33
 												EdgeFaces(32)
 												$begin 'EdTolVts'
-													TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
-													TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
+													TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
+													TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(2.0287081239856725e-15, 5, 4.8849813083506888e-15)
+												EdgeMidPoint(2.0287081239856721e-15, 5, 4.5102810375396977e-15)
 											$end 'Edge'
 											$begin 'Edge'
 												NormalizedSerialNum=1
-												ID=34
+												ID=36
 												EdgeFaces(32)
 												$begin 'EdTolVts'
-													TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
-													TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 0)
+													TolVt(3.4450928483976681e-15, 15, 5.0000000000000071, 4.9999999999999998e-07)
+													TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(1.5308084989341925e-15, 10, -4.9999999999999947)
+												EdgeMidPoint(3.1389311486108298e-15, 10, 5.0000000000000053)
 											$end 'Edge'
 											$begin 'Edge'
 												NormalizedSerialNum=2
 												ID=35
 												EdgeFaces(32)
 												$begin 'EdTolVts'
-													TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 0)
-													TolVt(3.4450928483976673e-15, 14.999999999999996, 5.0000000000000071, 0)
+													TolVt(3.4450928483976681e-15, 15, 5.0000000000000071, 4.9999999999999998e-07)
+													TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(2.641031523559349e-15, 14.999999999999998, 7.1054273576010019e-15)
+												EdgeMidPoint(2.6410315235593494e-15, 15, 6.9388939039072284e-15)
 											$end 'Edge'
 											$begin 'Edge'
 												NormalizedSerialNum=3
-												ID=36
+												ID=34
 												EdgeFaces(32)
 												$begin 'EdTolVts'
-													TolVt(3.4450928483976673e-15, 14.999999999999996, 5.0000000000000071, 0)
-													TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
+													TolVt(1.8369701987210308e-15, 15, -4.9999999999999929, 4.9999999999999998e-07)
+													TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(3.1389311486108291e-15, 9.9999999999999982, 5.0000000000000062)
+												EdgeMidPoint(1.5308084989341923e-15, 10, -4.9999999999999947)
 											$end 'Edge'
 										$end 'NewEdges'
 										$begin 'NewVertices'
 											$begin 'Vertex'
 												NormalizedSerialNum=0
 												ID=37
-												VtPos(2.8327694488239904e-15, 5, 5.0000000000000053)
+												VtPos(2.8327694488239908e-15, 5, 5.0000000000000053)
 											$end 'Vertex'
 											$begin 'Vertex'
 												NormalizedSerialNum=1
 												ID=38
-												VtPos(1.2246467991473538e-15, 5, -4.9999999999999956)
+												VtPos(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964)
 											$end 'Vertex'
 											$begin 'Vertex'
 												NormalizedSerialNum=2
-												ID=39
-												VtPos(1.8369701987210308e-15, 15, -4.9999999999999929)
+												ID=40
+												VtPos(3.4450928483976681e-15, 15, 5.0000000000000071)
 											$end 'Vertex'
 											$begin 'Vertex'
 												NormalizedSerialNum=3
-												ID=40
-												VtPos(3.4450928483976673e-15, 14.999999999999996, 5.0000000000000071)
+												ID=39
+												VtPos(1.8369701987210308e-15, 15, -4.9999999999999929)
 											$end 'Vertex'
 										$end 'NewVertices'
 									$end 'GeomTopolBasedOperationIdentityHelper'
@@ -8390,6 +8337,9 @@ $begin 'ComponentBody'
 								TranformBaseOperationID=26
 							$end 'Operation'
 						$end 'Operations'
+						$begin 'SubregionDependencyInformation'
+							ChildSubregions[0:]
+						$end 'SubregionDependencyInformation'
 					$end 'GeometryPart'
 					$begin 'GeometryPart'
 						$begin 'Attributes'
@@ -8405,6 +8355,7 @@ $begin 'ComponentBody'
 							SolveInside=false
 							ShellElement=false
 							ShellElementThickness='0cm'
+							ReferenceTemperature='20cel'
 							IsMaterialEditable=true
 							UseMaterialAppearance=false
 							IsLightweight=false
@@ -8448,13 +8399,13 @@ $begin 'ComponentBody'
 												$begin 'FaceGeomTopol'
 													FaceTopol(1, 4, 4, 4)
 													$begin 'FaceGeometry'
-														Area=100
-														FcUVMid(1.7225464241988339e-15, 0, 3.5527136788005009e-15)
+														Area=100.00000000000001
+														FcUVMid(1.7225464241988341e-15, -1.0547554823889102e-31, 3.4694469519536142e-15)
 														$begin 'FcTolVts'
-															TolVt(2.2204460492503139e-15, -5, 5.0000000000000027, 0)
-															TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 0)
-															TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
-															TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
+															TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 4.9999999999999998e-07)
+															TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
+															TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
+															TolVt(2.2204460492503139e-15, -5.0000000000000018, 5.0000000000000027, 4.9999999999999998e-07)
 														$end 'FcTolVts'
 													$end 'FaceGeometry'
 												$end 'FaceGeomTopol'
@@ -8466,62 +8417,62 @@ $begin 'ComponentBody'
 												ID=49
 												EdgeFaces(48)
 												$begin 'EdTolVts'
-													TolVt(2.2204460492503139e-15, -5, 5.0000000000000027, 0)
-													TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 0)
+													TolVt(2.2204460492503139e-15, -5.0000000000000018, 5.0000000000000027, 4.9999999999999998e-07)
+													TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(1.4163847244119954e-15, -5, 2.2204460492503131e-15)
+												EdgeMidPoint(1.4163847244119954e-15, -5, 2.4286128663675295e-15)
 											$end 'Edge'
 											$begin 'Edge'
 												NormalizedSerialNum=1
-												ID=50
-												EdgeFaces(48)
-												$begin 'EdTolVts'
-													TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 0)
-													TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
-												$end 'EdTolVts'
-												EdgeMidPoint(9.1848509936051539e-16, 0, -4.9999999999999964)
-											$end 'Edge'
-											$begin 'Edge'
-												NormalizedSerialNum=2
 												ID=51
 												EdgeFaces(48)
 												$begin 'EdTolVts'
-													TolVt(1.2246467991473538e-15, 5, -4.9999999999999956, 0)
-													TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
+													TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
+													TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(2.0287081239856725e-15, 5, 4.8849813083506888e-15)
+												EdgeMidPoint(2.0287081239856721e-15, 5, 4.5102810375396977e-15)
 											$end 'Edge'
 											$begin 'Edge'
-												NormalizedSerialNum=3
+												NormalizedSerialNum=2
 												ID=52
 												EdgeFaces(48)
 												$begin 'EdTolVts'
-													TolVt(2.8327694488239904e-15, 5, 5.0000000000000053, 0)
-													TolVt(2.2204460492503139e-15, -5, 5.0000000000000027, 0)
+													TolVt(2.8327694488239908e-15, 5, 5.0000000000000053, 4.9999999999999998e-07)
+													TolVt(2.2204460492503139e-15, -5.0000000000000018, 5.0000000000000027, 4.9999999999999998e-07)
 												$end 'EdTolVts'
-												EdgeMidPoint(2.5266077490371521e-15, 0, 5.0000000000000036)
+												EdgeMidPoint(2.5266077490371525e-15, 0, 5.0000000000000036)
+											$end 'Edge'
+											$begin 'Edge'
+												NormalizedSerialNum=3
+												ID=50
+												EdgeFaces(48)
+												$begin 'EdTolVts'
+													TolVt(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964, 4.9999999999999998e-07)
+													TolVt(6.1232339957367692e-16, -5, -4.9999999999999982, 4.9999999999999998e-07)
+												$end 'EdTolVts'
+												EdgeMidPoint(9.1848509936051539e-16, 0, -4.9999999999999964)
 											$end 'Edge'
 										$end 'NewEdges'
 										$begin 'NewVertices'
 											$begin 'Vertex'
 												NormalizedSerialNum=0
-												ID=53
-												VtPos(2.2204460492503139e-15, -5, 5.0000000000000027)
-											$end 'Vertex'
-											$begin 'Vertex'
-												NormalizedSerialNum=1
 												ID=54
 												VtPos(6.1232339957367692e-16, -5, -4.9999999999999982)
 											$end 'Vertex'
 											$begin 'Vertex'
+												NormalizedSerialNum=1
+												ID=53
+												VtPos(2.2204460492503139e-15, -5.0000000000000018, 5.0000000000000027)
+											$end 'Vertex'
+											$begin 'Vertex'
 												NormalizedSerialNum=2
-												ID=55
-												VtPos(1.2246467991473538e-15, 5, -4.9999999999999956)
+												ID=56
+												VtPos(2.8327694488239908e-15, 5, 5.0000000000000053)
 											$end 'Vertex'
 											$begin 'Vertex'
 												NormalizedSerialNum=3
-												ID=56
-												VtPos(2.8327694488239904e-15, 5, 5.0000000000000053)
+												ID=55
+												VtPos(1.224646799147354e-15, 5.0000000000000018, -4.9999999999999964)
 											$end 'Vertex'
 										$end 'NewVertices'
 									$end 'GeomTopolBasedOperationIdentityHelper'
@@ -8529,6 +8480,9 @@ $begin 'ComponentBody'
 								SplitToOpnId=41
 							$end 'Operation'
 						$end 'Operations'
+						$begin 'SubregionDependencyInformation'
+							ChildSubregions[0:]
+						$end 'SubregionDependencyInformation'
 					$end 'GeometryPart'
 				$end 'ToplevelParts'
 				$begin 'OperandParts'
@@ -8632,6 +8586,9 @@ $begin 'ComponentBody'
 				$end 'DependencyInformation'
 			$end 'GeometryDependencies'
 		$end 'GeometryCore'
+		$begin 'AssignedEntities'
+			AssignedObject[3: 6, 31, 47]
+		$end 'AssignedEntities'
 		$begin 'Settings'
 			IncludedParts[3: 6, 31, 47]
 			HiddenParts[0:]
@@ -8660,50 +8617,97 @@ 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\
-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'
+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\
+oooAKKKKACiiigAooooA//Z'
 	$begin 'DesignInfo'
 		DesignName='HFSSDesign1'
 		Notes=''
 		Factory='HFSS'
-		IsSolved=true
+		IsSolved=false
 		'Nominal Setups'[1: 'Setup1']
 		'Nominal Setup Types'[1: '']
 		'Optimetrics Setups'[0:]
@@ -8718,99 +8722,147 @@ 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\
-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\
+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\
-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\
-bqTwXiWTWVz8S/t2fsCfGv9qXwd4Q0zwN+01/ZPirwV4o8P6j4f1v4neA9E1A2Wnax8QPhtefEV9Sk+\
-F8Hh2HxDo9v4J8GXk+naB/Z9jNrWoXd3o2qeKdP0fV1utE8XB53xNQ4oxeU4fhPAPLMZhoYbB51mtat\
-ispwmJzGni8HXx+Z5XlmKwWd1KGQc+GzSlQy6pVr5nUpvCwVFRbq/lPGfE/inl2JznL+CvCyPFFSnHK\
-f7MxlXO8uwOCxFfE42VLNIZjDETp4rBYbK8IqWK9ph4YupmKqVcPSjhKlKFWp6p4C/4KPfBTxl8UvCX\
-wu1zwh8UvhdJ8QJ00jwF4++IVl8O/8AhWXi3xnczW8OlfD2y8V+BviTrn9leMdQM5TTItUgsLTUbwQ6\
-TZ3k2s3+madffoFX5R/s5f8ABOrxD4Dm0bUvi5438O37eHfH3g7x7pPhrwPa6jqNius+BL/SvEmhah/\
-wkniO0tHtA3iSydJ7VNKcmytlEV8k04a0/VyvzXwcxXjXPBcW5X425bllPNshzfEYTLMyymUYYXO8sp\
-wpulmUcJ9ZxVTB89V1KcaVedOrKNNVHRhCUJVPvuDeL58eeHHAfFWdeG+L8JOO8xwtZZ5kVfGxx9HDY\
-ilWcKFfCVnzVqcMVQtUqYevVrVKVRNqUIzVGmUUUV+yHsBRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABR\
-RRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAB\
-RRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFA\
-BRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFF\
-ABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/Z'
+iiigAooooAKKKKACiiigAr88P26f2zviB+yL4z/ZNsvDfwh0j4leBfjX8WfEPgr4oaxcfEHwz4T8S+E\
+9B0XwVqHiRB4L0HxDqdout641haa9rJup5Rpiw/Dt/DlzJZ6n4s0XU7D6T/aR+AmnftIfDmP4a6x4x8\
+V+DdHk8UeHNe1afwpc28Umu6Zo96ZL/wAO6tb3cTxXljPazSy23mK8dnqthpupPBdpYmyufiL9uv8AY\
+C+N37Ung7wdpfgb9p3+yvFPgnxToGo6DrnxR8A6JqElpp2s+P8A4b3nxEfUpvhZD4bg8QaPb+CfBt3P\
+p2gHTbKbWr+6u9G1TxVp+kaut1ofiYTPOJqHFGLynD8JYB5ZjMNTw2DzrNa1bFZThMTmNPF4PEZhmeV\
+5ZisFndShw/7TDZrSoZdUrV8zqU3hYKjy3q/lHGnE/inl2IzjL+CfCxcU1acco/szGVc7y7A4LEV8Vj\
+pUs0jmMMROnisFhsrwipYv2lCGLqZjGdbDUY4WrShVq+s+BP8Ago58FPGPxR8I/C7XPCXxR+F8nxBnX\
+R/AXj34g2Xw9/4Vn4s8Z3M1vDpXw+svFfgf4j63/ZXjDUGnKaZFqcFhaajeCHSbO8m1q/0zTb79AK/K\
+P9nP/gnV4h8BzaNqXxb8ceHr5vDvj/wb490rw14HtdQ1GxGs+BL/AEjxLoV//wAJH4js7R7NW8S2Ukc\
+9rHpTlrG3URX0U04+x/q5X5t4N4rxslgeLcs8bctyynm2Q5viMJlmZZU4ww2d5ZThTdLMo4RYnFVMGq\
+lR1KcaVedOrKNP2joQhKEqn3/B3F8+PPDjgPirOvDfF+EnHeZYWqs8yGvjY46hhsRSrOFCthKz5q1OG\
+KoWqVMPXq1alKom1KEZqjTKKKK/ZD2AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA\
+ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiig\
+AooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiii\
+gAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACii\
+igAooooAKKKKACiiigAooooAKKKKAP/2Q=='
 	$end 'DesignInfo'
 $end 'ProjectPreview'
