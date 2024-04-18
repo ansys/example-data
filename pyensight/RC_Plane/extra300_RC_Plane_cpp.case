@@ -1,0 +1,31 @@
+# Wed Mar 05 16:38:07 2014
+# EnSight Gold Model
+# Produced with EnSight Ouput API, version 1.0.4
+
+FORMAT
+type:                ensight gold
+
+GEOMETRY
+model:               extra300_RC_Plane_nodal.geo
+
+VARIABLE
+scalar per node:     turbViscosity  extra300_RC_Plane_nodal.turbViscosity
+scalar per node:     yPlus          extra300_RC_Plane_nodal.yPlus
+scalar per node:     staticPressure extra300_RC_Plane_nodal.p
+#
+vector per node:     wallShearStress extra300_RC_Plane_nodal.wallShearStress
+vector per node:     velocity        extra300_RC_Plane_nodal.velocity
+vector per node:     vorticity        extra300_RC_Plane_nodal.vorticity
+#
+constant per case:   Vinf  2.00000e+01
+constant per case:   Qinf  2.00000e+02
+constant per case:   Rho   1.00000e+00
+constant per case:   AoA   1.50000e+01
+#
+constant per part:          Vinf_cpp  extra300_RC_Plane_cpp.vinf
+constant per part:          Qinf_cpp  extra300_RC_Plane_cpp.qinf
+constant per part scalar:   Rho_cpp   extra300_RC_Plane_cpp.rho
+constant per part scalar:   AoA_cpp   extra300_RC_Plane_cpp.aoa
+#
+constant per part:          Area_cpp  extra300_RC_Plane_cpp.area
+constant per part:         PartN_cpp  extra300_RC_Plane_cpp.partnum

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CEImetadata version="1.0"> 
+  <parts>
+    <metatags>
+      <tag name="ENS_UNITS_LABEL" type="str"></tag>
+      <tag name="ENS_UNITS_DIMS" type="str">L</tag>
+      <tag name="ENS_OBJATTR" type="str"></tag>
+    </metatags>
+    <partlist>
+      <part name="internalMesh" ENS_OBJATTR="{enums.VISIBLE: 0}"></part>
+      <part name="inlet" ENS_OBJATTR="{enums.VISIBLE: 0}"></part>
+      <part name="outlet" ENS_OBJATTR="{enums.VISIBLE: 0}"></part>
+      <part name="symmetry" ENS_OBJATTR="{enums.VISIBLE: 0}"></part>
+    </partlist>
+  </parts>
+  <vars>
+    <metatags>
+      <tag name="ENS_UNITS_LABEL" type="str"></tag>
+      <tag name="ENS_UNITS_DIMS" type="str">/</tag>
+    </metatags>
+    <varlist>
+      <var name="turbViscosity" ENS_UNITS_LABEL="Pa s" ENS_UNITS_DIMS="M/LT"></var>
+      <var name="yPlus" ENS_UNITS_DIMS="L"></var>
+      <var name="staticPressure" ENS_UNITS_LABEL="Pa"  ENS_UNITS_DIMS="M/LTT"></var>
+      <var name="wallShearStress" ENS_UNITS_LABEL="Pa" ENS_UNITS_DIMS="M/LTT"></var>
+      <var name="velocity" ENS_UNITS_LABEL="m s^-1" ENS_UNITS_DIMS="L/T"></var>
+      <var name="vorticity" ENS_UNITS_LABEL="s^-1" ENS_UNITS_DIMS="/T"></var>
+      <var name="Vinf" ENS_UNITS_DIMS="L/T"></var>
+      <var name="Qinf" ENS_UNITS_LABEL="m/s" ENS_UNITS_DIMS="L/T"></var>
+      <var name="Rho" ENS_UNITS_DIMS="M/LLL"></var>
+      <var name="Coordinates" ENS_UNITS_DIMS="L"></var>
+      <var name="Time" ENS_UNITS_DIMS="T"></var>
+    </varlist>
+  </vars>
+  <case>
+    <metatags>
+      <tag name="ENS_UNITS_LABEL" type="flt">2.0</tag>
+      <tag name="ENS_UNITS_LABEL_TIME" type="str">s</tag>
+      <tag name="ENS_UNITS_DIMS" type="flt">1.0</tag>
+      <tag name="ENS_UNITS_SYSTEM" type="flt">1.0</tag>
+      <tag name="ENS_UNITS_SYSTEM_NAME" type="str">SI</tag>
+      <tag name="ENS_OBJATTR" type="flt">1.0</tag>
+    </metatags>
+  </case>
+</CEImetadata>
