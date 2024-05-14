@@ -1,0 +1,113 @@
+{
+  "general": {
+    "name": "PCIExpress",
+    "version": "1.0",
+    "add_project_info": true,
+    "add_specs_info": true,
+    "project_info_keys": [
+      "file",
+      "power",
+      "buffer",
+      "trise",
+      "tfall",
+      "UIorBPSValue",
+      "BitPattern",
+      "R",
+      "L",
+      "C",
+      "DC",
+      "V1",
+      "V2",
+      "TD"
+    ],
+    "specs_folder": "readme_pictures",
+    "delete_after_export": true,
+    "project": "D:\\_pycharm_project\\my_docs\\1_workflows\\3_WF_compliance_report\\project\\Project_WRG.aedt",
+    "use_portrait": true
+  },
+  "parameters": [
+    {
+      "name": "erl",
+      "design_name": "Circuit1",
+      "config": "spisim_erl.cfg",
+	  	"traces" : ["RX1", "RX3"],
+	"trace_pins" : [["X1_A5_PCIe_Gen4_RX1_P","X1_A6_PCIe_Gen4_RX1_N","U1_AR25_PCIe_Gen4_RX1_P","U1_AP25_PCIe_Gen4_RX1_N"],  [7,8,18,17]],
+      "pass_fail": true,
+      "pass_fail_criteria": 10
+    }
+  ],
+  "reports": [
+    {
+      "name": "insertion losses",
+      "design_name": "Circuit1",
+      "type": "frequency",
+      "config": "mask_insertion_loss_root_port.json",
+      "traces": [
+        "dB(S(U1_RX0,X1_RX0))",
+        "dB(S(U1_RX1,X1_RX1))",
+        "dB(S(U1_RX3,X1_RX3))"
+      ],
+      "pass_fail": true
+    },
+    {
+      "name": "return losses",
+      "design_name": "Circuit1",
+      "type": "frequency",
+      "config": "mask_differential_return_loss.json",
+      "traces": [
+        "dB(S(X1_RX0,X1_RX0))",
+        "dB(S(X1_RX1,X1_RX1))",
+        "dB(S(X1_RX2,X1_RX2))",
+        "dB(S(X1_RX3,X1_RX3))"
+      ],
+      "pass_fail": true,
+      "group_plots": true
+    },
+    {
+      "name": "common mode return losses",
+      "design_name": "Circuit1",
+      "type": "frequency",
+      "config": "mask_common_mode_return_loss.json",
+      "traces": [
+        "dB(S(COMMON_X1_RX0,COMMON_X1_RX0))",
+        "dB(S(COMMON_X1_RX1,COMMON_X1_RX1))",
+        "dB(S(COMMON_X1_RX2,COMMON_X1_RX2))",
+        "dB(S(COMMON_X1_RX3,COMMON_X1_RX3))"
+      ],
+      "pass_fail": true,
+      "group_plots": true
+    },
+    {
+      "name": "tdr from circuit",
+      "design_name": "Circuit_TDR",
+      "type": "time",
+      "config": "mask_tdr_circuit.json",
+      "traces": [
+        "O(A185:zdiff)"
+      ],
+      "pass_fail": true
+    },
+    {
+      "name": "eye1",
+      "design_name": "32GTps_circuit1",
+      "type": "statistical eye",
+      "config": "mask_statistic_eye.json",
+      "quantity_type": 3,
+      "traces": [
+        "b_input_67"
+      ],
+      "pass_fail": true
+    },
+    {
+      "name": "eye3",
+      "design_name": "32GTps_circuit1",
+      "type": "contour eye diagram",
+      "config": "mask_contour.json",
+      "quantity_type": 3,
+      "traces": [
+        "b_input_67"
+      ],
+      "pass_fail": true
+    }
+  ]
+}

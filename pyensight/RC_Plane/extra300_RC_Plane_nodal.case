@@ -1,0 +1,25 @@
+# 
+# Thu Sep 29 16:02:37 2016
+# EnSight 10.2.0 ((a))
+# Case File: extra300_RC_Plane_nodal.case
+
+FORMAT
+type:                      ensight gold
+
+GEOMETRY
+model:                     extra300_RC_Plane_nodal.geo
+
+VARIABLE
+scalar per node:           turbViscosity extra300_RC_Plane_nodal.turbViscosity
+scalar per node:           yPlus extra300_RC_Plane_nodal.yPlus
+scalar per node:           staticPressure extra300_RC_Plane_nodal.staticPressure
+vector per node:           wallShearStress extra300_RC_Plane_nodal.wallShearStress
+vector per node:           velocity extra300_RC_Plane_nodal.velocity
+vector per node:           vorticity extra300_RC_Plane_nodal.vorticity
+constant per case:           Vinf 20
+constant per case:           Qinf 200
+constant per case:           Rho 1
+constant per case:           AoA 15
+
+SCRIPTS:
+metadata:               plane.xml

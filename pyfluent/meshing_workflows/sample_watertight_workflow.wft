@@ -1,0 +1,226 @@
+{
+    "workflow": {
+        "version": "24.2",
+        "ROOT": {
+            "TaskObject:TaskObject1": {
+                "CommandName": "ImportGeometry",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Import Geometry"
+            },
+            "TaskObject:TaskObject2": {
+                "CommandName": "AddLocalSizingWTM",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Compound",
+                "_name_": "Add Local Sizing"
+            },
+            "TaskObject:TaskObject3": {
+                "CheckPoint": "default-on",
+                "CommandName": "GenerateTheSurfaceMeshWTM",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Generate the Surface Mesh"
+            },
+            "TaskObject:TaskObject4": {
+                "CommandName": "GeometrySetup",
+                "InactiveTaskList": [
+                    "TaskObject5",
+                    "TaskObject7"
+                ],
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskList": [
+                    "TaskObject6",
+                    "TaskObject8"
+                ],
+                "TaskType": "Conditional",
+                "_name_": "Describe Geometry"
+            },
+            "TaskObject:TaskObject5": {
+                "CheckPoint": "default-on",
+                "CommandName": "ShareTopology",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Apply Share Topology"
+            },
+            "TaskObject:TaskObject6": {
+                "CommandName": "Capping",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Compound",
+                "_name_": "Enclose Fluid Regions (Capping)"
+            },
+            "TaskObject:TaskObject7": {
+                "CommandName": "UpdateBoundaries",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Update Boundaries"
+            },
+            "TaskObject:TaskObject8": {
+                "CheckPoint": "default-on",
+                "CommandName": "CreateRegions",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Create Regions"
+            },
+            "TaskObject:TaskObject9": {
+                "CommandName": "UpdateRegions",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Update Regions"
+            },
+            "TaskObject:TaskObject10": {
+                "CommandName": "AddBoundaryLayers",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Compound",
+                "_name_": "Add Boundary Layers"
+            },
+            "TaskObject:TaskObject11": {
+                "CheckPoint": "default-on",
+                "CommandName": "GenerateTheVolumeMeshWTM",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Generate the Volume Mesh"
+            },
+            "TaskObject:TaskObject12": {
+                "Arguments": {
+                    "CadImportOptions": {
+                        "CreateCADAssemblies": "false",
+                        "ExtractFeatures": "true",
+                        "FeatureAngle": "40",
+                        "ImportCurvatureDataFromCAD": "true",
+                        "ImportNamedSelections": "true",
+                        "ImportPartNames": "false",
+                        "OneObjectPer": "Program-controlled",
+                        "OneZonePer": "body",
+                        "OpenAllCadInSubdirectories": "false",
+                        "SavePMDBIntermediateFile": "false",
+                        "UsePartOrBodyAsSuffix": "false"
+                    },
+                    "GeometryFileName": "__________None",
+                    "ImportedObjects": "__________None",
+                    "LengthUnit": "mm",
+                    "MeshFileName": "__________None",
+                    "Type": "CAD"
+                },
+                "CommandName": "ImportBodyOfInfluenceGeometry",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Import Body of Influence Geometry"
+            },
+            "TaskObject:TaskObject13": {
+                "Arguments": {
+                    "AutoMultiplePeriodic": "no",
+                    "LCSOrigin": {
+                        "OriginX": "0",
+                        "OriginY": "0",
+                        "OriginZ": "0"
+                    },
+                    "LCSVector": {
+                        "VectorX": "0",
+                        "VectorY": "0",
+                        "VectorZ": "0"
+                    },
+                    "LabelList": "__________None",
+                    "ListAllLabelToggle": "false",
+                    "MeshObject": "",
+                    "Method": "Manual - pick reference side",
+                    "MultipleOption": "Paired",
+                    "PeriodicityAngle": "45",
+                    "RemeshBoundariesOption": "no",
+                    "SelectionType": "label",
+                    "TopologyList": "__________None",
+                    "TransShift": {
+                        "ShiftX": "0",
+                        "ShiftY": "0",
+                        "ShiftZ": "1"
+                    },
+                    "Type": "Rotational",
+                    "ZoneList": "__________None",
+                    "ZoneLocation": "__________None"
+                },
+                "CheckPoint": "default-on",
+                "CommandName": "SetUpPeriodicBoundaries",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Set Up Periodic Boundaries"
+            },
+            "TaskObject:TaskObject14": {
+                "Arguments": {
+                    "CadImportOptions": {
+                        "CreateCADAssemblies": "false",
+                        "ExtractFeatures": "true",
+                        "FeatureAngle": "40",
+                        "ImportCurvatureDataFromCAD": "true",
+                        "ImportNamedSelections": "true",
+                        "ImportPartNames": "false",
+                        "OneObjectPer": "Program-controlled",
+                        "OneZonePer": "body",
+                        "OpenAllCadInSubdirectories": "false",
+                        "SavePMDBIntermediateFile": "false",
+                        "UsePartOrBodyAsSuffix": "false"
+                    },
+                    "GeometryFileName": "__________None",
+                    "ImportedObjects": "__________None",
+                    "LengthUnit": "mm",
+                    "MeshFileName": "__________None",
+                    "Type": "CAD"
+                },
+                "CommandName": "ImportBodyOfInfluenceGeometry",
+                "ObjectPath": "",
+                "State": "Out-of-date",
+                "TaskType": "Simple",
+                "_name_": "Import Body of Influence Geometry 1"
+            },
+            "Workflow": {
+                "TaskList": [
+                    "TaskObject1",
+                    "TaskObject14",
+                    "TaskObject13",
+                    "TaskObject12",
+                    "TaskObject2",
+                    "TaskObject3",
+                    "TaskObject4",
+                    "TaskObject9",
+                    "TaskObject10",
+                    "TaskObject11"
+                ],
+                "WorkflowType": "Watertight Geometry"
+            }
+        }
+    },
+    "meshing": {
+        "version": "24.2",
+        "ROOT": {
+            "GlobalSettings": {
+                "AreaUnit": "mm^2",
+                "EnableCleanCAD": "true",
+                "EnableComplexMeshing": "false",
+                "InitialVersion": "24.2",
+                "LengthUnit": "mm",
+                "NormalMode": "false",
+                "VolumeUnit": "mm^3"
+            }
+        }
+    },
+    "PartManagement": {
+        "version": "24.2",
+        "ROOT": {
+            "Node:Node1": {
+                "Name": "Meshing Model",
+                "_name_": "Meshing Model"
+            }
+        }
+    }
+}
