@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="ami_std_parameters.xsl"?>
+<File isChecked="true">  <Name >ANSYS_PCIeG5_32GT_RX</Name>
+  <Parameter_group >
+    <Name >Reserved_Parameters</Name>
+      <Parameter  Type="Value" Data_type="String"  isReserved="true">
+        <Name >AMI_Version</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >Info</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >String</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Format</Name>
+            <Parameter_info >Value</Parameter_info>
+            <Value_item >6.1</Value_item>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Supported AMI version</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="500"  Data_type="Int"  isReserved="true">
+        <Name >Ignore_Bits</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >Info</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >Integer</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >500</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Ignore four bits to fill up tapped delay line.</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="25"  Data_type="Int"  isReserved="true">
+        <Name >Max_Init_Aggressors</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >Info</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >Integer</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >25</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Number of aggressors is actually unlimited.</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="True"  Data_type="Bool"  isReserved="true">
+        <Name >Init_Returns_Impulse</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >Info</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >Boolean</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >True</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Both impulse and parameters_out returned.</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter  Type="Table" Data_type="String"  isReserved="true">
+        <Name >Supporting_Files</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >Info</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >String</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Format</Name>
+            <Parameter_info >Table</Parameter_info>
+            <Value_item >PCIeG5_32GT.ens</Value_item>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >CTLE Performance table</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="True"  Data_type="Bool"  isReserved="true">
+        <Name >GetWave_Exists</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >Info</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >Boolean</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >True</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >GetWave is well and truly provided in the module.</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+  </Parameter_group>
+  <Parameter_group >
+    <Name >Model_Specific</Name>
+      <Parameter Default="LICENSED_ANSYS_AEDT_E168EFCC0268A84087F7B23B510CB41F"  Data_type="String" isChecked="true" isChangeable="true" isIn="true">
+        <Name >LICENSE_INFO</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >In</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >String</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >LICENSED_ANSYS_AEDT_E168EFCC0268A84087F7B23B510CB41F</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Licensing info.</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="CTLE,DFE"  Data_type="String" isChecked="true" isChangeable="true" isIn="true">
+        <Name >MDL_SUB_MODS</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >In</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >String</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >CTLE,DFE</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Cascaded stages</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="PCIeG5_32GT.ens"  Data_type="String" isChecked="true" isChangeable="true" isIn="true">
+        <Name >MDL_IDX_FILE</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >In</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >String</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >PCIeG5_32GT.ens</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Params index table</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="-1"  Data_type="String" isChecked="true" isChangeable="true" isIn="true">
+        <Name >MDL_IDX_VALU</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >In</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >String</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >-1</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >Params table rowID</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+      <Parameter Default="-5" Type="Range" Data_type="Int" isChecked="true" isChangeable="true" isIn="true">
+        <Name >ADC</Name>
+        <Parameter_info >
+          <Name >Usage</Name>
+          <Parameter_info >In</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Type</Name>
+          <Parameter_info >Integer</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Format</Name>
+            <Parameter_info >Range</Parameter_info>
+            <Value_item >-15</Value_item>
+            <Value_item >-5</Value_item>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Default</Name>
+          <Parameter_info >-5</Parameter_info>
+        </Parameter_info>
+        <Parameter_info >
+          <Name >Description</Name>
+          <Parameter_info >DC Gain in dB</Parameter_info>
+        </Parameter_info>
+      </Parameter>
+  </Parameter_group>
+</File>

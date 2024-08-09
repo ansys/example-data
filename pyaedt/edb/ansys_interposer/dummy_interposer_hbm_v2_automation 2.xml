@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<c:Control xmlns:c="http://www.ansys.com/control" schemaVersion="1.0">
+
+  <Stackup schemaVersion="1.0">
+    <Materials>
+      <Material Name="IMD_material">
+        <Permittivity>
+          <Double>4.3347</Double>
+        </Permittivity>
+        <DielectricLossTangent>
+          <Double>0.02</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ILD_material">
+        <Permittivity>
+          <Double>6.7</Double>
+        </Permittivity>
+        <DielectricLossTangent>
+          <Double>0.02</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="PASS_material">
+        <Permittivity>
+          <Double>3.7</Double>
+        </Permittivity>
+        <DielectricLossTangent>
+          <Double>0.02</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="metal1_cond">
+        <Conductivity>
+          <Double>53191489.3617</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="metal2_cond">
+        <Conductivity>
+          <Double>53191489.3617</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="metal3_cond">
+        <Conductivity>
+          <Double>53191489.3617</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="metal4_cond">
+        <Conductivity>
+          <Double>53191489.3617</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="metal5_cond">
+        <Conductivity>
+          <Double>53191489.3617</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="metal6_cond">
+        <Conductivity>
+          <Double>32840722.4959</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="metal7_cond">
+        <Conductivity>
+          <Double>10000000000000</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="mb1_cond">
+        <Conductivity>
+          <Double>10000000000000</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="pmb_cond">
+        <Conductivity>
+          <Double>22222222.2222</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="substrate">
+        <Permittivity>
+          <Double>11.9</Double>
+        </Permittivity>
+        <Conductivity>
+          <Double>3.3333</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="tsv_cond">
+        <Conductivity>
+          <Double>56032346.7412</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="tsv_Insulating">
+        <Permittivity>
+          <Double>4.2</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ubmb_cond">
+        <Conductivity>
+          <Double>10000000000000</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="via1_cond">
+        <Conductivity>
+          <Double>32150205.7613</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="via2_cond">
+        <Conductivity>
+          <Double>32150205.7613</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="via3_cond">
+        <Conductivity>
+          <Double>32150205.7613</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="via4_cond">
+        <Conductivity>
+          <Double>32150205.7613</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="via5_cond">
+        <Conductivity>
+          <Double>2100271.0027</Double>
+        </Conductivity>
+      </Material>
+      <Material Name="via6_cond">
+        <Conductivity>
+          <Double>16530561.2194</Double>
+        </Conductivity>
+      </Material>
+    </Materials>
+    <ELayers LengthUnit="um">
+      <Dielectrics>
+        <Layer Color="#44614c" Material="PASS_material" Name="PASS" Thickness="29.5"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_0" Thickness="1.5"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_1" Thickness="1"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_2" Thickness="1"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_3" Thickness="0.5"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_4" Thickness="1"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_5" Thickness="0.5"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_6" Thickness="1"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_7" Thickness="0.5"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_8" Thickness="1"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_9" Thickness="0.5"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_10" Thickness="1"/>
+        <Layer Color="#264a33" Material="IMD_material" Name="IMD_11" Thickness="1"/>
+        <Layer Color="#44614c" Material="substrate" Name="substrate" Thickness="68"/>
+        <Layer Color="#1a291f" Material="ILD_material" Name="ILD_0" Thickness="1"/>
+        <Layer Color="#1a291f" Material="ILD_material" Name="ILD_1" Thickness="5"/>
+        <Layer Color="#1a291f" Material="ILD_material" Name="ILD_2" Thickness="6"/>
+      </Dielectrics>
+      <Layers>
+        <Layer Color="#88c36a" Elevation="120" GDSDataType="0" Material="metal7_cond" Name="126" TargetLayer="metal7" Thickness="0" Type="conductor"/>
+		<Layer Color="#88c36a" Elevation="120" GDSDataType="0" Material="metal7_cond" Name="170" TargetLayer="metal7" Thickness="0" Type="conductor"/>
+        <Layer Color="#d63b07" Elevation="89" GDSDataType="0" Material="metal6_cond" Name="74" TargetLayer="metal6" Thickness="1.5" Type="conductor"/>
+        <Layer Color="#353981" Elevation="87" GDSDataType="50" Material="metal5_cond" Name="35" TargetLayer="metal5" Thickness="1" Type="conductor"/>
+        <Layer Color="#db74f0" Elevation="85.5" GDSDataType="50" Material="metal4_cond" Name="34" TargetLayer="metal4" Thickness="1" Type="conductor"/>
+        <Layer Color="#2e43a0" Elevation="84" GDSDataType="50" Material="metal3_cond" Name="33" TargetLayer="metal3" Thickness="1" Type="conductor"/>
+        <Layer Color="#10738a" Elevation="82.5" GDSDataType="50" Material="metal2_cond" Name="32" TargetLayer="metal2" Thickness="1" Type="conductor" UnionPrimitives="true"/>
+        <Layer Color="#d091ef" Elevation="81" GDSDataType="50" Material="metal1_cond" Name="31" TargetLayer="metal1" Thickness="1" Type="conductor"/>
+        <Layer Color="#5e6f10" Elevation="6" GDSDataType="100" Material="mb1_cond" Name="31" TargetLayer="mb1" Thickness="5" Type="conductor" ConvertPolygonToCircle="true" ConvertPolygonToCircleRatio="0.9"/>
+        <Layer Color="#09517b" Elevation="0" GDSDataType="100" Material="ubmb_cond" Name="170" TargetLayer="ubmb" Thickness="0" Type="conductor" ConvertPolygonToCircle="true" ConvertPolygonToCircleRatio="0.9"/>
+      </Layers>
+      <Vias>
+        <Layer GDSDataType="0" Material="via6_cond" Name="86" StartLayer="metal6" StopLayer="metal7" TargetLayer="via6"/>
+        <Layer GDSDataType="0" Material="via5_cond" Name="85" StartLayer="metal5" StopLayer="metal6" TargetLayer="via5">
+          <CreateViaGroups CheckContainment="true" Method="range" Persistent="false" Tolerance="2um"/>
+        </Layer>
+        <Layer GDSDataType="50" Material="via4_cond" Name="54" StartLayer="metal4" StopLayer="metal5" TargetLayer="via4">
+          <CreateViaGroups CheckContainment="true" Method="range" Persistent="false" Tolerance="2um"/>
+        </Layer>
+        <Layer GDSDataType="50" Material="via3_cond" Name="53" StartLayer="metal3" StopLayer="metal4" TargetLayer="via3">
+          <CreateViaGroups CheckContainment="true" Method="proximity" Persistent="false" Tolerance="100um"/>
+        </Layer>
+        <Layer GDSDataType="50" Material="via2_cond" Name="52" StartLayer="metal2" StopLayer="metal3" TargetLayer="via2">
+          <CreateViaGroups CheckContainment="true" Method="proximity" Persistent="false" Tolerance="100um"/>
+        </Layer>
+        <Layer GDSDataType="50" Material="via1_cond" Name="51" StartLayer="metal1" StopLayer="metal2" TargetLayer="via1">
+          <CreateViaGroups CheckContainment="true" Method="proximity" Persistent="false" Tolerance="100um"/>
+        </Layer>
+        <Layer ConvertPolygonToCircle="true" ConvertPolygonToCircleRatio="0.9" GDSDataType="0" Material="tsv_cond" Name="251" StartLayer="mb1" StopLayer="metal1" TargetLayer="tsv">
+          <TSVProperties Material="tsv_Insulating" Thickness="0.25"/>
+        </Layer>
+        <Layer ConvertPolygonToCircle="true" ConvertPolygonToCircleRatio="0.9" GDSDataType="100" Material="pmb_cond" Name="5" StartLayer="ubmb" StopLayer="mb1" TargetLayer="pmb"/>
+      </Vias>
+    </ELayers>
+  </Stackup>
+
+  <Boundaries LengthUnit="um">
+    <Extents Type="bbox" DielType="bbox" DielHorizFactor="20um" AirboxHorizFactor="0.0" AirboxVertFactorPos="80um" AirboxVertFactorNeg="80um" UseRadiationBoundary="True" DielHonorPrimitives="false" AirboxTruncateAtGround="false" />
+  </Boundaries>
+
+  <!-- <CutoutSubdesign> -->
+	<!-- <Polygon> -->
+		<!-- <Point x="-1519um" y="543um"/> -->
+		<!-- <Point x="-321um" y="543um"/> -->
+		<!-- <Point x="-321um" y="659um"/> -->
+		<!-- <Point x="-1519um" y="659um"/> -->
+	<!-- </Polygon> -->
+  <!-- </CutoutSubdesign> -->
+
+  <!-- <RemoveHoles HoleAreaMinimum="2000" LengthUnit="um"/> -->
+  <SimulationSetups>
+		<HFSSSetup schemaVersion="1.0" Name="HFSS 5GHz">
+			<HFSSSimulationSettings>
+				<HFSSAdaptiveSettings>
+					<AdaptiveSettings>
+						<SingleFrequencyDataList>
+							<AdaptiveFrequencyData>
+								<AdaptiveFrequency>5GHz</AdaptiveFrequency>
+								<MaxPasses>99</MaxPasses>
+								<MaxDelta>0.02</MaxDelta>
+							</AdaptiveFrequencyData>
+						</SingleFrequencyDataList>
+					</AdaptiveSettings>
+				</HFSSAdaptiveSettings>
+				<HFSSDefeatureSettings>
+					<ModelType>IC</ModelType>
+					<ICModelResolutionType>Auto</ICModelResolutionType>
+				</HFSSDefeatureSettings>
+				<HFSSModellingSettings>
+					<IntraPlaneCoupling>True</IntraPlaneCoupling>
+				</HFSSModellingSettings>
+				<HFSSSolverSettings>
+					<OrderBasis>FirstOrder</OrderBasis>
+					<!-- <SolverType>Auto</SolverType> -->
+					<!-- <EnhancedLowFreqAccuracy>True</EnhancedLowFreqAccuracy> -->
+				</HFSSSolverSettings>
+				<HFSSMeshOperations>
+					<MeshOperation>
+						<Name>DQ_Seeding</Name>
+						<Enabled>true</Enabled>
+						<RefineInside>false</RefineInside>
+						<Region>On Selection</Region>
+						<Type>MeshOperationLength</Type>
+						<NetsLayers>
+							<NetLayer>
+								<Net>DQ*</Net>
+								<Layer>metal3</Layer>
+							</NetLayer>
+							<NetLayer>
+								<Net>DQ*</Net>
+								<Layer>metal5</Layer>
+							</NetLayer>
+						</NetsLayers>
+						<RestrictElem>false</RestrictElem>
+						<NumMaxElem>1000</NumMaxElem>
+						<RestrictLength>true</RestrictLength>
+						<MaxLength>15um</MaxLength>
+					</MeshOperation>
+				</HFSSMeshOperations>
+			</HFSSSimulationSettings>
+			<HFSSSweepDataList>
+				<FreqSweep>
+					<Name>Sweep1</Name>
+					<UseQ3DForDC>True</UseQ3DForDC>
+					<Interpolating>
+						<LinearStep>
+							<Start>0Hz</Start>
+							<Stop>10GHz</Stop>
+							<Step>50MHz</Step>
+						</LinearStep>
+					</Interpolating>
+				</FreqSweep>				
+			</HFSSSweepDataList>
+		</HFSSSetup>
+  </SimulationSetups>
+
+  <GDS_NET_DEFINITIONS USE_TOP_LEVEL_TEXT_ONLY="true">
+	<GND_NETS>VSS</GND_NETS>
+	<SIGNAL_NETS>DQ0 DQ1 DQ2 DQ3 DQ4 DQ5 DQ6 DQ7</SIGNAL_NETS>
+  </GDS_NET_DEFINITIONS>
+  
+  <GDS_COMPONENTS LengthUnit="um">
+		<GDS_AUTO_COMPONENT Layer="metal7" Tolerance="400">
+			<DieProperties Type="Flip chip" Orientation="Chip down" Height="0.0"/>
+			<SolderballProperties Shape="Cylinder" Diameter="13" Height="10" Material="solder"/>	
+			<AutoComponentPort>
+				<PosNet Name="DQ0"/>
+			</AutoComponentPort>		
+			<AutoComponentPort>
+				<PosNet Name="DQ1"/>
+			</AutoComponentPort>	
+			<AutoComponentPort>
+				<PosNet Name="DQ2"/>
+			</AutoComponentPort>
+			<AutoComponentPort>
+				<PosNet Name="DQ3"/>
+			</AutoComponentPort>
+			<AutoComponentPort>
+				<PosNet Name="DQ4"/>
+			</AutoComponentPort>
+			<AutoComponentPort>
+				<PosNet Name="DQ5"/>
+			</AutoComponentPort>
+			<AutoComponentPort>
+				<PosNet Name="DQ6"/>
+			</AutoComponentPort>
+			<AutoComponentPort>
+				<PosNet Name="DQ7"/>
+			</AutoComponentPort>
+		</GDS_AUTO_COMPONENT>	
+		<GDS_AUTO_COMPONENT Layer="ubmb" Tolerance="400">
+			<DieProperties Type="Flip chip" Orientation="Chip down" Height="0.0"/>
+			<!-- <SolderballProperties Shape="Cylinder" Diameter="10" Height="15" Material="solder"/>	 -->
+			<!-- <AutoComponentPort> -->
+				<!-- <PosNet Name="L_DIE1_VDD"/> -->
+			<!-- </AutoComponentPort>		 -->
+		</GDS_AUTO_COMPONENT>	
+  </GDS_COMPONENTS>
+</c:Control>
