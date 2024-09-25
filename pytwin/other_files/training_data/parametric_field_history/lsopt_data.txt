@@ -1,0 +1,17 @@
+
+ LS-OPT data for this field
+
+  Name : mh_disp_3D
+
+  Def : FieldHist3D("mh_xdisp","mh_ydisp","mh_zdisp")
+
+  ROM : Static
+
+    All parts
+
+    Number of time states       = 52
+    Number of time states used  = 52
+    Number of IDs               = 576
+    Number of parameters        = 2
+    Number of tensor components = 3
+
