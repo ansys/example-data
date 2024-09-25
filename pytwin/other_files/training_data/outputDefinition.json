@@ -1,0 +1,10 @@
+{
+    "outputDefinition": {
+        "Point0": {
+            "location": "point",
+            "pointIndex": 23,
+            "valueType": "Norm",
+            "visible": true
+        }
+    }
+}
