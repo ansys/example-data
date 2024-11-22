@@ -1,0 +1,158 @@
+! Unit system DS_SOLV_NMM
+! GUID ecb41edd-b488-41d9-aa56-bb31bb05dcd8
+! Material 1 = Structural Steel
+Temperature = 'TEMP' ! Temperature
+MP,DENS,1,7.85e-09,	! tonne mm^-3
+MP,ALPX,1,1.2e-05,	! C^-1
+MP,C,1,434000000,	! mm^2 s^-2 C^-1
+MP,KXX,1,60.5,	! tonne mm s^-3 C^-1
+MP,RSVX,1,0.00017,	! ohm mm
+MP,EX,1,200000,	! tonne s^-2 mm^-1
+MP,NUXY,1,0.3,
+MP,MURX,1,10000,
+MP,UVID,1,ecb41edd-b488-41d9-aa56-bb31bb05dcd8
+MP,UMID,1,59002a79-71c2-428e-906b-55d7dbee100e
+
+! GUID 8cc05cb0-e2ce-4b31-b84b-bb41e32e5360
+! Material 2 = Epoxy Carbon UD (230 GPa) Prepreg
+MP,DENS,2,1.49e-09,	! tonne mm^-3
+MP,EX,2,121000,	! tonne s^-2 mm^-1
+MP,EY,2,8600,	! tonne s^-2 mm^-1
+MP,EZ,2,8600,	! tonne s^-2 mm^-1
+MP,PRXY,2,0.27,
+MP,PRYZ,2,0.4,
+MP,PRXZ,2,0.27,
+MP,GXY,2,4700,	! tonne s^-2 mm^-1
+MP,GYZ,2,3100,	! tonne s^-2 mm^-1
+MP,GXZ,2,4700,	! tonne s^-2 mm^-1
+
+TB,FCLI,2,1,9,2
+TBDATA,1,0.0167,-0.0108,0.0032,-0.0192,0.0032,-0.0192
+TBDATA,7,0.012,0.011
+MP,ALPX,2,-4.7e-07,	! C^-1
+MP,ALPY,2,3e-05,	! C^-1
+MP,ALPZ,2,3e-05,	! C^-1
+
+TB,FCLI,2,1,20,1
+TBDATA,1,2231
+TBDATA,2,-1082
+TBDATA,3,29
+TBDATA,4,-100
+TBDATA,5,29
+TBDATA,6,-100
+TBDATA,7,60
+TBDATA,8,32
+TBDATA,9,60
+TBDATA,10,-1
+TBDATA,11,-1
+TBDATA,12,-1
+TBDATA,13,0.35
+TBDATA,14,0.3
+TBDATA,15,0.25
+TBDATA,16,0.25
+MP,UVID,2,8cc05cb0-e2ce-4b31-b84b-bb41e32e5360
+MP,UMID,2,e236c55c-e4b2-423c-8262-2cbd5ec4377b
+
+! GUID a3c45e20-c4b5-4d1f-970a-5f78a6d13196
+! Material 3 = Epoxy Carbon Woven (230 GPa) Prepreg
+MP,DENS,3,1.42e-09,	! tonne mm^-3
+MP,EX,3,61340,	! tonne s^-2 mm^-1
+MP,EY,3,61340,	! tonne s^-2 mm^-1
+MP,EZ,3,6900,	! tonne s^-2 mm^-1
+MP,PRXY,3,0.04,
+MP,PRYZ,3,0.3,
+MP,PRXZ,3,0.3,
+MP,GXY,3,3300,	! tonne s^-2 mm^-1
+MP,GYZ,3,2700,	! tonne s^-2 mm^-1
+MP,GXZ,3,2700,	! tonne s^-2 mm^-1
+
+TB,FCLI,3,1,9,2
+TBDATA,1,0.0126,-0.0102,0.0126,-0.0102,0.008,-0.012
+TBDATA,7,0.022,0.019
+MP,ALPX,3,2.2e-06,	! C^-1
+MP,ALPY,3,2.2e-06,	! C^-1
+MP,ALPZ,3,1e-05,	! C^-1
+
+TB,FCLI,3,1,20,1
+TBDATA,1,805
+TBDATA,2,-509
+TBDATA,3,805
+TBDATA,4,-509
+TBDATA,5,50
+TBDATA,6,-170
+TBDATA,7,125
+TBDATA,8,65
+TBDATA,9,65
+TBDATA,10,-1
+TBDATA,11,-1
+TBDATA,12,-1
+MP,UVID,3,a3c45e20-c4b5-4d1f-970a-5f78a6d13196
+MP,UMID,3,40e45e24-f3f3-423e-a09b-63b99e1e9dde
+
+! GUID c8feaa22-56e0-4fda-a89e-9a7b2371a39a
+! Material 4 = Honeycomb
+MP,DENS,4,8e-11,	! tonne mm^-3
+MP,EX,4,1,	! tonne s^-2 mm^-1
+MP,EY,4,1,	! tonne s^-2 mm^-1
+MP,EZ,4,255,	! tonne s^-2 mm^-1
+MP,PRXY,4,0.49,
+MP,PRYZ,4,0.001,
+MP,PRXZ,4,0.001,
+MP,GXY,4,1e-06,	! tonne s^-2 mm^-1
+MP,GYZ,4,37,	! tonne s^-2 mm^-1
+MP,GXZ,4,70,	! tonne s^-2 mm^-1
+
+TB,FCLI,4,1,20,1
+TBDATA,1,0
+TBDATA,2,0
+TBDATA,3,0
+TBDATA,4,0
+TBDATA,5,5.31
+TBDATA,6,-5.31
+TBDATA,7,0
+TBDATA,8,1.21
+TBDATA,9,2.24
+MP,UVID,4,c8feaa22-56e0-4fda-a89e-9a7b2371a39a
+MP,UMID,4,7c43386c-d57e-4169-bf28-1674ece809c5
+
+! GUID 88333650-258f-4554-a501-4dce501d3c46
+! Material 5 = Resin Epoxy
+MP,DENS,5,1.16e-09,	! tonne mm^-3
+MP,EX,5,3780,	! tonne s^-2 mm^-1
+MP,NUXY,5,0.35,
+MP,UVID,5,88333650-258f-4554-a501-4dce501d3c46
+MP,UMID,5,c99988b7-2dbb-450c-aef4-ecfe41eeb382
+
+! GUID 0f2784cb-3201-4754-8e98-2350cd11f06a
+! Material 6 = SAN Foam (81 kg m^-3)
+MP,DENS,6,8.1e-11,	! tonne mm^-3
+MP,EX,6,60,	! tonne s^-2 mm^-1
+MP,NUXY,6,0.3,
+
+TB,FCLI,6,1,20,1
+TBDATA,1,0
+TBDATA,2,0
+TBDATA,3,0
+TBDATA,4,0
+TBDATA,5,1.1
+TBDATA,6,0
+TBDATA,7,0
+TBDATA,8,0.8
+TBDATA,9,0.8
+MP,UVID,6,0f2784cb-3201-4754-8e98-2350cd11f06a
+MP,UMID,6,c7f6852e-10d1-4bbc-9cc8-2b19156d3ac8
+
+! GUID fdb10fac-d96a-4b9e-9f43-6efb2093b65d
+! Material 7 = Structural Steel 2
+Temperature = 'TEMP' ! Temperature
+MP,DENS,7,7.85e-09,	! tonne mm^-3
+MP,ALPX,7,1.2e-05,	! C^-1
+MP,C,7,434000000,	! mm^2 s^-2 C^-1
+MP,KXX,7,60.5,	! tonne mm s^-3 C^-1
+MP,RSVX,7,0.00017,	! ohm mm
+MP,EX,7,200000,	! tonne s^-2 mm^-1
+MP,NUXY,7,0.3,
+MP,MURX,7,10000,
+MP,UVID,7,fdb10fac-d96a-4b9e-9f43-6efb2093b65d
+MP,UMID,7,59002a79-71c2-428e-906b-55d7dbee100e
+
