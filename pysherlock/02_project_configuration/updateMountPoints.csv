@@ -1,0 +1,5 @@
+ID,type,shape,units,x,y,length,width,diameter,nodes,rotation,side,height,material,boundary,constraints,polygon,state,chassisMaterial
+MP1,Mount Hole,Circular,mm,-88.9,-45,3.56,3.56,3.56,8,0.0,TOP,0,DEFAULT,Outline,X-axis translation|Y-axis translation|Z-axis translation,,ENABLED,ALUMINUM
+MP2,Mount Hole,Circular,mm,86.36,-45,3.56,3.56,3.56,8,0.0,TOP,0,DEFAULT,Outline,X-axis translation|Y-axis translation|Z-axis translation,,ENABLED,ALUMINUM
+MP3,Mount Hole,Circular,mm,-88.9,45,3.56,3.56,3.56,8,0.0,TOP,0,DEFAULT,Outline,X-axis translation|Y-axis translation|Z-axis translation,,ENABLED,ALUMINUM
+MP4,Mount Hole,Circular,mm,88.9,45,3.56,3.56,3.56,8,0.0,TOP,0,DEFAULT,Outline,X-axis translation|Y-axis translation|Z-axis translation,,ENABLED,ALUMINUM
