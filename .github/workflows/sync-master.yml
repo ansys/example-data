@@ -5,6 +5,9 @@ on:
     - cron: "0 0 * * *"  # Runs every night at midnight UTC
   workflow_dispatch:  # Allows manual triggering
 
+permissions:
+  contents: write  # Grants write access to push changes
+
 jobs:
   sync-branches:
     runs-on: ubuntu-latest
