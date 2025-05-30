@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<c:Control xmlns:c="http://www.ansys.com/control" schemaVersion="1.0" source="C:/Users/gfetsis/AppData/Local/Temp/37892807217261451820.AnsysEcadExplorer/Model.vlc.aedb">
+
+  <Stackup schemaVersion="1.0">
+    <Materials>
+      <Material Name="Mat0">
+        <Permittivity>
+          <Double>1</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>666666.666666667</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Mat1">
+        <Permittivity>
+          <Double>1</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>23809523.8095238</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Mat2">
+        <Permittivity>
+          <Double>1</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>26666666.6666667</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Mat3">
+        <Permittivity>
+          <Double>1</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>33333333.3333333</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Mat4">
+        <Permittivity>
+          <Double>1</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>10000000</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Mat5">
+        <Permittivity>
+          <Double>1</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>2500000</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Metal1_ox/0">
+        <Permittivity>
+          <Double>3.7</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Metal2_ox/0_2">
+        <Permittivity>
+          <Double>3.7</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Metal3_ox/0">
+        <Permittivity>
+          <Double>3.7</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Metal4_ox/0">
+        <Permittivity>
+          <Double>3.7</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Metal5_ox/0">
+        <Permittivity>
+          <Double>3.7</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox1a">
+        <Permittivity>
+          <Double>3.9</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox3b-Metal1_ox/1">
+        <Permittivity>
+          <Double>3.81349693251534</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox4b-Metal2_ox/3">
+        <Permittivity>
+          <Double>3.83633014001474</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox4b-Metal2_ox/3-Metal2_ox/0_2/1_mat">
+        <Permittivity>
+          <Double>3.81349693251533</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox5b-Metal3_ox/1">
+        <Permittivity>
+          <Double>3.81349693251534</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox6b-Metal4_ox/1">
+        <Permittivity>
+          <Double>3.81349693251534</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox7b/0-Metal5_ox/1">
+        <Permittivity>
+          <Double>3.81349693251534</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox7b/1">
+        <Permittivity>
+          <Double>4.2</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="ox8b-ox7b/2">
+        <Permittivity>
+          <Double>5.20350553505535</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="Poly_ox/0">
+        <Permittivity>
+          <Double>4</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>0</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+      <Material Name="substrate">
+        <Permittivity>
+          <Double>11.7</Double>
+        </Permittivity>
+        <Permeability>
+          <Double>1</Double>
+        </Permeability>
+        <Conductivity>
+          <Double>33.3333333333333</Double>
+        </Conductivity>
+        <DielectricLossTangent>
+          <Double>0</Double>
+        </DielectricLossTangent>
+      </Material>
+    </Materials>
+    <ELayers LengthUnit="mm">
+      <Dielectrics>
+        <Layer Color="#44614c" Material="ox8b-ox7b/2" Name="ox8b-ox7b/2" Thickness="0.0017"/>
+        <Layer Color="#264a33" Material="ox7b/1" Name="ox7b/1" Thickness="0.003"/>
+        <Layer Color="#1a291f" Material="ox7b/0-Metal5_ox/1" Name="ox7b/0-Metal5_ox/1" Thickness="0.0008"/>
+        <Layer Color="#44614c" Material="Metal5_ox/0" Name="Metal5_ox/0" Thickness="0.00075"/>
+        <Layer Color="#264a33" Material="ox6b-Metal4_ox/1" Name="ox6b-Metal4_ox/1" Thickness="0.0008"/>
+        <Layer Color="#1a291f" Material="Metal4_ox/0" Name="Metal4_ox/0" Thickness="0.0006"/>
+        <Layer Color="#44614c" Material="ox5b-Metal3_ox/1" Name="ox5b-Metal3_ox/1" Thickness="0.0008"/>
+        <Layer Color="#264a33" Material="Metal3_ox/0" Name="Metal3_ox/0" Thickness="0.0006"/>
+        <Layer Color="#44614c" Material="ox4b-Metal2_ox/3-Metal2_ox/0_2/1_mat" Name="ox4b-Metal2_ox/3-Metal2_ox/0_2/1" Thickness="0.00089"/>
+        <Layer Color="#264a33" Material="Metal2_ox/0_2" Name="Metal2_ox/0_2/0" Thickness="0.0006"/>
+        <Layer Color="#1a291f" Material="ox3b-Metal1_ox/1" Name="ox3b-Metal1_ox/1" Thickness="0.0008"/>
+        <Layer Color="#44614c" Material="Metal1_ox/0" Name="Metal1_ox/0" Thickness="0.0006"/>
+        <Layer Color="#264a33" Material="Poly_ox/0" Name="Poly_ox/0/1" Thickness="0.0005"/>
+        <Layer Color="#1a291f" Material="Poly_ox/0" Name="Poly_ox/0/0" Thickness="0.0002"/>
+        <Layer Color="#44614c" Material="ox1a" Name="ox1a" Thickness="0.000355"/>
+        <Layer Color="#1a291f" Material="substrate" Name="substrate" Thickness="0.375"/>
+      </Dielectrics>
+      <Layers>
+        <Layer Color="#289889" Elevation="0.383205" GDSDataType="0" Name="2" TargetLayer="Metal6" Material="Mat3" Thickness="0.003" Type="conductor"/>
+        <Layer Color="#868feb" Elevation="0.381655" GDSDataType="0" Name="1" TargetLayer="Metal5" Material="Mat2" Thickness="0.00075" Type="conductor"/>
+        <Layer Color="#efa15d" Elevation="0.380255" GDSDataType="0" Name="3" TargetLayer="Metal4" Material="Mat1" Thickness="0.0006" Type="conductor"/>
+        <Layer Color="#f67fc1" Elevation="0.378855" GDSDataType="0" Name="4" TargetLayer="Metal3" Material="Mat1" Thickness="0.0006" Type="conductor"/>
+        <Layer Color="#fd777a" Elevation="0.377455" GDSDataType="0" Name="5" TargetLayer="Metal2" Material="Mat1" Thickness="0.0006" Type="conductor"/>
+        <Layer Color="#8db7ca" Elevation="0.376055" GDSDataType="0" Name="6" TargetLayer="Metal1" Material="Mat1" Thickness="0.0006" Type="conductor"/>
+        <Layer Color="#5c4300" Elevation="0.375355" GDSDataType="0" Name="13" TargetLayer="Poly" Material="Mat0" Thickness="0.0002" Type="conductor"/>
+      </Layers>
+      <Vias>
+        <Layer Color="#d198b1" GDSDataType="0" Material="Mat4" Name="7" SolveInside="false" StartLayer="Metal5" StopLayer="Metal6" TargetLayer="Via5">
+          <CreateViaGroups Method="proximity" Persistent="false" Tolerance="10um" CheckContainment="true" />
+			<SnapViaGroups Method="areaFactor" Tolerance="3" RemoveUnconnected="true" />
+        </Layer>
+        <Layer Color="#fb3451" GDSDataType="0" Material="Mat4" Name="8" SolveInside="false" StartLayer="Metal4" StopLayer="Metal5" TargetLayer="Via4">
+          <CreateViaGroups Method="proximity" Persistent="false" Tolerance="10um" CheckContainment="true" />
+			<SnapViaGroups Method="areaFactor" Tolerance="3" RemoveUnconnected="true" />
+        </Layer>
+        <Layer Color="#d091ef" GDSDataType="0" Material="Mat4" Name="9" SolveInside="false" StartLayer="Metal3" StopLayer="Metal4" TargetLayer="Via3">
+          <CreateViaGroups Method="proximity" Persistent="false" Tolerance="10um" CheckContainment="true" />
+			<SnapViaGroups Method="areaFactor" Tolerance="3" RemoveUnconnected="true" />
+        </Layer>
+        <Layer Color="#5e6f10" GDSDataType="0" Material="Mat4" Name="10" SolveInside="false" StartLayer="Metal2" StopLayer="Metal3" TargetLayer="Via2">
+          <CreateViaGroups Method="proximity" Persistent="false" Tolerance="10um" CheckContainment="true" />
+			<SnapViaGroups Method="areaFactor" Tolerance="3" RemoveUnconnected="true" />
+        </Layer>
+        <Layer Color="#553755" GDSDataType="0" Material="Mat4" Name="11" SolveInside="false" StartLayer="Metal1" StopLayer="Metal2" TargetLayer="Via1">
+          <CreateViaGroups Method="proximity" Persistent="false" Tolerance="10um" CheckContainment="true" />
+			<SnapViaGroups Method="areaFactor" Tolerance="3" RemoveUnconnected="true" />
+        </Layer>
+        <Layer Color="#09517b" GDSDataType="0" Material="Mat5" Name="12" SolveInside="false" StartLayer="Poly" StopLayer="Metal1" TargetLayer="Cont"/>
+      </Vias>
+    </ELayers>
+  </Stackup>
+  
+  <Boundaries LengthUnit="meter">
+		<CircuitPortPt Name="Ind_In" x1="-0.000219945" y1="-0.00014" Layer1="Metal6" x2="-0.000219945" y2="-2e-05" Layer2="Metal6" Z0="50"/>
+		<CircuitPortPt Name="Ind_Out" x1="0.00022" y1="-0.00014" Layer1="Metal6" x2="0.00022" y2="-2e-05" Layer2="Metal6" Z0="50"/> 
+		
+		<Extents Type="bbox" DielType="bbox" DielHorizFactor="350um" AirboxHorizFactor="0" AirboxVertFactorPos="350um" AirboxVertFactorNeg="350um" UseRadiationBoundary="True" DielHonorPrimitives="false" AirboxTruncateAtGround="false" />
+   </Boundaries>
+   
+  <ImportOptions Flatten="true" GDSIIConvertPolygonToCircles="false" ImportDummyNet="true"/>
+
+  <GDS_NET_DEFINITIONS USE_TOP_LEVEL_TEXT_ONLY="true">
+    <SIGNAL_NETS>Ind_In Ind_In#ref Ind_Out Ind_Out#ref</SIGNAL_NETS>
+  </GDS_NET_DEFINITIONS>
+
+</c:Control>

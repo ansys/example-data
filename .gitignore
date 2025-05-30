@@ -4,5 +4,8 @@
 # Python cache
 *.pyc
 __pycache__/
-.vs
+.vs/
 .gitignore
+
+# JetBrains
+.idea/
