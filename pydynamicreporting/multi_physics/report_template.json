@@ -1,0 +1,443 @@
+{
+    "Template_0": {
+        "name": "Solution Analysis from Multiphysics simulation",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:52.611095-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|solution=solverA;",
+        "params": {
+            "HTML": "<h1>Solution Report</h1>"
+        },
+        "sort_selection": "",
+        "parent": null,
+        "children": [
+            "Template_1",
+            "Template_2",
+            "Template_3",
+            "Template_4",
+            "Template_5",
+            "Template_6",
+            "Template_7",
+            "Template_8",
+            "Template_9"
+        ]
+    },
+    "Template_1": {
+        "name": "Project Details",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:12.832860-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|html,string;A|i_tags|cont|text=project_details;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>Project Details</h2>",
+            "properties": {
+                "justification": "left"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": []
+    },
+    "Template_2": {
+        "name": "TOC",
+        "report_type": "Layout:toc",
+        "date": "2024-12-31T15:45:13.290526-08:00",
+        "tags": "",
+        "item_filter": "A|i_name|eq|__NonexistantName__;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>Table of Contents</h2>"
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": []
+    },
+    "Template_3": {
+        "name": "TOC Figures",
+        "report_type": "Layout:toc",
+        "date": "2024-12-31T15:45:13.738921-08:00",
+        "tags": "",
+        "item_filter": "A|i_name|eq|__NonexistantName__;",
+        "params": {
+            "TOCitems": 0,
+            "TOCfigures": 1,
+            "HTML": "<h2>List of Figures</h2>",
+            "TOCtables": 0
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": []
+    },
+    "Template_4": {
+        "name": "Introduction",
+        "report_type": "Layout:panel",
+        "date": "2024-12-31T15:45:14.166757-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|section=intro;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>Introduction</h2>",
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "0"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": [
+            "Template_10",
+            "Template_11"
+        ]
+    },
+    "Template_10": {
+        "name": "text",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:14.590859-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|html,string;",
+        "params": {
+            "properties": {
+                "TOCItem": "0",
+                "justification": "left"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_4",
+        "children": []
+    },
+    "Template_11": {
+        "name": "img",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:15.275516-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|image;",
+        "params": {
+            "properties": {
+                "TOCName": "Multiphysics Workflow",
+                "TOCItem": "",
+                "TOCFigure": "1"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_4",
+        "children": []
+    },
+    "Template_5": {
+        "name": "CAD Model Summary",
+        "report_type": "Layout:panel",
+        "date": "2024-12-31T15:45:15.938622-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|section=cad_summary;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>CAD Model Summary</h2>",
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "0"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": [
+            "Template_12"
+        ]
+    },
+    "Template_12": {
+        "name": "Summary of the Design Analysis",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:16.394333-08:00",
+        "tags": "",
+        "item_filter": "",
+        "params": {
+            "HTML": "<h3>Summary of the Design Analysis</h3>",
+            "properties": {
+                "TOCLevel": "1"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_5",
+        "children": [
+            "Template_13",
+            "Template_14"
+        ]
+    },
+    "Template_13": {
+        "name": "table_params",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:17.123280-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|table;",
+        "params": {
+            "properties": {
+                "TOCItem": "2"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_12",
+        "children": []
+    },
+    "Template_14": {
+        "name": "img",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:17.999501-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|image;",
+        "params": {
+            "properties": {
+                "TOCItem": "0",
+                "TOCName": "CAD Configuration",
+                "TOCFigure": "1"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_12",
+        "children": []
+    },
+    "Template_6": {
+        "name": "Preliminary Analysis Summary",
+        "report_type": "Layout:panel",
+        "date": "2024-12-31T15:45:18.912976-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|section=preliminar_summary;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>Preliminary Analysis Summary</h2>",
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "0"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": [
+            "Template_15"
+        ]
+    },
+    "Template_15": {
+        "name": "Results Summary for Preliminary Analysis",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:19.361895-08:00",
+        "tags": "",
+        "item_filter": "",
+        "params": {
+            "HTML": "<h3>Result summary for Preliminar Analysis</h3>",
+            "properties": {
+                "TOCLevel": "1"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_6",
+        "children": [
+            "Template_16",
+            "Template_17"
+        ]
+    },
+    "Template_16": {
+        "name": "img",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:20.029985-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|image;",
+        "params": {
+            "properties": {
+                "TOCItem": "0",
+                "TOCName": "Discovery CAD",
+                "TOCFigure": "1"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_15",
+        "children": []
+    },
+    "Template_17": {
+        "name": "table_params",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:20.982140-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|table;",
+        "params": {
+            "properties": {
+                "TOCItem": "2"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_15",
+        "children": []
+    },
+    "Template_7": {
+        "name": "Detailed Analysis Summary",
+        "report_type": "Layout:panel",
+        "date": "2024-12-31T15:45:21.873837-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|section=detailed_summary;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>Detailedy Analysis Summary</h2>\nDetailed analysis constitutes detailed CFD (Computational Fluid Dynamics) analysis workflow with fluid solver and required data is transferred back to the CAD calibration.",
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "0"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": [
+            "Template_18",
+            "Template_19",
+            "Template_20"
+        ]
+    },
+    "Template_18": {
+        "name": "img",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:22.339642-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|image;",
+        "params": {
+            "properties": {
+                "TOCItem": "0",
+                "TOCName": "Mesh Review",
+                "TOCFigure": "1"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_7",
+        "children": []
+    },
+    "Template_19": {
+        "name": "Mesh Summary",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:23.012104-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|table;A|i_tags|cont|table=meshsummary;",
+        "params": {
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "1"
+            },
+            "HTML": "<h3>Mesh Summary</h3>"
+        },
+        "sort_selection": "",
+        "parent": "Template_7",
+        "children": []
+    },
+    "Template_20": {
+        "name": "Results Summary of Detailed Analysis",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:23.727007-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|table;A|i_tags|cont|table=results;",
+        "params": {
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "1"
+            },
+            "HTML": "<h3>Results Summary of Detailed Analysis</h3>",
+            "column_count": 1,
+            "column_widths": [
+                1.0
+            ]
+        },
+        "sort_selection": "",
+        "parent": "Template_7",
+        "children": [
+            "Template_21",
+            "Template_22"
+        ]
+    },
+    "Template_21": {
+        "name": "table",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:24.452145-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|show=table;",
+        "params": {
+            "properties": {
+                "TOCItem": ""
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_20",
+        "children": []
+    },
+    "Template_22": {
+        "name": "plots",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:25.364986-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|show=plot;",
+        "params": {
+            "properties": {
+                "TOCItem": "0",
+                "plot": "line",
+                "TOCFigure": "2",
+                "xaxis": "0",
+                "format": "floatdot0"
+            },
+            "column_count": 2,
+            "column_widths": [
+                1.0,
+                1.0
+            ]
+        },
+        "sort_selection": "",
+        "parent": "Template_20",
+        "children": []
+    },
+    "Template_8": {
+        "name": "Results & Conclusion",
+        "report_type": "Layout:panel",
+        "date": "2024-12-31T15:45:26.321596-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|section=results;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h2>Results & Conclusion</h2>",
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "0"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": [
+            "Template_23"
+        ]
+    },
+    "Template_23": {
+        "name": "Results",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:26.774482-08:00",
+        "tags": "",
+        "item_filter": "A|i_type|cont|image;",
+        "params": {
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "1"
+            },
+            "HTML": "<h3>Results</h3>\nResults are feedback for model calibrarion and detailed summary of results as below."
+        },
+        "sort_selection": "",
+        "parent": "Template_8",
+        "children": []
+    },
+    "Template_9": {
+        "name": "References",
+        "report_type": "Layout:basic",
+        "date": "2024-12-31T15:45:27.448554-08:00",
+        "tags": "",
+        "item_filter": "A|i_tags|cont|section=references;",
+        "params": {
+            "TOCitems": 1,
+            "HTML": "<h3>References</h3>",
+            "properties": {
+                "TOCItem": "1",
+                "TOCLevel": "0",
+                "justification": "left"
+            }
+        },
+        "sort_selection": "",
+        "parent": "Template_0",
+        "children": []
+    }
+}

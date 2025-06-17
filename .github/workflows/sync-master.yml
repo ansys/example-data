@@ -1,0 +1,31 @@
+name: Sync master with main
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs every night at midnight UTC
+  workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write  # Grants write access to push changes
+
+jobs:
+  sync-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.PYANSYS_CI_BOT_TOKEN }}
+
+      - name: Setup Git
+        run: |
+          git config --global user.name "${{ secrets.PYANSYS_CI_BOT_USERNAME }}"
+          git config --global user.email "${{ secrets.PYANSYS_CI_BOT_EMAIL }}"
+
+      - name: Sync master with main
+        run: |
+          git checkout master
+          git pull origin master
+          git merge origin/main --no-edit
+          git push origin master

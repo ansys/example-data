@@ -1,0 +1,1 @@
+Contains a model with two cubes which have different material properties. The txt files contain the csv data of all the results.

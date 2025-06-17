@@ -1,0 +1,1 @@
+Contains a model with seven bodies which have different material properties. The txt files contain the csv data of all the results.
