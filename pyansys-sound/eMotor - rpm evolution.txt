@@ -1,0 +1,4 @@
+AnsysSound_SoundSamples	1
+FS 0.125
+250
+5000
