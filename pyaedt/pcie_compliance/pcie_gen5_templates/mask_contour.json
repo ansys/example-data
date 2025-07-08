@@ -6,7 +6,7 @@
 	"quantity_type": "3",
     "context": {
         "Domain": "Time",
-        "primary_sweep": "Time",
+        "primary_sweep": "__UnitInterval",
         "primary_sweep_range": [
             "All"
         ],
