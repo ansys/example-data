@@ -2,4 +2,4 @@
 
 - Input Mesh File
 
-This input file is for pyfluent workflow example.
+This directory contains input mesh files for PyFluent battery thermal simulation workflow examples. These files are used to simulate the thermal behavior of a single battery cell using the MSMD battery model.
