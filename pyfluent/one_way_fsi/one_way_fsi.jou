@@ -1,0 +1,12 @@
+/file/read-case "probe.msh.h5" 
+/define/boundary-conditions/set/velocity-inlet velocity_inlet () vmag no 100 turb-viscosity-ratio 5 ()
+/solve/initialize/hyb-initialization
+/solve/set/pseudo-transient yes yes 1 5 0
+/solve/iterate 100
+/display/set/lights/headlight-on? no
+/display/set/lights/lights-on? no
+/display/set/contours/coloring no
+/display/views/default-view
+/display/objects/create contour contour-vel filled? yes node-values? yes field velocity-magnitude surfaces-list fluid-symmetry () coloring banded quit quit
+/display/objects/display contour-vel
+
