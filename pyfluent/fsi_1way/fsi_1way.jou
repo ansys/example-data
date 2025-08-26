@@ -1,4 +1,4 @@
-/file/read-case "probe.msh.h5" 
+/file/read-case "fsi_1way.msh.h5"
 /define/boundary-conditions/set/velocity-inlet velocity_inlet () vmag no 100 turb-viscosity-ratio 5 ()
 /solve/initialize/hyb-initialization
 /solve/set/pseudo-transient yes yes 1 5 0
