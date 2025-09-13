@@ -1,0 +1,15 @@
+/file/set-tui-version "20.1"
+/file/read-case "flap.msh"
+/define/models/viscous/kw-sst? yes 
+/define/boundary-conditions/zone-name wall:008 flap_attach
+/define boundary-conditions zone-name default-interior:010 flap_wall
+/define/boundary-conditions/zone-type solid.5 solid
+/define/boundary-conditions/set/velocity-inlet velocity_inlet.1 () vmag no 10 ()
+/define/operating-conditions/operating-pressure 1013250 
+/define/materials/change-create air air yes constant 1.2 no no yes constant 1.8e-05 no no no 
+/solve/set/p-v-coupling 24
+/solve/initialize/hyb-initialization
+/solve/set/pseudo-transient yes yes 1 5 0
+/solve/iterate 100
+/display/set/contours/filled-contours? yes
+/display/contour velocity-magnitude 0 28.0219
