@@ -71,6 +71,7 @@
 * [Ramdane Lagha](https://github.com/rlagha)
 * [Ramsobhan Kokkiligadda](https://github.com/rs-bh-n)
 * [René Roos](https://github.com/roosre)
+* [Revathy Venugopal](https://github.com/Revathyvenugopal162)
 * [Reza Sadeghi](https://github.com/R3zaSad3ghi)
 * [Roberto Pastor Muela](https://github.com/RobPasMue)
 * [samigithub2022](https://github.com/samigithub2022)
