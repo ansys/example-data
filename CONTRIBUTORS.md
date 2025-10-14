@@ -8,6 +8,7 @@
 
 * [Abhishek Chitwar](https://github.com/abhishekchitwar)
 * [Adam Boutin](https://github.com/ansaboutin)
+* [aglowinski-danfoss](https://github.com/aglowinski-danfoss)
 * [Alan George Varghese](https://github.com/agvarghe)
 * [Alberto Di Maria](https://github.com/Alberto-DM)
 * [Alex Fernandez](https://github.com/AlejandroFernandezLuces)
@@ -77,6 +78,7 @@
 * [samigithub2022](https://github.com/samigithub2022)
 * [Samuel Lopez](https://github.com/Samuelopez-ansys)
 * [Sandeep Medikonda](https://github.com/smedikon)
+* [Sarah Wilson](https://github.com/swilson-work)
 * [Sean Ahern](https://github.com/ahernsean)
 * [Sean Pearson](https://github.com/seanpearsonuk)
 * [Simone Raimondi](https://github.com/SRaimondi)
