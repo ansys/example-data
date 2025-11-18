@@ -30,6 +30,7 @@
 * [Dominik Gresch](https://github.com/greschd)
 * [Edward Carman](https://github.com/EDCarman)
 * [Elijah Gravenhorst](https://github.com/egravenh)
+* [Federico Negri](https://github.com/FedericoNegri)
 * [Frank Li](https://github.com/franknli)
 * [German](https://github.com/germa89)
 * [giovannipappalardiansys](https://github.com/giovannipappalardiansys)
