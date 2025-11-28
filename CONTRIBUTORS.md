@@ -51,6 +51,7 @@
 * [jviqueg](https://github.com/jviqueg)
 * [Kerry McAdams](https://github.com/klmcadams)
 * [Konstantinos Giannokostas](https://github.com/giannoko)
+* [krishnatejas12](https://github.com/krishnatejas12)
 * [Lorenzo Vecchietti](https://github.com/lorenzovecchietti)
 * [Lucas Boucinha](https://github.com/lboucin)
 * [Mainak Kundu](https://github.com/mkundu1)
