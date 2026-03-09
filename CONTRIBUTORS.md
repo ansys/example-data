@@ -21,6 +21,7 @@
 * [Antoine Minard](https://github.com/ansaminard)
 * [Anurag Kulshrestha](https://github.com/akulshre-qa)
 * [Ayush Kumar](https://github.com/ayush-kumar-423)
+* [Bahram Sanadgol](https://github.com/58Bahram)
 * [Camille](https://github.com/clatapie)
 * [Camille Bellot](https://github.com/cbellot000)
 * [Chris Hodgson](https://github.com/cj-hodgson)
