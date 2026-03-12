@@ -1,0 +1,5 @@
+*,dia_wire,ins_thickness,$ins_epsilon_r
+1,0.4mm,16um,3.5
+2,0.6mm,18um,3.77
+3,0.8mm,24um,3.9
+4,1.2mm,42um,4.11
