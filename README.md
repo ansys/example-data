@@ -11,6 +11,11 @@ Examples contain non-confidential and non-proprietary data.
 > left for avoiding breaking changes on our libraries, and it is being kept in sync with ``main``. Make sure
 > that any PR opened is targeting ``main``.
 
+# Download manager
+
+In the PyAnsys tools common project, a [download manager](https://tools.docs.pyansys.com/version/stable/user_guide/ansys_downloader.html) is available. This was specifically made to ease the download of
+files from this repository instead of building your own logic.
+
 ## Contributing
 
 To contribute to this repo, please read the [PyAnsys Contributing guide](https://dev.docs.pyansys.com/how-to/contributing.html).
