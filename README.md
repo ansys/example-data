@@ -13,8 +13,7 @@ Examples contain non-confidential and non-proprietary data.
 
 # Download manager
 
-In the PyAnsys tools common project, a [download manager](https://tools.docs.pyansys.com/version/stable/user_guide/ansys_downloader.html) is available. This was specifically made to ease the download of
-files from this repository instead of building your own logic.
+The PyAnsys Tools Common project provides a [download manager](https://tools.docs.pyansys.com/version/stable/user_guide/ansys_downloader.html) to simplify downloading files from this repository instead of implementing custom download logic.
 
 ## Contributing
 
