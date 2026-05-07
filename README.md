@@ -15,6 +15,14 @@ Examples contain non-confidential and non-proprietary data.
 
 The PyAnsys Tools Common project provides a [download manager](https://tools.docs.pyansys.com/version/stable/user_guide/ansys_downloader.html) to simplify downloading files from this repository instead of implementing custom download logic.
 
+Here is an example of how to leverage the tool:
+```python
+from ansys.tools.common.example_download import download_manager
+filename = "11_blades_mode_1_ND_0.csv"
+directory = "pymapdl/cfx_mapping"
+local_path = download_manager.download_file(filename, directory)
+```
+
 ## Contributing
 
 To contribute to this repo, please read the [PyAnsys Contributing guide](https://dev.docs.pyansys.com/how-to/contributing.html).
