@@ -20,6 +20,8 @@ First, make sure that you have the ``ansys-tools-common`` package installed:
 
 ```bash
 pip install ansys-tools-common
+```
+
 Here is an example of how to leverage the tool:
 ```python
 from ansys.tools.common.example_download import download_manager
