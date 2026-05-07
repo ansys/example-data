@@ -13,8 +13,13 @@ Examples contain non-confidential and non-proprietary data.
 
 # Download manager
 
-The PyAnsys Tools Common project provides a [download manager](https://tools.docs.pyansys.com/version/stable/user_guide/ansys_downloader.html) to simplify downloading files from this repository instead of implementing custom download logic.
+The PyAnsys Tools Common project provides a [download manager](https://tools.docs.pyansys.com/version/stable/user_guide/ansys_downloader.html)
+to simplify downloading files from this repository instead of implementing custom download logic.
 
+First, make sure that you have the ``ansys-tools-common`` package installed:
+
+```bash
+pip install ansys-tools-common
 Here is an example of how to leverage the tool:
 ```python
 from ansys.tools.common.example_download import download_manager
