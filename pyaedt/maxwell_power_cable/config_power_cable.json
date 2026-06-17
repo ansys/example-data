@@ -1,0 +1,199 @@
+{
+    "general": {
+        "pyaedt_version": "0.26.1",
+        "model_units": "mm",
+        "design_name": "2D_Cable",
+        "date": "15/06/2026 17:02:19",
+        "object_mapping": {},
+        "output_variables": {},
+        "variables": {
+            "dia_conductor": "29.9mm",
+            "dia_conductor_screen": "33.9mm",
+            "dia_conductor_insulation": "53.9mm",
+            "dia_conductor_insulation_screen": "59.8mm",
+            "dia_conductor_sheat": "65.9mm",
+            "dia_filler": "142.2mm",
+            "dia_bedding": "143.0mm",
+            "dia_inner_sheath": "151.0mm",
+            "dia_armor_inner": "157.3mm",
+            "dia_bedding_armor": "157.7mm",
+            "dia_armor_outer": "164.0mm",
+            "dia_outer_sheat": "174.5mm",
+            "x0_cond": "32.95mm",
+            "y0_cond": "-19.0236913697982mm",
+            "filler_fillet": "10.0mm"
+        },
+        "postprocessing_variables": {}
+    },
+    "materials": {
+        "vacuum": {
+            "CoordinateSystemType": "Cartesian",
+            "BulkOrSurfaceType": 1,
+            "PhysicsTypes": {
+                "set": [
+                    "Electromagnetic"
+                ]
+            },
+            "AttachedData": {
+                "MatAppearanceData": {
+                    "property_data": "appearance_data",
+                    "Red": 230,
+                    "Green": 230,
+                    "Blue": 230,
+                    "Transparency": 0.949999988079071
+                }
+            },
+            "permittivity": "1",
+            "permeability": "1.0",
+            "conductivity": "0",
+            "dielectric_loss_tangent": "0",
+            "magnetic_loss_tangent": "0",
+            "thermal_conductivity": "0.01",
+            "mass_density": "0",
+            "specific_heat": "0",
+            "thermal_expansion_coefficient": "0",
+            "youngs_modulus": "0",
+            "poissons_ratio": "0",
+            "diffusivity": "0.8",
+            "molecular_mass": "0",
+            "viscosity": "0"
+        },
+        "XLPE": {
+            "CoordinateSystemType": "Cartesian",
+            "BulkOrSurfaceType": 1,
+            "PhysicsTypes": {
+                "set": [
+                    "Electromagnetic",
+                    "Thermal",
+                    "Structural"
+                ]
+            },
+            "AttachedData": {
+                "MatAppearanceData": {
+                    "property_data": "appearance_data",
+                    "Red": 210,
+                    "Green": 105,
+                    "Blue": 30,
+                    "Transparency": 0
+                }
+            },
+            "permittivity": "2.09762",
+            "permeability": "1.0",
+            "conductivity": "1.40573e-16",
+            "dielectric_loss_tangent": "0.000264575",
+            "magnetic_loss_tangent": "0",
+            "thermal_conductivity": "0.01",
+            "mass_density": "0",
+            "specific_heat": "0",
+            "thermal_expansion_coefficient": "0",
+            "youngs_modulus": "0",
+            "poissons_ratio": "0",
+            "diffusivity": "0.8",
+            "molecular_mass": "0",
+            "viscosity": "0"
+        },
+        "MDPE": {
+            "CoordinateSystemType": "Cartesian",
+            "BulkOrSurfaceType": 1,
+            "PhysicsTypes": {
+                "set": [
+                    "Electromagnetic",
+                    "Thermal",
+                    "Structural"
+                ]
+            },
+            "AttachedData": {
+                "MatAppearanceData": {
+                    "property_data": "appearance_data",
+                    "Red": 0,
+                    "Green": 100,
+                    "Blue": 0,
+                    "Transparency": 0
+                }
+            },
+            "permittivity": "2.09762",
+            "permeability": "1.0",
+            "conductivity": "1.40573e-16",
+            "dielectric_loss_tangent": "0.000264575",
+            "magnetic_loss_tangent": "0",
+            "thermal_conductivity": "0.01",
+            "mass_density": "0",
+            "specific_heat": "0",
+            "thermal_expansion_coefficient": "0",
+            "youngs_modulus": "0",
+            "poissons_ratio": "0",
+            "diffusivity": "0.8",
+            "molecular_mass": "0",
+            "viscosity": "0"
+        },
+        "HDPE": {
+            "CoordinateSystemType": "Cartesian",
+            "BulkOrSurfaceType": 1,
+            "PhysicsTypes": {
+                "set": [
+                    "Electromagnetic",
+                    "Thermal",
+                    "Structural"
+                ]
+            },
+            "AttachedData": {
+                "MatAppearanceData": {
+                    "property_data": "appearance_data",
+                    "Red": 255,
+                    "Green": 69,
+                    "Blue": 0,
+                    "Transparency": 0
+                }
+            },
+            "permittivity": "2.09762",
+            "permeability": "1.0",
+            "conductivity": "1.40573e-16",
+            "dielectric_loss_tangent": "0.000264575",
+            "magnetic_loss_tangent": "0",
+            "thermal_conductivity": "0.01",
+            "mass_density": "0",
+            "specific_heat": "0",
+            "thermal_expansion_coefficient": "0",
+            "youngs_modulus": "0",
+            "poissons_ratio": "0",
+            "diffusivity": "0.8",
+            "molecular_mass": "0",
+            "viscosity": "0"
+        },
+        "PPY": {
+            "CoordinateSystemType": "Cartesian",
+            "BulkOrSurfaceType": 1,
+            "PhysicsTypes": {
+                "set": [
+                    "Electromagnetic",
+                    "Thermal",
+                    "Structural"
+                ]
+            },
+            "AttachedData": {
+                "MatAppearanceData": {
+                    "property_data": "appearance_data",
+                    "Red": 143,
+                    "Green": 188,
+                    "Blue": 143,
+                    "Transparency": 0
+                }
+            },
+            "permittivity": "1",
+            "permeability": "1.0",
+            "conductivity": "250",
+            "dielectric_loss_tangent": "0",
+            "magnetic_loss_tangent": "0",
+            "thermal_conductivity": "0.01",
+            "mass_density": "0",
+            "specific_heat": "0",
+            "thermal_expansion_coefficient": "0",
+            "youngs_modulus": "0",
+            "poissons_ratio": "0",
+            "diffusivity": "0.8",
+            "molecular_mass": "0",
+            "viscosity": "0"
+        }
+    },
+    "objects": {}
+}
