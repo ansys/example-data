@@ -1,0 +1,319 @@
+<Project type="object" class="PFolder">
+    <URL class="string" value=""/>
+    <Metadata type="object" class="ansys::Project::MetadataHoof">
+        <FormatVersion class="int" value="2"/>
+        <ReleaseID class="string" value="26.1"/>
+        <Subclass class="string" value="SimProject"/>
+        <ProjectStoragePolicy::FolderEnabled class="string" value="true"/>
+        <ProjectStoragePolicy::FolderName class="string" value=""/>
+        <ProjectStoragePolicy::FolderSuffix class="string" value=".cffdb"/>
+        <ProjectStoragePolicy::SimFolder class="string" value=""/>
+        <ProjectType class="string" value="SimProject"/>
+        <CurrentSimulation class="string" value="LINK:axial_fan-Solve/"/>
+        <SimulationNames class="string" value="axial_fan"/>
+        <isParametricProject class="string" value="True"/>
+        <ProjectCreatedIn class="double" value="26.1"/>
+        <BaseSimulationName class="string" value="axial_fan"/>
+        <Project::displayColumns class="string" value="Name"/>
+        <Project::displayAllFiles class="int" value="0"/>
+        <Project::displayHidden class="int" value="0"/>
+        <Project::displayFilenames class="int" value="0"/>
+        <Project::displaySorted class="int" value="0"/>
+        <Project::sortColumn class="int" value="0"/>
+    </Metadata>
+    <axial_fan-Solve type="object" class="PFolder">
+        <URL class="string" value="./axial_fan-Solve/"/>
+        <Subclass class="string" value="Simulation"/>
+        <Metadata type="object" class="ansys::Project::MetadataHoof">
+            <SimulationType class="string" value="ANSYS_FLUENT"/>
+            <MainDataType class="string" value="fluent-dat"/>
+            <PItem::Expanded class="int" value="1"/>
+            <CurrentRun class="string" value="LINK:DP4/"/>
+            <PItem::displayOrder class="string" value="BaseCases,Base DP,DP1,DP2,DP3,DP4"/>
+            <pressure_outlet-Unit class="string" value="[Pa]"/>
+            <rotational_speed-Unit class="string" value="[rad/s]"/>
+            <inlet-volume-flow-rate-op-Unit class="string" value="[m^3/s]"/>
+            <total-to-static-pressure-op-Unit class="string" value="[Pa]"/>
+            <torque-op-Unit class="string" value="[N m]"/>
+            <UpdateMethod class="string" value="Sequential"/>
+            <DPCreationMethod class="string" value="Manual"/>
+            <AutoMeshMorphUpdate class="string" value="True"/>
+            <AutoDPReportGeneration class="string" value="False"/>
+            <AutoDPReportHtmlExport class="string" value="False"/>
+            <AutoDPReportPdfExport class="string" value="False"/>
+            <AutoDPReportPptxExport class="string" value="False"/>
+            <AutoParametricReportGeneration class="string" value="False"/>
+            <AutoParametricReportUpdateDpData class="string" value="False"/>
+            <AutoParametricReportHtmlExport class="string" value="False"/>
+            <job_max-execution-time class="double" value="0"/>
+            <job_exclusive class="string" value="No"/>
+            <job_num-of-concurrent-dps class="int" value="2"/>
+            <job_mpi-type class="string" value="default"/>
+            <job_capability class="string" value="CFD Premium"/>
+            <job-interconnect-type class="string" value="default"/>
+            <job_number-of-cpus class="int" value="8"/>
+            <job_number-of-cpus-per-node class="int" value="0"/>
+            <job_gpu-per-node class="int" value="0"/>
+            <global-concurrent-mode class="string" value="remote"/>
+            <job_update-on-cloud class="string" value="No"/>
+            <job_file_transfer_option class="int" value="1"/>
+            <job_keep_specific_files class="string" value="*.cas*;*.dat*;*.trn*;*.out*;*.png*"/>
+            <LicenseType class="string" value="Solver Licenses"/>
+            <oSLLicenseType class="string" value="None"/>
+            <oSLLicenses class="int" value="1"/>
+        </Metadata>
+        <axial_fan.cas.h5 type="object" class="PFile">
+            <URL class="string" value="./axial_fan.cas.h5"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <PItem::FileTime class="int" value="708845077"/>
+                <DataType class="string" value="Case"/>
+                <CaseType class="string" value="fluent-cas"/>
+                <VisibilityMode class="string" value="Solver"/>
+            </Metadata>
+        </axial_fan.cas.h5>
+        <Input type="object" class="PFolder">
+            <URL class="string" value=""/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <PItem::Hidden class="int" value="1"/>
+            </Metadata>
+            <Case type="object" class="PLink">
+                <Target class="string" value="/axial_fan-Solve/axial_fan.cas.h5"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof"/>
+            </Case>
+        </Input>
+        <Base_DP type="object" class="PFolder" displayName="Base DP">
+            <URL class="string" value="./Base DP/"/>
+            <Subclass class="string" value="Run"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <Run::OutputType class="string" value="Simple"/>
+                <pressure_outlet-INPUT class="double" value="25"/>
+                <rotational_speed-INPUT class="double" value="155.534"/>
+                <Run::OutputCounter class="int" value="1"/>
+                <Run::CurrentOutput class="string" value="LINK:Solver Files/"/>
+                <PItem::Expanded class="int" value="1"/>
+                <inlet-volume-flow-rate-op-OUTPUT class="double" value="1.7733"/>
+                <torque-op-OUTPUT class="double" value="0.0597"/>
+                <total-to-static-pressure-op-OUTPUT class="double" value="24.8184"/>
+            </Metadata>
+            <Solver_Files type="object" class="PFolder" displayName="Solver Files">
+                <URL class="string" value=""/>
+                <Subclass class="string" value="Output"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <index class="int" value="1"/>
+                    <WriteData class="string" value="True"/>
+                    <GenerateSimReportData class="string" value="True"/>
+                    <isCurrent class="string" value="No"/>
+                    <Status class="string" value="Updated : Converged"/>
+                    <inlet-volume-flow-rate-op-OUTPUT class="double" value="1.7733"/>
+                    <torque-op-OUTPUT class="double" value="0.0597"/>
+                    <total-to-static-pressure-op-OUTPUT class="double" value="24.8184"/>
+                    <PItem::Expanded class="int" value="1"/>
+                </Metadata>
+                <axial_fan.cas.h5 type="object" class="PFile">
+                    <URL class="string" value="./axial_fan.cas.h5"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708845299"/>
+                        <DataType class="string" value="Case"/>
+                        <CaseType class="string" value="fluent-cas"/>
+                    </Metadata>
+                </axial_fan.cas.h5>
+                <axial_fan.dat.h5 type="object" class="PFile">
+                    <URL class="string" value="./axial_fan.dat.h5"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708845300"/>
+                        <DataType class="string" value="Result"/>
+                        <CaseType class="string" value="fluent-dat"/>
+                    </Metadata>
+                </axial_fan.dat.h5>
+                <axial_fan.trn type="object" class="PFile">
+                    <URL class="string" value="./Auto-generated-transcript.trn"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708845300"/>
+                    </Metadata>
+                </axial_fan.trn>
+            </Solver_Files>
+        </Base_DP>
+        <BaseCases type="object" class="PFolder">
+            <URL class="string" value="./BaseCases/"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <PItem::Expanded class="int" value="1"/>
+            </Metadata>
+            <axial_fan.cas.h5 type="object" class="PFile">
+                <URL class="string" value="./axial_fan.cas.h5"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <PItem::FileTime class="int" value="708845084"/>
+                </Metadata>
+            </axial_fan.cas.h5>
+        </BaseCases>
+        <Simulation_Reports type="object" class="PFolder">
+            <URL class="string" value="./Simulation_Reports/"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <PItem::Expanded class="int" value="1"/>
+            </Metadata>
+            <report_state.fsrt type="object" class="PFile">
+                <URL class="string" value="./report_state.fsrt"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <PItem::FileTime class="int" value="0"/>
+                </Metadata>
+            </report_state.fsrt>
+        </Simulation_Reports>
+        <DP1 type="object" class="PFolder">
+            <URL class="string" value="./DP1/"/>
+            <Subclass class="string" value="Run"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <Run::OutputType class="string" value="Simple"/>
+                <Run::OutputCounter class="int" value="1"/>
+                <Run::CurrentOutput class="string" value="LINK:Solver Files/"/>
+                <pressure_outlet-INPUT class="double" value="50"/>
+                <rotational_speed-INPUT class="double" value="155.534"/>
+                <inlet-volume-flow-rate-op-OUTPUT class="double" value="1.6673"/>
+                <torque-op-OUTPUT class="double" value="0.0481"/>
+                <total-to-static-pressure-op-OUTPUT class="double" value="49.8311"/>
+                <PItem::Expanded class="int" value="1"/>
+            </Metadata>
+            <Solver_Files type="object" class="PFolder" displayName="Solver Files">
+                <URL class="string" value=""/>
+                <Subclass class="string" value="Output"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <index class="int" value="1"/>
+                    <Status class="string" value="Updated : Converged"/>
+                    <WriteData class="string" value="False"/>
+                    <GenerateSimReportData class="string" value="True"/>
+                    <isCurrent class="string" value="No"/>
+                    <inlet-volume-flow-rate-op-OUTPUT class="double" value="1.6673"/>
+                    <torque-op-OUTPUT class="double" value="0.0481"/>
+                    <total-to-static-pressure-op-OUTPUT class="double" value="49.8311"/>
+                    <PItem::Expanded class="int" value="1"/>
+                </Metadata>
+                <axial_fan.trn type="object" class="PFile">
+                    <URL class="string" value="./Auto-generated-transcript.trn"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708845524"/>
+                    </Metadata>
+                </axial_fan.trn>
+            </Solver_Files>
+        </DP1>
+        <DP2 type="object" class="PFolder">
+            <URL class="string" value="./DP2/"/>
+            <Subclass class="string" value="Run"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <Run::OutputType class="string" value="Simple"/>
+                <Run::OutputCounter class="int" value="1"/>
+                <Run::CurrentOutput class="string" value="LINK:Solver Files/"/>
+                <pressure_outlet-INPUT class="double" value="125"/>
+                <rotational_speed-INPUT class="double" value="155.534"/>
+                <inlet-volume-flow-rate-op-OUTPUT class="double" value="0.9651999999999999"/>
+                <torque-op-OUTPUT class="double" value="0.0224"/>
+                <total-to-static-pressure-op-OUTPUT class="double" value="124.968"/>
+                <PItem::Expanded class="int" value="1"/>
+            </Metadata>
+            <Solver_Files type="object" class="PFolder" displayName="Solver Files">
+                <URL class="string" value=""/>
+                <Subclass class="string" value="Output"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <index class="int" value="1"/>
+                    <Status class="string" value="Updated : Converged"/>
+                    <WriteData class="string" value="False"/>
+                    <GenerateSimReportData class="string" value="True"/>
+                    <isCurrent class="string" value="No"/>
+                    <inlet-volume-flow-rate-op-OUTPUT class="double" value="0.9651999999999999"/>
+                    <torque-op-OUTPUT class="double" value="0.0224"/>
+                    <total-to-static-pressure-op-OUTPUT class="double" value="124.968"/>
+                    <PItem::Expanded class="int" value="1"/>
+                </Metadata>
+                <axial_fan.trn type="object" class="PFile">
+                    <URL class="string" value="./Auto-generated-transcript.trn"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708845756"/>
+                    </Metadata>
+                </axial_fan.trn>
+            </Solver_Files>
+        </DP2>
+        <DP3 type="object" class="PFolder">
+            <URL class="string" value="./DP3/"/>
+            <Subclass class="string" value="Run"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <Run::OutputType class="string" value="Simple"/>
+                <Run::OutputCounter class="int" value="1"/>
+                <Run::CurrentOutput class="string" value="LINK:Solver Files/"/>
+                <pressure_outlet-INPUT class="double" value="150"/>
+                <rotational_speed-INPUT class="double" value="155.534"/>
+                <inlet-volume-flow-rate-op-OUTPUT class="double" value="0.3118"/>
+                <torque-op-OUTPUT class="double" value="-0.0194"/>
+                <total-to-static-pressure-op-OUTPUT class="double" value="149.971"/>
+                <PItem::Expanded class="int" value="1"/>
+            </Metadata>
+            <Solver_Files type="object" class="PFolder" displayName="Solver Files">
+                <URL class="string" value=""/>
+                <Subclass class="string" value="Output"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <index class="int" value="1"/>
+                    <Status class="string" value="Updated : Converged"/>
+                    <WriteData class="string" value="False"/>
+                    <GenerateSimReportData class="string" value="True"/>
+                    <isCurrent class="string" value="No"/>
+                    <inlet-volume-flow-rate-op-OUTPUT class="double" value="0.3118"/>
+                    <torque-op-OUTPUT class="double" value="-0.0194"/>
+                    <total-to-static-pressure-op-OUTPUT class="double" value="149.9706"/>
+                    <PItem::Expanded class="int" value="1"/>
+                </Metadata>
+                <axial_fan.trn type="object" class="PFile">
+                    <URL class="string" value="./Auto-generated-transcript.trn"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708846031"/>
+                    </Metadata>
+                </axial_fan.trn>
+            </Solver_Files>
+        </DP3>
+        <DP4 type="object" class="PFolder">
+            <URL class="string" value="./DP4/"/>
+            <Subclass class="string" value="Run"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <Run::OutputType class="string" value="Simple"/>
+                <Run::OutputCounter class="int" value="1"/>
+                <Run::CurrentOutput class="string" value="LINK:Solver Files/"/>
+                <pressure_outlet-INPUT class="double" value="200"/>
+                <rotational_speed-INPUT class="double" value="155.534"/>
+                <inlet-volume-flow-rate-op-OUTPUT class="double" value="0.1089"/>
+                <torque-op-OUTPUT class="double" value="-0.0136"/>
+                <total-to-static-pressure-op-OUTPUT class="double" value="199.933"/>
+                <PItem::Expanded class="int" value="1"/>
+            </Metadata>
+            <Solver_Files type="object" class="PFolder" displayName="Solver Files">
+                <URL class="string" value=""/>
+                <Subclass class="string" value="Output"/>
+                <Metadata type="object" class="ansys::Project::MetadataHoof">
+                    <index class="int" value="1"/>
+                    <Status class="string" value="Updated : Converged"/>
+                    <WriteData class="string" value="False"/>
+                    <GenerateSimReportData class="string" value="True"/>
+                    <isCurrent class="string" value="Yes"/>
+                    <inlet-volume-flow-rate-op-OUTPUT class="double" value="0.1089"/>
+                    <torque-op-OUTPUT class="double" value="-0.0136"/>
+                    <total-to-static-pressure-op-OUTPUT class="double" value="199.9325"/>
+                    <PItem::Expanded class="int" value="1"/>
+                </Metadata>
+                <axial_fan.trn type="object" class="PFile">
+                    <URL class="string" value="./Auto-generated-transcript.trn"/>
+                    <Metadata type="object" class="ansys::Project::MetadataHoof">
+                        <PItem::FileTime class="int" value="708846317"/>
+                    </Metadata>
+                </axial_fan.trn>
+            </Solver_Files>
+        </DP4>
+        <DesignPoints.csv type="object" class="PFile">
+            <URL class="string" value="./DesignPoints.csv"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <PItem::FileTime class="int" value="0"/>
+                <PItem::Hidden class="int" value="1"/>
+            </Metadata>
+        </DesignPoints.csv>
+        <ParametricPlots.json type="object" class="PFile">
+            <URL class="string" value="./ParametricPlots.json"/>
+            <Metadata type="object" class="ansys::Project::MetadataHoof">
+                <PItem::FileTime class="int" value="708845082"/>
+                <PItem::Hidden class="int" value="1"/>
+            </Metadata>
+        </ParametricPlots.json>
+    </axial_fan-Solve>
+</Project>

@@ -1,0 +1,6 @@
+Design Points,pressure_outlet,rotational_speed,inlet-volume-flow-rate-op,torque-op,total-to-static-pressure-op
+Base DP,25,155.534,1.7733,0.0597,24.8184
+DP1,50,155.534,1.6673,0.0481,49.8311
+DP2,125,155.534,0.9651999999999999,0.0224,124.968
+DP3,150,155.534,0.3118,-0.0194,149.9706
+DP4,200,155.534,0.1089,-0.0136,199.9325
