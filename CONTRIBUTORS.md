@@ -64,6 +64,7 @@
 * [Mehdi](https://github.com/abarhamm)
 * [Mohamed Koubaa](https://github.com/koubaa)
 * [Mohammed Abdul Razzaq](https://github.com/MohammedAnsys)
+* [Mustafa Kaddoura](https://github.com/Mustafa-Kaddoura)
 * [Nayane Fernandes](https://github.com/ansnfernand)
 * [Ninad Kamat](https://github.com/ninad-kamat)
 * [Oleg Chernukhin](https://github.com/ochernuk)
