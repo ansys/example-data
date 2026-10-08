@@ -1,5 +1,5 @@
 > [!CAUTION]
-> **Do not commit any proprietary information belonging either to Ansys or to external sources. If you are uncertain, consult your manager.**
+> **Do not commit any proprietary information belonging either to Synopsys or to external sources. If you are uncertain, consult your manager.**
 
 > [!IMPORTANT]  
 > This repository used to have as its default branch ``master``. In order to align with the ecosystem
