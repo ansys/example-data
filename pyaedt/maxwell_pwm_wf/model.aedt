@@ -480,21 +480,15 @@ $begin 'AnsoftProject'
 		SolutionType='Transient'
 		GeometryMode='XY'
 		$begin 'OutputVariable'
-			NextUniqueID=12
+			NextUniqueID=6
 			MoveBackwards=false
 			$begin 'OutputVariables'
-				ThetaED(ID=0, '((pi * MachineRPM/1rpm*NumPoles / 60*time)) + pi', 1, 'ns', 1, 'ns', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				Id_peak(ID=1, '2/3*(Current(WG_Ph1_P1)*cos(ThetaED)+Current(WG_Ph2_P1)*cos(ThetaED - 120deg)+Current(WG_Ph3_P1)*cos(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				Iq_peak(ID=2, '2/3*(Current(WG_Ph1_P1)*-sin(ThetaED)+Current(WG_Ph2_P1)*-sin(ThetaED - 120deg)+Current(WG_Ph3_P1)*-sin(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+				ThetaED(ID=0, '((pi * MachineRPM/1rpm*NumPoles / 60*time - 0 / 360 * 2 * pi)) + pi', 1, 'ns', 1, 'ns', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+				Id_peak(ID=1, '2/3*(InputCurrent(WG_Ph1_P1)*cos(ThetaED)+InputCurrent(WG_Ph2_P1)*cos(ThetaED - 120deg)+InputCurrent(WG_Ph3_P1)*cos(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+				Iq_peak(ID=2, '2/3*(InputCurrent(WG_Ph1_P1)*-sin(ThetaED)+InputCurrent(WG_Ph2_P1)*-sin(ThetaED - 120deg)+InputCurrent(WG_Ph3_P1)*-sin(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				PsiD(ID=3, '2/3*(FluxLinkage(WG_Ph1_P1)*cos(ThetaED)+FluxLinkage(WG_Ph2_P1)*cos(ThetaED - 120deg)+FluxLinkage(WG_Ph3_P1)*cos(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				PsiQ(ID=4, '2/3*(FluxLinkage(WG_Ph1_P1)*-sin(ThetaED)+FluxLinkage(WG_Ph2_P1)*-sin(ThetaED - 120deg)+FluxLinkage(WG_Ph3_P1)*-sin(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				TorqueDQ(ID=5, '3/2*NumPoles/2*(PsiD*Iq_peak - PsiQ*Id_peak)', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				StatorHy(ID=6, 'HysteresisLoss(Stator_1) + HysteresisLoss(Stator_2)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				StatorEddy(ID=7, 'EddyCurrentLoss(Stator_1) + EddyCurrentLoss(Stator_2)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				RotorHy(ID=8, 'HysteresisLoss(Rotor_1) + HysteresisLoss(Rotor_2) + HysteresisLoss(Rotor_3)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				RotorEddy(ID=9, 'EddyCurrentLoss(Rotor_1) + EddyCurrentLoss(Rotor_2) + EddyCurrentLoss(Rotor_3)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				MagLoss(ID=10, 'SolidLoss(L1_1Magnet1N1_1) + SolidLoss(L1_1Magnet2N1_1) + SolidLoss(L2_1Magnet1N1_1) + SolidLoss(L2_1Magnet2N1_1)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				WindingLoss(ID=11, 'PerWindingSolidLoss(WG_Ph1_P1) + PerWindingSolidLoss(WG_Ph2_P1) + PerWindingSolidLoss(WG_Ph3_P1)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 			$end 'OutputVariables'
 		$end 'OutputVariable'
 		$begin 'ModelSetup'
@@ -506,59 +500,59 @@ $begin 'AnsoftProject'
 				$end 'DatasetDefinitions'
 			$end 'DesignDatasets'
 			$begin 'Properties'
-				VariableProp('AAA', 'UD', '', '1000', oa(i=false, int=false, Min='500', Max='1500', MinStep='10', MaxStep='100', MinFocus='500', MaxFocus='1500', UseManufacturableValues='false', Level='[500: 1500]'), sa(i=false, int=false, Min='500', Max='1500', IDisp='100'), ta(i=false, int=false, Step='100', Min='500', Max='1500'))
-				VariableProp('DiaGap', 'UD', '', '142.54mm', oa(i=false, int=false, Min='71.27mm', Max='213.81mm', MinStep='1.4254mm', MaxStep='14.254mm', MinFocus='71.27mm', MaxFocus='213.81mm', UseManufacturableValues='false', Level='[71.27: 213.81] mm'), sa(i=false, int=false, Min='71.27mm', Max='213.81mm', IDisp='14.254mm'), ta(i=false, int=false, Step='14.254mm', Min='71.27mm', Max='213.81mm'))
-				VariableProp('DiaStatorYoke', 'UD', '', '198mm', oa(i=false, int=false, Min='99mm', Max='297mm', MinStep='1.98mm', MaxStep='19.8mm', MinFocus='99mm', MaxFocus='297mm', UseManufacturableValues='false', Level='[99: 297] mm'), sa(i=false, int=false, Min='99mm', Max='297mm', IDisp='19.8mm'), ta(i=false, int=false, Step='19.8mm', Min='99mm', Max='297mm'))
-				VariableProp('DiaOuter', 'UD', '', '198mm', oa(i=false, int=false, Min='99mm', Max='297mm', MinStep='1.98mm', MaxStep='19.8mm', MinFocus='99mm', MaxFocus='297mm', UseManufacturableValues='false', Level='[99: 297] mm'), sa(i=false, int=false, Min='99mm', Max='297mm', IDisp='19.8mm'), ta(i=false, int=false, Step='19.8mm', Min='99mm', Max='297mm'))
-				VariableProp('Airgap', 'UD', '', '1mm', oa(i=false, int=false, Min='0.5mm', Max='1.5mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='1.5mm', UseManufacturableValues='false', Level='[0.5: 1.5] mm'), sa(i=false, int=false, Min='0.5mm', Max='1.5mm', IDisp='0.1mm'), ta(i=false, int=false, Step='0.1mm', Min='0.5mm', Max='1.5mm'))
-				VariableProp('StatorSkewAngle', 'UD', '', '0deg', oa(i=false, int=false, Min='-1deg', Max='1deg', MinStep='0.02deg', MaxStep='0.2deg', MinFocus='-1deg', MaxFocus='1deg', UseManufacturableValues='false', Level='[-1: 1] deg'), sa(i=false, int=false, Min='-1deg', Max='1deg', IDisp='0.2deg'), ta(i=false, int=false, Step='0.2deg', Min='-1deg', Max='1deg'))
-				VariableProp('Model_Length', 'UD', '', '0mm', oa(i=false, int=false, Min='-1mm', Max='1mm', MinStep='0.02mm', MaxStep='0.2mm', MinFocus='-1mm', MaxFocus='1mm', UseManufacturableValues='false', Level='[-1: 1] mm'), sa(i=false, int=false, Min='-1mm', Max='1mm', IDisp='0.2mm'), ta(i=false, int=false, Step='0.2mm', Min='-1mm', Max='1mm'))
-				VariableProp('Stator_Lam_Length', 'UD', '', '0mm', oa(i=false, int=false, Min='-1mm', Max='1mm', MinStep='0.02mm', MaxStep='0.2mm', MinFocus='-1mm', MaxFocus='1mm', UseManufacturableValues='false', Level='[-1: 1] mm'), sa(i=false, int=false, Min='-1mm', Max='1mm', IDisp='0.2mm'), ta(i=false, int=false, Step='0.2mm', Min='-1mm', Max='1mm'))
-				VariableProp('SlotNumber_Stator', 'UD', '', '48', oa(i=false, int=false, Min='24', Max='72', MinStep='0.48', MaxStep='4.8', MinFocus='24', MaxFocus='72', UseManufacturableValues='false', Level='[24: 72]'), sa(i=false, int=false, Min='24', Max='72', IDisp='4.8'), ta(i=false, int=false, Step='4.8', Min='24', Max='72'))
-				VariableProp('SlotType_Stator', 'UD', '', '3', oa(i=false, int=false, Min='1.5', Max='4.5', MinStep='0.03', MaxStep='0.3', MinFocus='1.5', MaxFocus='4.5', UseManufacturableValues='false', Level='[1.5: 4.5]'), sa(i=false, int=false, Min='1.5', Max='4.5', IDisp='0.3'), ta(i=false, int=false, Step='0.3', Min='1.5', Max='4.5'))
-				VariableProp('Hs0_Stator', 'UD', '', '1mm', oa(i=false, int=false, Min='0.5mm', Max='1.5mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='1.5mm', UseManufacturableValues='false', Level='[0.5: 1.5] mm'), sa(i=false, int=false, Min='0.5mm', Max='1.5mm', IDisp='0.1mm'), ta(i=false, int=false, Step='0.1mm', Min='0.5mm', Max='1.5mm'))
-				VariableProp('Hs1_Stator', 'UD', '', '0.282123169133541mm', oa(i=false, int=false, Min='0.141061584566771mm', Max='0.423184753700312mm', MinStep='0.00282123169133541mm', MaxStep='0.0282123169133541mm', MinFocus='0.141061584566771mm', MaxFocus='0.423184753700312mm', UseManufacturableValues='false', Level='[0.141061584566771: 0.423184753700312] mm'), sa(i=false, int=false, Min='0.141061584566771mm', Max='0.423184753700312mm', IDisp='0.0282123169133541mm'), ta(i=false, int=false, Step='0.0282123169133541mm', Min='0.141061584566771mm', Max='0.423184753700312mm'))
-				VariableProp('Hs2_Stator', 'UD', '', '12.5514634582265mm', oa(i=false, int=false, Min='6.27573172911325mm', Max='18.8271951873398mm', MinStep='0.125514634582265mm', MaxStep='1.25514634582265mm', MinFocus='6.27573172911325mm', MaxFocus='18.8271951873398mm', UseManufacturableValues='false', Level='[6.27573172911325: 18.8271951873398] mm'), sa(i=false, int=false, Min='6.27573172911325mm', Max='18.8271951873398mm', IDisp='1.25514634582265mm'), ta(i=false, int=false, Step='1.25514634582265mm', Min='6.27573172911325mm', Max='18.8271951873398mm'))
-				VariableProp('Bs0_Stator', 'UD', '', '1.43mm', oa(i=false, int=false, Min='0.715mm', Max='2.145mm', MinStep='0.0143mm', MaxStep='0.143mm', MinFocus='0.715mm', MaxFocus='2.145mm', UseManufacturableValues='false', Level='[0.715: 2.145] mm'), sa(i=false, int=false, Min='0.715mm', Max='2.145mm', IDisp='0.143mm'), ta(i=false, int=false, Step='0.143mm', Min='0.715mm', Max='2.145mm'))
-				VariableProp('Bs1_Stator', 'UD', '', '4.63mm', oa(i=false, int=false, Min='2.315mm', Max='6.945mm', MinStep='0.0463mm', MaxStep='0.463mm', MinFocus='2.315mm', MaxFocus='6.945mm', UseManufacturableValues='false', Level='[2.315: 6.945] mm'), sa(i=false, int=false, Min='2.315mm', Max='6.945mm', IDisp='0.463mm'), ta(i=false, int=false, Step='0.463mm', Min='2.315mm', Max='6.945mm'))
-				VariableProp('Bs2_Stator', 'UD', '', '4.63mm', oa(i=false, int=false, Min='2.315mm', Max='6.945mm', MinStep='0.0463mm', MaxStep='0.463mm', MinFocus='2.315mm', MaxFocus='6.945mm', UseManufacturableValues='false', Level='[2.315: 6.945] mm'), sa(i=false, int=false, Min='2.315mm', Max='6.945mm', IDisp='0.463mm'), ta(i=false, int=false, Step='0.463mm', Min='2.315mm', Max='6.945mm'))
-				VariableProp('Rs_Stator', 'UD', '', '0mm', oa(i=false, int=false, Min='-1mm', Max='1mm', MinStep='0.02mm', MaxStep='0.2mm', MinFocus='-1mm', MaxFocus='1mm', UseManufacturableValues='false', Level='[-1: 1] mm'), sa(i=false, int=false, Min='-1mm', Max='1mm', IDisp='0.2mm'), ta(i=false, int=false, Step='0.2mm', Min='-1mm', Max='1mm'))
-				VariableProp('FilletType_Stator', 'UD', '', '1', oa(i=false, int=false, Min='0.5', Max='1.5', MinStep='0.01', MaxStep='0.1', MinFocus='0.5', MaxFocus='1.5', UseManufacturableValues='false', Level='[0.5: 1.5]'), sa(i=false, int=false, Min='0.5', Max='1.5', IDisp='0.1'), ta(i=false, int=false, Step='0.1', Min='0.5', Max='1.5'))
-				VariableProp('Magnetic_Axial_Length', 'UD', '', '150mm', oa(i=false, int=false, Min='75mm', Max='225mm', MinStep='1.5mm', MaxStep='15mm', MinFocus='75mm', MaxFocus='225mm', UseManufacturableValues='false', Level='[75: 225] mm'), sa(i=false, int=false, Min='75mm', Max='225mm', IDisp='15mm'), ta(i=false, int=false, Step='15mm', Min='75mm', Max='225mm'))
-				VariableProp('Layers', 'UD', '', '6', oa(i=false, int=false, Min='3', Max='9', MinStep='0.06', MaxStep='0.6', MinFocus='3', MaxFocus='9', UseManufacturableValues='false', Level='[3: 9]'), sa(i=false, int=false, Min='3', Max='9', IDisp='0.6'), ta(i=false, int=false, Step='0.6', Min='3', Max='9'))
-				VariableProp('ParallelPaths', 'UD', '', '2', oa(i=false, int=false, Min='1', Max='3', MinStep='0.02', MaxStep='0.2', MinFocus='1', MaxFocus='3', UseManufacturableValues='false', Level='[1: 3]'), sa(i=false, int=false, Min='1', Max='3', IDisp='0.2'), ta(i=false, int=false, Step='0.2', Min='1', Max='3'))
-				VariableProp('WireWidth', 'UD', '', '3.711mm', oa(i=false, int=false, Min='1.8555mm', Max='5.5665mm', MinStep='0.03711mm', MaxStep='0.3711mm', MinFocus='1.8555mm', MaxFocus='5.5665mm', UseManufacturableValues='false', Level='[1.8555: 5.5665] mm'), sa(i=false, int=false, Min='1.8555mm', Max='5.5665mm', IDisp='0.3711mm'), ta(i=false, int=false, Step='0.3711mm', Min='1.8555mm', Max='5.5665mm'))
-				VariableProp('WireThick', 'UD', '', '1.686mm', oa(i=false, int=false, Min='0.843mm', Max='2.529mm', MinStep='0.01686mm', MaxStep='0.1686mm', MinFocus='0.843mm', MaxFocus='2.529mm', UseManufacturableValues='false', Level='[0.843: 2.529] mm'), sa(i=false, int=false, Min='0.843mm', Max='2.529mm', IDisp='0.1686mm'), ta(i=false, int=false, Step='0.1686mm', Min='0.843mm', Max='2.529mm'))
-				VariableProp('WireRad', 'UD', '', '0.3mm', oa(i=false, int=false, Min='0.15mm', Max='0.45mm', MinStep='0.003mm', MaxStep='0.03mm', MinFocus='0.15mm', MaxFocus='0.45mm', UseManufacturableValues='false', Level='[0.15: 0.45] mm'), sa(i=false, int=false, Min='0.15mm', Max='0.45mm', IDisp='0.03mm'), ta(i=false, int=false, Step='0.03mm', Min='0.15mm', Max='0.45mm'))
-				VariableProp('LayerGap', 'UD', '', '0.35mm', oa(i=false, int=false, Min='0.175mm', Max='0.525mm', MinStep='0.0035mm', MaxStep='0.035mm', MinFocus='0.175mm', MaxFocus='0.525mm', UseManufacturableValues='false', Level='[0.175: 0.525] mm'), sa(i=false, int=false, Min='0.175mm', Max='0.525mm', IDisp='0.035mm'), ta(i=false, int=false, Step='0.035mm', Min='0.175mm', Max='0.525mm'))
-				VariableProp('SpanExt_F', 'UD', '', '40.0950667946387mm', oa(i=false, int=false, Min='20.0475333973193mm', Max='60.1426001919581mm', MinStep='0.400950667946387mm', MaxStep='4.00950667946387mm', MinFocus='20.0475333973193mm', MaxFocus='60.1426001919581mm', UseManufacturableValues='false', Level='[20.0475333973193: 60.1426001919581] mm'), sa(i=false, int=false, Min='20.0475333973193mm', Max='60.1426001919581mm', IDisp='4.00950667946387mm'), ta(i=false, int=false, Step='4.00950667946387mm', Min='20.0475333973193mm', Max='60.1426001919581mm'))
-				VariableProp('SpanExt_R', 'UD', '', '32.9739241596785mm', oa(i=false, int=false, Min='16.4869620798393mm', Max='49.4608862395177mm', MinStep='0.329739241596785mm', MaxStep='3.29739241596785mm', MinFocus='16.4869620798393mm', MaxFocus='49.4608862395177mm', UseManufacturableValues='false', Level='[16.4869620798393: 49.4608862395177] mm'), sa(i=false, int=false, Min='16.4869620798393mm', Max='49.4608862395177mm', IDisp='3.29739241596785mm'), ta(i=false, int=false, Step='3.29739241596785mm', Min='16.4869620798393mm', Max='49.4608862395177mm'))
-				VariableProp('DiaGap_Hairpin', 'UD', '', '142.375463458226mm', oa(i=false, int=false, Min='71.187731729113mm', Max='213.563195187339mm', MinStep='1.42375463458226mm', MaxStep='14.2375463458226mm', MinFocus='71.187731729113mm', MaxFocus='213.563195187339mm', UseManufacturableValues='false', Level='[71.187731729113: 213.563195187339] mm'), sa(i=false, int=false, Min='71.187731729113mm', Max='213.563195187339mm', IDisp='14.2375463458226mm'), ta(i=false, int=false, Step='14.2375463458226mm', Min='71.187731729113mm', Max='213.563195187339mm'))
-				VariableProp('WdgExt_Avg', 'UD', '', '5mm', oa(i=false, int=false, Min='2.5mm', Max='7.5mm', MinStep='0.05mm', MaxStep='0.5mm', MinFocus='2.5mm', MaxFocus='7.5mm', UseManufacturableValues='false', Level='[2.5: 7.5] mm'), sa(i=false, int=false, Min='2.5mm', Max='7.5mm', IDisp='0.5mm'), ta(i=false, int=false, Step='0.5mm', Min='2.5mm', Max='7.5mm'))
-				VariableProp('HalfAxial', 'UD', '', '0', oa(i=false, int=false, Min='-1', Max='1', MinStep='0.02', MaxStep='0.2', MinFocus='-1', MaxFocus='1', UseManufacturableValues='false', Level='[-1: 1]'), sa(i=false, int=false, Min='-1', Max='1', IDisp='0.2'), ta(i=false, int=false, Step='0.2', Min='-1', Max='1'))
-				VariableProp('SymmetryFactor', 'UD', '', '8', oa(i=false, int=false, Min='4', Max='12', MinStep='0.08', MaxStep='0.8', MinFocus='4', MaxFocus='12', UseManufacturableValues='false', Level='[4: 12]'), sa(i=false, int=false, Min='4', Max='12', IDisp='0.8'), ta(i=false, int=false, Step='0.8', Min='4', Max='12'))
-				VariableProp('SegAngle', 'UD', '', '0deg', oa(i=false, int=false, Min='-1deg', Max='1deg', MinStep='0.02deg', MaxStep='0.2deg', MinFocus='-1deg', MaxFocus='1deg', UseManufacturableValues='false', Level='[-1: 1] deg'), sa(i=false, int=false, Min='-1deg', Max='1deg', IDisp='0.2deg'), ta(i=false, int=false, Step='0.2deg', Min='-1deg', Max='1deg'))
-				VariableProp('SegAngle_Coil_Armature', 'UD', '', '10deg', oa(i=false, int=false, Min='5deg', Max='15deg', MinStep='0.1deg', MaxStep='1deg', MinFocus='5deg', MaxFocus='15deg', UseManufacturableValues='false', Level='[5: 15] deg'), sa(i=false, int=false, Min='5deg', Max='15deg', IDisp='1deg'), ta(i=false, int=false, Step='1deg', Min='5deg', Max='15deg'))
-				VariableProp('NumPoles', 'UD', '', '8', oa(i=false, int=false, Min='4', Max='12', MinStep='0.08', MaxStep='0.8', MinFocus='4', MaxFocus='12', UseManufacturableValues='false', Level='[4: 12]'), sa(i=false, int=false, Min='4', Max='12', IDisp='0.8'), ta(i=false, int=false, Step='0.8', Min='4', Max='12'))
-				VariableProp('IPeak', 'UD', '', '650.538238691624A', oa(i=false, int=false, Min='325.269119345812A', Max='975.807358037436A', MinStep='6.50538238691624A', MaxStep='65.0538238691624A', MinFocus='325.269119345812A', MaxFocus='975.807358037436A', UseManufacturableValues='false', Level='[325.269119345812: 975.807358037436] A'), sa(i=false, int=false, Min='325.269119345812A', Max='975.807358037436A', IDisp='65.0538238691624A'), ta(i=false, int=false, Step='65.0538238691624A', Min='325.269119345812A', Max='975.807358037436A'))
-				VariableProp('PhaseAdvance', 'UD', '', '43.33deg', oa(i=false, int=false, Min='21.665deg', Max='64.995deg', MinStep='0.4333deg', MaxStep='4.333deg', MinFocus='21.665deg', MaxFocus='64.995deg', UseManufacturableValues='false', Level='[21.665: 64.995] deg'), sa(i=false, int=false, Min='21.665deg', Max='64.995deg', IDisp='4.333deg'), ta(i=false, int=false, Step='4.333deg', Min='21.665deg', Max='64.995deg'))
-				VariableProp('MachineRPM', 'UD', '', '750rpm', oa(i=false, int=false, Min='375rpm', Max='1125rpm', MinStep='7.5rpm', MaxStep='75rpm', MinFocus='375rpm', MaxFocus='1125rpm', UseManufacturableValues='false', Level='[375: 1125] rpm'), sa(i=false, int=false, Min='375rpm', Max='1125rpm', IDisp='75rpm'), ta(i=false, int=false, Step='75rpm', Min='375rpm', Max='1125rpm'))
-				VariableProp('Vpeak', 'UD', '', '0V', oa(i=false, int=false, Min='-1V', Max='1V', MinStep='0.02V', MaxStep='0.2V', MinFocus='-1V', MaxFocus='1V', UseManufacturableValues='false', Level='[-1: 1] V'), sa(i=false, int=false, Min='-1V', Max='1V', IDisp='0.2V'), ta(i=false, int=false, Step='0.2V', Min='-1V', Max='1V'))
-				VariableProp('MaxPhasorAngle', 'UD', '', '120deg', oa(i=false, int=false, Min='60deg', Max='180deg', MinStep='1.2deg', MaxStep='12deg', MinFocus='60deg', MaxFocus='180deg', UseManufacturableValues='false', Level='[60: 180] deg'), sa(i=false, int=false, Min='60deg', Max='180deg', IDisp='12deg'), ta(i=false, int=false, Step='12deg', Min='60deg', Max='180deg'))
-				VariableProp('DriveOffsetED', 'UD', '', '30deg', oa(i=false, int=false, Min='15deg', Max='45deg', MinStep='0.3deg', MaxStep='3deg', MinFocus='15deg', MaxFocus='45deg', UseManufacturableValues='false', Level='[15: 45] deg'), sa(i=false, int=false, Min='15deg', Max='45deg', IDisp='3deg'), ta(i=false, int=false, Step='3deg', Min='15deg', Max='45deg'))
+				VariableProp('AAA', 'UD', '', '1000')
+				VariableProp('DiaGap', 'UD', '', '142.54mm')
+				VariableProp('DiaStatorYoke', 'UD', '', '198mm')
+				VariableProp('DiaOuter', 'UD', '', '198mm')
+				VariableProp('Airgap', 'UD', '', '1mm')
+				VariableProp('StatorSkewAngle', 'UD', '', '0deg')
+				VariableProp('Model_Length', 'UD', '', '0mm')
+				VariableProp('Stator_Lam_Length', 'UD', '', '0mm')
+				VariableProp('SlotNumber_Stator', 'UD', '', '48')
+				VariableProp('SlotType_Stator', 'UD', '', '3')
+				VariableProp('Hs0_Stator', 'UD', '', '1mm')
+				VariableProp('Hs1_Stator', 'UD', '', '0.282123169133541mm')
+				VariableProp('Hs2_Stator', 'UD', '', '12.5514634582265mm')
+				VariableProp('Bs0_Stator', 'UD', '', '1.43mm')
+				VariableProp('Bs1_Stator', 'UD', '', '4.63mm')
+				VariableProp('Bs2_Stator', 'UD', '', '4.63mm')
+				VariableProp('Rs_Stator', 'UD', '', '0mm')
+				VariableProp('FilletType_Stator', 'UD', '', '1')
+				VariableProp('Magnetic_Axial_Length', 'UD', '', '150mm')
+				VariableProp('Layers', 'UD', '', '6')
+				VariableProp('ParallelPaths', 'UD', '', '2')
+				VariableProp('WireWidth', 'UD', '', '3.711mm')
+				VariableProp('WireThick', 'UD', '', '1.686mm')
+				VariableProp('WireRad', 'UD', '', '0.3mm')
+				VariableProp('LayerGap', 'UD', '', '0.35mm')
+				VariableProp('SpanExt_F', 'UD', '', '40.0950667946387mm')
+				VariableProp('SpanExt_R', 'UD', '', '32.9739241596785mm')
+				VariableProp('DiaGap_Hairpin', 'UD', '', '142.375463458226mm')
+				VariableProp('WdgExt_Avg', 'UD', '', '5mm')
+				VariableProp('HalfAxial', 'UD', '', '0')
+				VariableProp('SymmetryFactor', 'UD', '', '8')
+				VariableProp('SegAngle', 'UD', '', '0deg')
+				VariableProp('SegAngle_Coil_Armature', 'UD', '', '10deg')
+				VariableProp('NumPoles', 'UD', '', '8')
+				VariableProp('IPeak', 'UD', '', '650.538238691624A')
+				VariableProp('PhaseAdvance', 'UD', '', '43.33deg')
+				VariableProp('MachineRPM', 'UD', '', '750rpm')
+				VariableProp('Vpeak', 'UD', '', '0V')
+				VariableProp('MaxPhasorAngle', 'UD', '', '120deg')
+				VariableProp('DriveOffsetED', 'UD', '', '30deg')
 				VariableProp('InitialPositionMD', 'UD', '', 'DriveOffsetED / (NumPoles/2)')
-				VariableProp('StatorFrequency', 'UD', '', 'NumPoles/2*MachineRPM/1rpm/60*1Hz')
+				VariableProp('StatorFrequency', 'UD', '', '(NumPoles/2*MachineRPM/1rpm/60) Hz')
 				SeparatorProp('PWM', 'UD', '', '', IsFolder=false)
-				VariableProp('SwitchingFrequency', 'UD', '', '10000', oa(i=false, int=false, Min='5000', Max='15000', MinStep='100', MaxStep='1000', MinFocus='5000', MaxFocus='15000', UseManufacturableValues='false', Level='[5000: 15000] Hz'), sa(i=false, int=false, Min='5000', Max='15000', IDisp='1000'), ta(i=false, int=false, Step='1000', Min='5000', Max='15000'))
-				VariableProp('BusDC', 'UD', '', '698.4', oa(i=false, int=false, Min='360', Max='1080', MinStep='7.2', MaxStep='72', MinFocus='360', MaxFocus='1080', UseManufacturableValues='false', Level='[360: 1080] V'), sa(i=false, int=false, Min='360', Max='1080', IDisp='72'), ta(i=false, int=false, Step='72', Min='360', Max='1080'))
-				VariableProp('PhaseVoltagePeak', 'UD', '', '100V', oa(i=false, int=false, Min='50V', Max='150V', MinStep='1V', MaxStep='10V', MinFocus='50V', MaxFocus='150V', UseManufacturableValues='false', Level='[50: 150] V'), sa(i=false, int=false, Min='50V', Max='150V', IDisp='10V'), ta(i=false, int=false, Step='10V', Min='50V', Max='150V'))
-				VariableProp('phiV', 'UD', '', '-10deg', oa(i=false, int=false, Min='-15deg', Max='-5deg', MinStep='0.1deg', MaxStep='1deg', MinFocus='-15deg', MaxFocus='-5deg', UseManufacturableValues='false', Level='[-15: -5] deg'), sa(i=false, int=false, Min='-15deg', Max='-5deg', IDisp='1deg'), ta(i=false, int=false, Step='1deg', Min='-15deg', Max='-5deg'))
+				VariableProp('SwitchingFrequency', 'UD', '', '10000Hz')
+				VariableProp('BusDC', 'UD', '', '720V')
+				VariableProp('PhaseVoltagePeak', 'UD', '', '100V')
+				VariableProp('phiV', 'UD', '', '-10deg')
 				VariableProp('PhaseVoltageAngle', 'UD', '', 'phiV - 90*1deg')
-				VariableProp('StatorResistance', 'UD', '', '0.01958ohm', oa(i=false, int=false, Min='0.00979ohm', Max='0.02937ohm', MinStep='0.0001958ohm', MaxStep='0.001958ohm', MinFocus='0.00979ohm', MaxFocus='0.02937ohm', UseManufacturableValues='false', Level='[0.00979: 0.02937] ohm'), sa(i=false, int=false, Min='0.00979ohm', Max='0.02937ohm', IDisp='0.001958ohm'), ta(i=false, int=false, Step='0.001958ohm', Min='0.00979ohm', Max='0.02937ohm'))
-				VariableProp('EndWindingInductance', 'UD', '', '0.001868mH', oa(i=false, int=false, Min='0.000934mH', Max='0.002802mH', MinStep='1.868e-05mH', MaxStep='0.0001868mH', MinFocus='0.000934mH', MaxFocus='0.002802mH', UseManufacturableValues='false', Level='[0.000934: 0.002802] mH'), sa(i=false, int=false, Min='0.000934mH', Max='0.002802mH', IDisp='0.0001868mH'), ta(i=false, int=false, Step='0.0001868mH', Min='0.000934mH', Max='0.002802mH'))
-				VariableProp('Tmin', 'UD', '', '1e-06', oa(i=false, int=false, Min='5e-07', Max='1.5e-06', MinStep='1e-08', MaxStep='1e-07', MinFocus='5e-07', MaxFocus='1.5e-06', UseManufacturableValues='false', Level='[5e-07: 1.5e-06] s'), sa(i=false, int=false, Min='5e-07', Max='1.5e-06', IDisp='1e-07'), ta(i=false, int=false, Step='1e-07', Min='5e-07', Max='1.5e-06'))
-				VariableProp('Tmax', 'UD', '', '3e-06', oa(i=false, int=false, Min='2.5e-06', Max='7.5e-06', MinStep='5e-08', MaxStep='5e-07', MinFocus='2.5e-06', MaxFocus='7.5e-06', UseManufacturableValues='false', Level='[2.5e-06: 7.5e-06] s'), sa(i=false, int=false, Min='2.5e-06', Max='7.5e-06', IDisp='5e-07'), ta(i=false, int=false, Step='5e-07', Min='2.5e-06', Max='7.5e-06'))
-				VariableProp('PeriodMultiplier', 'UD', '', '2', oa(i=false, int=false, Min='0.5', Max='1.5', MinStep='0.01', MaxStep='0.1', MinFocus='0.5', MaxFocus='1.5', UseManufacturableValues='false', Level='[0.5: 1.5]'), sa(i=false, int=false, Min='0.5', Max='1.5', IDisp='0.1'), ta(i=false, int=false, Step='0.1', Min='0.5', Max='1.5'))
+				VariableProp('StatorResistance', 'UD', '', '0.01958ohm')
+				VariableProp('EndWindingInductance', 'UD', '', '0.001868mH')
+				VariableProp('Tmin', 'UD', '', '1e-06s')
+				VariableProp('Tmax', 'UD', '', '5e-06s')
+				VariableProp('PeriodMultiplier', 'UD', '', '1')
 			$end 'Properties'
 			VariableOrders[53: 'AAA', 'DiaGap', 'DiaStatorYoke', 'DiaOuter', 'Airgap', 'StatorSkewAngle', 'Model_Length', 'Stator_Lam_Length', 'SlotNumber_Stator', 'SlotType_Stator', 'Hs0_Stator', 'Hs1_Stator', 'Hs2_Stator', 'Bs0_Stator', 'Bs1_Stator', 'Bs2_Stator', 'Rs_Stator', 'FilletType_Stator', 'Magnetic_Axial_Length', 'Layers', 'ParallelPaths', 'WireWidth', 'WireThick', 'WireRad', 'LayerGap', 'SpanExt_F', 'SpanExt_R', 'DiaGap_Hairpin', 'WdgExt_Avg', 'HalfAxial', 'SymmetryFactor', 'SegAngle', 'SegAngle_Coil_Armature', 'NumPoles', 'IPeak', 'PhaseAdvance', 'MachineRPM', 'Vpeak', 'MaxPhasorAngle', 'DriveOffsetED', 'InitialPositionMD', 'StatorFrequency', 'PWM', 'SwitchingFrequency', 'BusDC', 'PhaseVoltagePeak', 'phiV', 'PhaseVoltageAngle', 'StatorResistance', 'EndWindingInductance', 'Tmin', 'Tmax', 'PeriodMultiplier']
 			$begin 'Editor3D Doc Preferences'
@@ -64297,115 +64291,14 @@ $begin 'AnsoftProject'
 		$end 'MeshSetup'
 		$begin 'AnalysisSetup'
 			$begin 'SolveSetups'
-				NextUniqueID=4
+				NextUniqueID=3
 				MoveBackwards=false
-				$begin 'MySetupAuto'
-					ID=3
-					SetupType='Transient'
-					Enabled=true
-					$begin 'MeshLink'
-						ImportMesh=false
-					$end 'MeshLink'
-					NonlinearSolverResidual='1e-08'
-					ScalarPotential='Second Order'
-					TimeIntegrationMethod=0
-					SmoothBHCurve=false
-					StopTime='1/StatorFrequency*1Hz*1s*PeriodMultiplier'
-					TimeStep='2000000ns'
-					OutputError=false
-					OutputPerObjectCoreLoss=true
-					OutputPerObjectSolidLoss=true
-					UseControlProgram=false
-					ControlProgramName=''
-					ControlProgramArg=''
-					CallCtrlProgAfterLastStep=false
-					FastReachSteadyState=false
-					AutoDetectSteadyState=false
-					IsGeneralTransient=true
-					IsHalfPeriodicTransient=false
-					SaveFieldsType='None'
-					UseNonLinearIterNum=false
-					CacheSaveKind='Count'
-					NumberSolveSteps=1
-					RangeStart='0s'
-					RangeEnd='0.1s'
-					UseAdaptiveTimeStep=false
-					InitialTimeStep='0.002s'
-					MinTimeStep='0.001s'
-					MaxTimeStep='0.003s'
-					TimeStepErrTolerance=0.0001
-					RelaxationFactor=1
-				$end 'MySetupAuto'
 			$end 'SolveSetups'
 		$end 'AnalysisSetup'
 		$begin 'Optimetrics'
 			$begin 'OptimetricsSetups'
-				NextUniqueID=1
+				NextUniqueID=0
 				MoveBackwards=false
-				$begin 'Optimetrics_PWM'
-					ID=0
-					SetupType='OptiParametric'
-					IsEnabled=true
-					NextUniqueID=1
-					MoveBackwards=false
-					GoalSetupVersion=0
-					Version=0
-					$begin 'ProdOptiSetupDataV2'
-						SaveFields=false
-						CopyMesh=false
-						SolveWithCopiedMeshOnly=false
-					$end 'ProdOptiSetupDataV2'
-					InterpolationPoints=0
-					$begin 'StartingPoint'
-					$end 'StartingPoint'
-					'Sim. Setups'(1360)
-					$begin 'Sweeps'
-						$begin 'SweepDefinition'
-							Variable='AAA'
-							Data='1.0'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='MachineRPM'
-							Data='15000rpm'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='PhaseAdvance'
-							Data='79.41244351deg'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='IPeak'
-							Data='231.129587A'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='PhaseVoltagePeak'
-							Data='424.4324696504874V'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='phiV'
-							Data='64.12329501139452deg'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-					$end 'Sweeps'
-					$begin 'Sweep Operations'
-						add('2.0', '15000rpm', '75.66628551deg', '308.3753812A', '427.8586561825099V', '43.55505498830011deg')
-						add('3.0', '15000rpm', '75.39984866deg', '411.7977408A', '432.06131421813944V', '24.376084333592022deg')
-						add('4.0', '15000rpm', '77.59084809deg', '578.0743934A', '434.8190624345495V', '-1.2762446883519252deg')
-						add('5.0', '15000rpm', '78.96214049deg', '645.8155811A', '432.1161511857185V', '-11.562128458892015deg')
-					$end 'Sweep Operations'
-					$begin 'Goals'
-					$end 'Goals'
-				$end 'Optimetrics_PWM'
 			$end 'OptimetricsSetups'
 		$end 'Optimetrics'
 		$begin 'Solutions'
@@ -64416,9 +64309,8 @@ $begin 'AnsoftProject'
 				'Show Stack'=true
 			$end 'FieldsCalculator'
 			$begin 'PlotDefaults'
-				Default_SolutionId=1361
+				Default_SolutionId=1177
 				Default_PlotFolder='Automatic'
-				Default_Time=''
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
 				NextUniqueID=1
@@ -64438,366 +64330,9 @@ $begin 'AnsoftProject'
 			AntennaParametersPlotTablesOrder()
 		$end 'FieldsReporter'
 		$begin 'SolutionManager'
-			$begin 'SimSetup'
-				TypeName='BaseSetup'
-				ID=1360
-				Name='MySetupAuto'
-				$begin 'Solution'
-					ID=1361
-					Name='Transient'
-					$begin 'SimDataExtractor'
-						$begin 'QuantityIDs'
-							NextUniqueID=0
-							MoveBackwards=false
-							IDMap()
-						$end 'QuantityIDs'
-						SimValue('FluxLinkage(WG_Ph1_P1)', 1, 152, false, SimValueID=1369, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph2_P1)', 1, 152, false, SimValueID=1370, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph3_P1)', 1, 152, false, SimValueID=1371, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph1_P1)', 1, 76, false, SimValueID=1372, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph2_P1)', 1, 76, false, SimValueID=1373, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph3_P1)', 1, 76, false, SimValueID=1374, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_1)', 1, 58, false, SimValueID=1375, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_2)', 1, 58, false, SimValueID=1376, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_1)', 1, 58, false, SimValueID=1377, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_2)', 1, 58, false, SimValueID=1378, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_1)', 1, 58, false, SimValueID=1379, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_2)', 1, 58, false, SimValueID=1380, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_3)', 1, 58, false, SimValueID=1381, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_1)', 1, 58, false, SimValueID=1382, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_2)', 1, 58, false, SimValueID=1383, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_3)', 1, 58, false, SimValueID=1384, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet1N1_1)', 1, 58, false, SimValueID=1385, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet2N1_1)', 1, 58, false, SimValueID=1386, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet1N1_1)', 1, 58, false, SimValueID=1387, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet2N1_1)', 1, 58, false, SimValueID=1388, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph1_P1)', 1, 58, false, SimValueID=1389, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph2_P1)', 1, 58, false, SimValueID=1390, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph3_P1)', 1, 58, false, SimValueID=1391, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Current(WG_Ph1_P1)', 1, 76, false, SimValueID=1392, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Current(WG_Ph2_P1)', 1, 76, false, SimValueID=1393, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Current(WG_Ph3_P1)', 1, 76, false, SimValueID=1394, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						$begin 'Sweeps'
-							$begin 'PostprocessSweep'
-								Variable='NormalizedDistance'
-								RegularSweep=1
-								Units=''
-								Minimum=0
-								Maximum=1
-								Increment=0.01
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'PostprocessSweep'
-								Variable='Phi'
-								RegularSweep=1
-								Units='deg'
-								Minimum=0
-								Maximum=6.28318530717959
-								Increment=0.0872664625997165
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'PostprocessSweep'
-								Variable='Theta'
-								RegularSweep=1
-								Units='deg'
-								Minimum=0
-								Maximum=6.28318530717959
-								Increment=0.0872664625997165
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'PostprocessSweep'
-								Variable='Phase'
-								RegularSweep=1
-								Units='deg'
-								Minimum=0
-								Maximum=6.28318530717959
-								Increment=0.0872664625997165
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='AAA'
-								Column='1000'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaGap'
-								Column='142.54mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaStatorYoke'
-								Column='198mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaOuter'
-								Column='198mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Airgap'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='StatorSkewAngle'
-								Column='0deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Model_Length'
-								Column='0mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Stator_Lam_Length'
-								Column='0mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SlotNumber_Stator'
-								Column='48'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SlotType_Stator'
-								Column='3'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Hs0_Stator'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Hs1_Stator'
-								Column='0.282123169133541mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Hs2_Stator'
-								Column='12.5514634582265mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Bs0_Stator'
-								Column='1.43mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Bs1_Stator'
-								Column='4.63mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Bs2_Stator'
-								Column='4.63mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Rs_Stator'
-								Column='0mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='FilletType_Stator'
-								Column='1'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Magnetic_Axial_Length'
-								Column='150mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Layers'
-								Column='6'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ParallelPaths'
-								Column='2'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WireWidth'
-								Column='3.711mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WireThick'
-								Column='1.686mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WireRad'
-								Column='0.3mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='LayerGap'
-								Column='0.35mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SpanExt_F'
-								Column='40.0950667946387mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SpanExt_R'
-								Column='32.9739241596785mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaGap_Hairpin'
-								Column='142.375463458226mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WdgExt_Avg'
-								Column='5mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='HalfAxial'
-								Column='0'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SymmetryFactor'
-								Column='8'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SegAngle'
-								Column='0deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SegAngle_Coil_Armature'
-								Column='10deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='NumPoles'
-								Column='8'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='IPeak'
-								Column='650.538238691624A'
-								Units='A'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='PhaseAdvance'
-								Column='43.33deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MachineRPM'
-								Column='750rpm'
-								Units='rpm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Vpeak'
-								Column='0V'
-								Units='V'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MaxPhasorAngle'
-								Column='120deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DriveOffsetED'
-								Column='30deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='InitialPositionMD'
-								Column='7.5deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='StatorFrequency'
-								Column='50Hz'
-								Units='Hz'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SwitchingFrequency'
-								Column='10000'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='BusDC'
-								Column='698.4'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='PhaseVoltagePeak'
-								Column='100V'
-								Units='V'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='phiV'
-								Column='-10deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='PhaseVoltageAngle'
-								Column='-100deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='StatorResistance'
-								Column='0.01958ohm'
-								Units='ohm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='EndWindingInductance'
-								Column='0.001868mH'
-								Units='mH'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Tmin'
-								Column='1e-06'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Tmax'
-								Column='3e-06'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='PeriodMultiplier'
-								Column='2'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Time'
-								Column=''
-								Units='s'
-							$end 'Sweep'
-						$end 'Sweeps'
-					$end 'SimDataExtractor'
-				$end 'Solution'
-			$end 'SimSetup'
 			$begin 'Version ID Map'
 				V=1169
-				$begin 'Setup'
-					N='MySetupAuto'
-					V=0
-					Soln(N='Transient', V=0)
-				$end 'Setup'
 			$end 'Version ID Map'
-			$begin 'ID Map'
-				$begin 'Setup'
-					N='MySetupAuto'
-					I=1360
-					Soln(N='Transient', I=1361)
-				$end 'Setup'
-			$end 'ID Map'
 			ValidationCacheHeader='HDR37DA1119217798892434.tmp'
 		$end 'SolutionManager'
 		$begin 'UserDefinedSolutionMgr'
@@ -64811,7 +64346,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR16FB2781217897303745.tmp'
+		CacheHeaderFile='HDR612B1224417870469813.tmp'
 	$end 'Maxwell2DModel'
 	$begin 'Maxwell2DModel'
 		RepRewriteV2=true
@@ -64844,21 +64379,15 @@ $begin 'AnsoftProject'
 		SolutionType='Transient'
 		GeometryMode='XY'
 		$begin 'OutputVariable'
-			NextUniqueID=12
+			NextUniqueID=6
 			MoveBackwards=false
 			$begin 'OutputVariables'
-				ThetaED(ID=0, '((pi * MachineRPM/1rpm*NumPoles / 60*time)) + pi', 1, 'ns', 1, 'ns', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+				ThetaED(ID=0, '((pi * MachineRPM/1rpm*NumPoles / 60*time - 0 / 360 * 2 * pi)) + pi', 1, 'ns', 1, 'ns', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				Id_peak(ID=1, '2/3*(InputCurrent(WG_Ph1_P1)*cos(ThetaED)+InputCurrent(WG_Ph2_P1)*cos(ThetaED - 120deg)+InputCurrent(WG_Ph3_P1)*cos(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				Iq_peak(ID=2, '2/3*(InputCurrent(WG_Ph1_P1)*-sin(ThetaED)+InputCurrent(WG_Ph2_P1)*-sin(ThetaED - 120deg)+InputCurrent(WG_Ph3_P1)*-sin(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				PsiD(ID=3, '2/3*(FluxLinkage(WG_Ph1_P1)*cos(ThetaED)+FluxLinkage(WG_Ph2_P1)*cos(ThetaED - 120deg)+FluxLinkage(WG_Ph3_P1)*cos(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				PsiQ(ID=4, '2/3*(FluxLinkage(WG_Ph1_P1)*-sin(ThetaED)+FluxLinkage(WG_Ph2_P1)*-sin(ThetaED - 120deg)+FluxLinkage(WG_Ph3_P1)*-sin(ThetaED - 240deg))', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 				TorqueDQ(ID=5, '3/2*NumPoles/2*(PsiD*Iq_peak - PsiQ*Id_peak)', 1, '', 2, '', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				StatorHy(ID=6, 'HysteresisLoss(Stator_1) + HysteresisLoss(Stator_2)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				StatorEddy(ID=7, 'EddyCurrentLoss(Stator_1) + EddyCurrentLoss(Stator_2)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				RotorHy(ID=8, 'HysteresisLoss(Rotor_1) + HysteresisLoss(Rotor_2) + HysteresisLoss(Rotor_3)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				RotorEddy(ID=9, 'EddyCurrentLoss(Rotor_1) + EddyCurrentLoss(Rotor_2) + EddyCurrentLoss(Rotor_3)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				MagLoss(ID=10, 'SolidLoss(L1_1Magnet1N1_1) + SolidLoss(L1_1Magnet2N1_1) + SolidLoss(L2_1Magnet1N1_1) + SolidLoss(L2_1Magnet2N1_1)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-				WindingLoss(ID=11, 'PerWindingSolidLoss(WG_Ph1_P1) + PerWindingSolidLoss(WG_Ph2_P1) + PerWindingSolidLoss(WG_Ph3_P1)', 1, 'mW', 0, 'mW', 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 			$end 'OutputVariables'
 		$end 'OutputVariable'
 		$begin 'ModelSetup'
@@ -64870,52 +64399,50 @@ $begin 'AnsoftProject'
 				$end 'DatasetDefinitions'
 			$end 'DesignDatasets'
 			$begin 'Properties'
-				VariableProp('AAA', 'UD', '', '1000', oa(i=false, int=false, Min='500', Max='1500', MinStep='10', MaxStep='100', MinFocus='500', MaxFocus='1500', UseManufacturableValues='false', Level='[500: 1500]'), sa(i=false, int=false, Min='500', Max='1500', IDisp='100'), ta(i=false, int=false, Step='100', Min='500', Max='1500'))
-				VariableProp('DiaGap', 'UD', '', '142.54mm', oa(i=false, int=false, Min='71.27mm', Max='213.81mm', MinStep='1.4254mm', MaxStep='14.254mm', MinFocus='71.27mm', MaxFocus='213.81mm', UseManufacturableValues='false', Level='[71.27: 213.81] mm'), sa(i=false, int=false, Min='71.27mm', Max='213.81mm', IDisp='14.254mm'), ta(i=false, int=false, Step='14.254mm', Min='71.27mm', Max='213.81mm'))
-				VariableProp('DiaStatorYoke', 'UD', '', '198mm', oa(i=false, int=false, Min='99mm', Max='297mm', MinStep='1.98mm', MaxStep='19.8mm', MinFocus='99mm', MaxFocus='297mm', UseManufacturableValues='false', Level='[99: 297] mm'), sa(i=false, int=false, Min='99mm', Max='297mm', IDisp='19.8mm'), ta(i=false, int=false, Step='19.8mm', Min='99mm', Max='297mm'))
-				VariableProp('DiaOuter', 'UD', '', '198mm', oa(i=false, int=false, Min='99mm', Max='297mm', MinStep='1.98mm', MaxStep='19.8mm', MinFocus='99mm', MaxFocus='297mm', UseManufacturableValues='false', Level='[99: 297] mm'), sa(i=false, int=false, Min='99mm', Max='297mm', IDisp='19.8mm'), ta(i=false, int=false, Step='19.8mm', Min='99mm', Max='297mm'))
-				VariableProp('Airgap', 'UD', '', '1mm', oa(i=false, int=false, Min='0.5mm', Max='1.5mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='1.5mm', UseManufacturableValues='false', Level='[0.5: 1.5] mm'), sa(i=false, int=false, Min='0.5mm', Max='1.5mm', IDisp='0.1mm'), ta(i=false, int=false, Step='0.1mm', Min='0.5mm', Max='1.5mm'))
-				VariableProp('StatorSkewAngle', 'UD', '', '0deg', oa(i=false, int=false, Min='-1deg', Max='1deg', MinStep='0.02deg', MaxStep='0.2deg', MinFocus='-1deg', MaxFocus='1deg', UseManufacturableValues='false', Level='[-1: 1] deg'), sa(i=false, int=false, Min='-1deg', Max='1deg', IDisp='0.2deg'), ta(i=false, int=false, Step='0.2deg', Min='-1deg', Max='1deg'))
-				VariableProp('Model_Length', 'UD', '', '0mm', oa(i=false, int=false, Min='-1mm', Max='1mm', MinStep='0.02mm', MaxStep='0.2mm', MinFocus='-1mm', MaxFocus='1mm', UseManufacturableValues='false', Level='[-1: 1] mm'), sa(i=false, int=false, Min='-1mm', Max='1mm', IDisp='0.2mm'), ta(i=false, int=false, Step='0.2mm', Min='-1mm', Max='1mm'))
-				VariableProp('Stator_Lam_Length', 'UD', '', '0mm', oa(i=false, int=false, Min='-1mm', Max='1mm', MinStep='0.02mm', MaxStep='0.2mm', MinFocus='-1mm', MaxFocus='1mm', UseManufacturableValues='false', Level='[-1: 1] mm'), sa(i=false, int=false, Min='-1mm', Max='1mm', IDisp='0.2mm'), ta(i=false, int=false, Step='0.2mm', Min='-1mm', Max='1mm'))
-				VariableProp('SlotNumber_Stator', 'UD', '', '48', oa(i=false, int=false, Min='24', Max='72', MinStep='0.48', MaxStep='4.8', MinFocus='24', MaxFocus='72', UseManufacturableValues='false', Level='[24: 72]'), sa(i=false, int=false, Min='24', Max='72', IDisp='4.8'), ta(i=false, int=false, Step='4.8', Min='24', Max='72'))
-				VariableProp('SlotType_Stator', 'UD', '', '3', oa(i=false, int=false, Min='1.5', Max='4.5', MinStep='0.03', MaxStep='0.3', MinFocus='1.5', MaxFocus='4.5', UseManufacturableValues='false', Level='[1.5: 4.5]'), sa(i=false, int=false, Min='1.5', Max='4.5', IDisp='0.3'), ta(i=false, int=false, Step='0.3', Min='1.5', Max='4.5'))
-				VariableProp('Hs0_Stator', 'UD', '', '1mm', oa(i=false, int=false, Min='0.5mm', Max='1.5mm', MinStep='0.01mm', MaxStep='0.1mm', MinFocus='0.5mm', MaxFocus='1.5mm', UseManufacturableValues='false', Level='[0.5: 1.5] mm'), sa(i=false, int=false, Min='0.5mm', Max='1.5mm', IDisp='0.1mm'), ta(i=false, int=false, Step='0.1mm', Min='0.5mm', Max='1.5mm'))
-				VariableProp('Hs1_Stator', 'UD', '', '0.282123169133541mm', oa(i=false, int=false, Min='0.141061584566771mm', Max='0.423184753700312mm', MinStep='0.00282123169133541mm', MaxStep='0.0282123169133541mm', MinFocus='0.141061584566771mm', MaxFocus='0.423184753700312mm', UseManufacturableValues='false', Level='[0.141061584566771: 0.423184753700312] mm'), sa(i=false, int=false, Min='0.141061584566771mm', Max='0.423184753700312mm', IDisp='0.0282123169133541mm'), ta(i=false, int=false, Step='0.0282123169133541mm', Min='0.141061584566771mm', Max='0.423184753700312mm'))
-				VariableProp('Hs2_Stator', 'UD', '', '12.5514634582265mm', oa(i=false, int=false, Min='6.27573172911325mm', Max='18.8271951873398mm', MinStep='0.125514634582265mm', MaxStep='1.25514634582265mm', MinFocus='6.27573172911325mm', MaxFocus='18.8271951873398mm', UseManufacturableValues='false', Level='[6.27573172911325: 18.8271951873398] mm'), sa(i=false, int=false, Min='6.27573172911325mm', Max='18.8271951873398mm', IDisp='1.25514634582265mm'), ta(i=false, int=false, Step='1.25514634582265mm', Min='6.27573172911325mm', Max='18.8271951873398mm'))
-				VariableProp('Bs0_Stator', 'UD', '', '1.43mm', oa(i=false, int=false, Min='0.715mm', Max='2.145mm', MinStep='0.0143mm', MaxStep='0.143mm', MinFocus='0.715mm', MaxFocus='2.145mm', UseManufacturableValues='false', Level='[0.715: 2.145] mm'), sa(i=false, int=false, Min='0.715mm', Max='2.145mm', IDisp='0.143mm'), ta(i=false, int=false, Step='0.143mm', Min='0.715mm', Max='2.145mm'))
-				VariableProp('Bs1_Stator', 'UD', '', '4.63mm', oa(i=false, int=false, Min='2.315mm', Max='6.945mm', MinStep='0.0463mm', MaxStep='0.463mm', MinFocus='2.315mm', MaxFocus='6.945mm', UseManufacturableValues='false', Level='[2.315: 6.945] mm'), sa(i=false, int=false, Min='2.315mm', Max='6.945mm', IDisp='0.463mm'), ta(i=false, int=false, Step='0.463mm', Min='2.315mm', Max='6.945mm'))
-				VariableProp('Bs2_Stator', 'UD', '', '4.63mm', oa(i=false, int=false, Min='2.315mm', Max='6.945mm', MinStep='0.0463mm', MaxStep='0.463mm', MinFocus='2.315mm', MaxFocus='6.945mm', UseManufacturableValues='false', Level='[2.315: 6.945] mm'), sa(i=false, int=false, Min='2.315mm', Max='6.945mm', IDisp='0.463mm'), ta(i=false, int=false, Step='0.463mm', Min='2.315mm', Max='6.945mm'))
-				VariableProp('Rs_Stator', 'UD', '', '0mm', oa(i=false, int=false, Min='-1mm', Max='1mm', MinStep='0.02mm', MaxStep='0.2mm', MinFocus='-1mm', MaxFocus='1mm', UseManufacturableValues='false', Level='[-1: 1] mm'), sa(i=false, int=false, Min='-1mm', Max='1mm', IDisp='0.2mm'), ta(i=false, int=false, Step='0.2mm', Min='-1mm', Max='1mm'))
-				VariableProp('FilletType_Stator', 'UD', '', '1', oa(i=false, int=false, Min='0.5', Max='1.5', MinStep='0.01', MaxStep='0.1', MinFocus='0.5', MaxFocus='1.5', UseManufacturableValues='false', Level='[0.5: 1.5]'), sa(i=false, int=false, Min='0.5', Max='1.5', IDisp='0.1'), ta(i=false, int=false, Step='0.1', Min='0.5', Max='1.5'))
-				VariableProp('Magnetic_Axial_Length', 'UD', '', '150mm', oa(i=false, int=false, Min='75mm', Max='225mm', MinStep='1.5mm', MaxStep='15mm', MinFocus='75mm', MaxFocus='225mm', UseManufacturableValues='false', Level='[75: 225] mm'), sa(i=false, int=false, Min='75mm', Max='225mm', IDisp='15mm'), ta(i=false, int=false, Step='15mm', Min='75mm', Max='225mm'))
-				VariableProp('Layers', 'UD', '', '6', oa(i=false, int=false, Min='3', Max='9', MinStep='0.06', MaxStep='0.6', MinFocus='3', MaxFocus='9', UseManufacturableValues='false', Level='[3: 9]'), sa(i=false, int=false, Min='3', Max='9', IDisp='0.6'), ta(i=false, int=false, Step='0.6', Min='3', Max='9'))
-				VariableProp('ParallelPaths', 'UD', '', '2', oa(i=false, int=false, Min='1', Max='3', MinStep='0.02', MaxStep='0.2', MinFocus='1', MaxFocus='3', UseManufacturableValues='false', Level='[1: 3]'), sa(i=false, int=false, Min='1', Max='3', IDisp='0.2'), ta(i=false, int=false, Step='0.2', Min='1', Max='3'))
-				VariableProp('WireWidth', 'UD', '', '3.711mm', oa(i=false, int=false, Min='1.8555mm', Max='5.5665mm', MinStep='0.03711mm', MaxStep='0.3711mm', MinFocus='1.8555mm', MaxFocus='5.5665mm', UseManufacturableValues='false', Level='[1.8555: 5.5665] mm'), sa(i=false, int=false, Min='1.8555mm', Max='5.5665mm', IDisp='0.3711mm'), ta(i=false, int=false, Step='0.3711mm', Min='1.8555mm', Max='5.5665mm'))
-				VariableProp('WireThick', 'UD', '', '1.686mm', oa(i=false, int=false, Min='0.843mm', Max='2.529mm', MinStep='0.01686mm', MaxStep='0.1686mm', MinFocus='0.843mm', MaxFocus='2.529mm', UseManufacturableValues='false', Level='[0.843: 2.529] mm'), sa(i=false, int=false, Min='0.843mm', Max='2.529mm', IDisp='0.1686mm'), ta(i=false, int=false, Step='0.1686mm', Min='0.843mm', Max='2.529mm'))
-				VariableProp('WireRad', 'UD', '', '0.3mm', oa(i=false, int=false, Min='0.15mm', Max='0.45mm', MinStep='0.003mm', MaxStep='0.03mm', MinFocus='0.15mm', MaxFocus='0.45mm', UseManufacturableValues='false', Level='[0.15: 0.45] mm'), sa(i=false, int=false, Min='0.15mm', Max='0.45mm', IDisp='0.03mm'), ta(i=false, int=false, Step='0.03mm', Min='0.15mm', Max='0.45mm'))
-				VariableProp('LayerGap', 'UD', '', '0.35mm', oa(i=false, int=false, Min='0.175mm', Max='0.525mm', MinStep='0.0035mm', MaxStep='0.035mm', MinFocus='0.175mm', MaxFocus='0.525mm', UseManufacturableValues='false', Level='[0.175: 0.525] mm'), sa(i=false, int=false, Min='0.175mm', Max='0.525mm', IDisp='0.035mm'), ta(i=false, int=false, Step='0.035mm', Min='0.175mm', Max='0.525mm'))
-				VariableProp('SpanExt_F', 'UD', '', '40.0950667946387mm', oa(i=false, int=false, Min='20.0475333973193mm', Max='60.1426001919581mm', MinStep='0.400950667946387mm', MaxStep='4.00950667946387mm', MinFocus='20.0475333973193mm', MaxFocus='60.1426001919581mm', UseManufacturableValues='false', Level='[20.0475333973193: 60.1426001919581] mm'), sa(i=false, int=false, Min='20.0475333973193mm', Max='60.1426001919581mm', IDisp='4.00950667946387mm'), ta(i=false, int=false, Step='4.00950667946387mm', Min='20.0475333973193mm', Max='60.1426001919581mm'))
-				VariableProp('SpanExt_R', 'UD', '', '32.9739241596785mm', oa(i=false, int=false, Min='16.4869620798393mm', Max='49.4608862395177mm', MinStep='0.329739241596785mm', MaxStep='3.29739241596785mm', MinFocus='16.4869620798393mm', MaxFocus='49.4608862395177mm', UseManufacturableValues='false', Level='[16.4869620798393: 49.4608862395177] mm'), sa(i=false, int=false, Min='16.4869620798393mm', Max='49.4608862395177mm', IDisp='3.29739241596785mm'), ta(i=false, int=false, Step='3.29739241596785mm', Min='16.4869620798393mm', Max='49.4608862395177mm'))
-				VariableProp('DiaGap_Hairpin', 'UD', '', '142.375463458226mm', oa(i=false, int=false, Min='71.187731729113mm', Max='213.563195187339mm', MinStep='1.42375463458226mm', MaxStep='14.2375463458226mm', MinFocus='71.187731729113mm', MaxFocus='213.563195187339mm', UseManufacturableValues='false', Level='[71.187731729113: 213.563195187339] mm'), sa(i=false, int=false, Min='71.187731729113mm', Max='213.563195187339mm', IDisp='14.2375463458226mm'), ta(i=false, int=false, Step='14.2375463458226mm', Min='71.187731729113mm', Max='213.563195187339mm'))
-				VariableProp('WdgExt_Avg', 'UD', '', '5mm', oa(i=false, int=false, Min='2.5mm', Max='7.5mm', MinStep='0.05mm', MaxStep='0.5mm', MinFocus='2.5mm', MaxFocus='7.5mm', UseManufacturableValues='false', Level='[2.5: 7.5] mm'), sa(i=false, int=false, Min='2.5mm', Max='7.5mm', IDisp='0.5mm'), ta(i=false, int=false, Step='0.5mm', Min='2.5mm', Max='7.5mm'))
-				VariableProp('HalfAxial', 'UD', '', '0', oa(i=false, int=false, Min='-1', Max='1', MinStep='0.02', MaxStep='0.2', MinFocus='-1', MaxFocus='1', UseManufacturableValues='false', Level='[-1: 1]'), sa(i=false, int=false, Min='-1', Max='1', IDisp='0.2'), ta(i=false, int=false, Step='0.2', Min='-1', Max='1'))
-				VariableProp('SymmetryFactor', 'UD', '', '8', oa(i=false, int=false, Min='4', Max='12', MinStep='0.08', MaxStep='0.8', MinFocus='4', MaxFocus='12', UseManufacturableValues='false', Level='[4: 12]'), sa(i=false, int=false, Min='4', Max='12', IDisp='0.8'), ta(i=false, int=false, Step='0.8', Min='4', Max='12'))
-				VariableProp('SegAngle', 'UD', '', '0deg', oa(i=false, int=false, Min='-1deg', Max='1deg', MinStep='0.02deg', MaxStep='0.2deg', MinFocus='-1deg', MaxFocus='1deg', UseManufacturableValues='false', Level='[-1: 1] deg'), sa(i=false, int=false, Min='-1deg', Max='1deg', IDisp='0.2deg'), ta(i=false, int=false, Step='0.2deg', Min='-1deg', Max='1deg'))
-				VariableProp('SegAngle_Coil_Armature', 'UD', '', '10deg', oa(i=false, int=false, Min='5deg', Max='15deg', MinStep='0.1deg', MaxStep='1deg', MinFocus='5deg', MaxFocus='15deg', UseManufacturableValues='false', Level='[5: 15] deg'), sa(i=false, int=false, Min='5deg', Max='15deg', IDisp='1deg'), ta(i=false, int=false, Step='1deg', Min='5deg', Max='15deg'))
-				VariableProp('NumPoles', 'UD', '', '8', oa(i=false, int=false, Min='4', Max='12', MinStep='0.08', MaxStep='0.8', MinFocus='4', MaxFocus='12', UseManufacturableValues='false', Level='[4: 12]'), sa(i=false, int=false, Min='4', Max='12', IDisp='0.8'), ta(i=false, int=false, Step='0.8', Min='4', Max='12'))
-				VariableProp('IPeak', 'UD', '', '650.538238691624A', oa(i=false, int=false, Min='325.269119345812A', Max='975.807358037436A', MinStep='6.50538238691624A', MaxStep='65.0538238691624A', MinFocus='325.269119345812A', MaxFocus='975.807358037436A', UseManufacturableValues='false', Level='[325.269119345812: 975.807358037436] A'), sa(i=false, int=false, Min='325.269119345812A', Max='975.807358037436A', IDisp='65.0538238691624A'), ta(i=false, int=false, Step='65.0538238691624A', Min='325.269119345812A', Max='975.807358037436A'))
-				VariableProp('PhaseAdvance', 'UD', '', '43.33deg', oa(i=false, int=false, Min='21.665deg', Max='64.995deg', MinStep='0.4333deg', MaxStep='4.333deg', MinFocus='21.665deg', MaxFocus='64.995deg', UseManufacturableValues='false', Level='[21.665: 64.995] deg'), sa(i=false, int=false, Min='21.665deg', Max='64.995deg', IDisp='4.333deg'), ta(i=false, int=false, Step='4.333deg', Min='21.665deg', Max='64.995deg'))
-				VariableProp('MachineRPM', 'UD', '', '750rpm', oa(i=false, int=false, Min='375rpm', Max='1125rpm', MinStep='7.5rpm', MaxStep='75rpm', MinFocus='375rpm', MaxFocus='1125rpm', UseManufacturableValues='false', Level='[375: 1125] rpm'), sa(i=false, int=false, Min='375rpm', Max='1125rpm', IDisp='75rpm'), ta(i=false, int=false, Step='75rpm', Min='375rpm', Max='1125rpm'))
-				VariableProp('Vpeak', 'UD', '', '0V', oa(i=false, int=false, Min='-1V', Max='1V', MinStep='0.02V', MaxStep='0.2V', MinFocus='-1V', MaxFocus='1V', UseManufacturableValues='false', Level='[-1: 1] V'), sa(i=false, int=false, Min='-1V', Max='1V', IDisp='0.2V'), ta(i=false, int=false, Step='0.2V', Min='-1V', Max='1V'))
-				VariableProp('MaxPhasorAngle', 'UD', '', '120deg', oa(i=false, int=false, Min='60deg', Max='180deg', MinStep='1.2deg', MaxStep='12deg', MinFocus='60deg', MaxFocus='180deg', UseManufacturableValues='false', Level='[60: 180] deg'), sa(i=false, int=false, Min='60deg', Max='180deg', IDisp='12deg'), ta(i=false, int=false, Step='12deg', Min='60deg', Max='180deg'))
-				VariableProp('DriveOffsetED', 'UD', '', '30deg', oa(i=false, int=false, Min='15deg', Max='45deg', MinStep='0.3deg', MaxStep='3deg', MinFocus='15deg', MaxFocus='45deg', UseManufacturableValues='false', Level='[15: 45] deg'), sa(i=false, int=false, Min='15deg', Max='45deg', IDisp='3deg'), ta(i=false, int=false, Step='3deg', Min='15deg', Max='45deg'))
+				VariableProp('AAA', 'UD', '', '1000')
+				VariableProp('DiaGap', 'UD', '', '142.54mm')
+				VariableProp('DiaStatorYoke', 'UD', '', '198mm')
+				VariableProp('DiaOuter', 'UD', '', '198mm')
+				VariableProp('Airgap', 'UD', '', '1mm')
+				VariableProp('StatorSkewAngle', 'UD', '', '0deg')
+				VariableProp('Model_Length', 'UD', '', '0mm')
+				VariableProp('Stator_Lam_Length', 'UD', '', '0mm')
+				VariableProp('SlotNumber_Stator', 'UD', '', '48')
+				VariableProp('SlotType_Stator', 'UD', '', '3')
+				VariableProp('Hs0_Stator', 'UD', '', '1mm')
+				VariableProp('Hs1_Stator', 'UD', '', '0.282123169133541mm')
+				VariableProp('Hs2_Stator', 'UD', '', '12.5514634582265mm')
+				VariableProp('Bs0_Stator', 'UD', '', '1.43mm')
+				VariableProp('Bs1_Stator', 'UD', '', '4.63mm')
+				VariableProp('Bs2_Stator', 'UD', '', '4.63mm')
+				VariableProp('Rs_Stator', 'UD', '', '0mm')
+				VariableProp('FilletType_Stator', 'UD', '', '1')
+				VariableProp('Magnetic_Axial_Length', 'UD', '', '150mm')
+				VariableProp('Layers', 'UD', '', '6')
+				VariableProp('ParallelPaths', 'UD', '', '2')
+				VariableProp('WireWidth', 'UD', '', '3.711mm')
+				VariableProp('WireThick', 'UD', '', '1.686mm')
+				VariableProp('WireRad', 'UD', '', '0.3mm')
+				VariableProp('LayerGap', 'UD', '', '0.35mm')
+				VariableProp('SpanExt_F', 'UD', '', '40.0950667946387mm')
+				VariableProp('SpanExt_R', 'UD', '', '32.9739241596785mm')
+				VariableProp('DiaGap_Hairpin', 'UD', '', '142.375463458226mm')
+				VariableProp('WdgExt_Avg', 'UD', '', '5mm')
+				VariableProp('HalfAxial', 'UD', '', '0')
+				VariableProp('SymmetryFactor', 'UD', '', '8')
+				VariableProp('SegAngle', 'UD', '', '0deg')
+				VariableProp('SegAngle_Coil_Armature', 'UD', '', '10deg')
+				VariableProp('NumPoles', 'UD', '', '8')
+				VariableProp('IPeak', 'UD', '', '650.538238691624A')
+				VariableProp('PhaseAdvance', 'UD', '', '43.33deg')
+				VariableProp('MachineRPM', 'UD', '', '750rpm')
+				VariableProp('Vpeak', 'UD', '', '0V')
+				VariableProp('MaxPhasorAngle', 'UD', '', '120deg')
+				VariableProp('DriveOffsetED', 'UD', '', '30deg')
 				VariableProp('InitialPositionMD', 'UD', '', 'DriveOffsetED / (NumPoles/2)')
-				VariableProp('StatorFrequency', 'UD', '', 'NumPoles/2*MachineRPM/1rpm/60*1Hz', oa(i=false, int=false, Min='25Hz', Max='75Hz', MinStep='0.5Hz', MaxStep='5Hz', MinFocus='25Hz', MaxFocus='75Hz', UseManufacturableValues='false', Level='[25: 75] Hz'), sa(i=false, int=false, Min='25Hz', Max='75Hz', IDisp='5Hz'), ta(i=false, int=false, Step='5Hz', Min='25Hz', Max='75Hz'))
-				VariableProp('PeriodMultiplier', 'UD', '', '1', oa(i=false, int=false, Min='0.5', Max='1.5', MinStep='0.01', MaxStep='0.1', MinFocus='0.5', MaxFocus='1.5', UseManufacturableValues='false', Level='[0.5: 1.5]'), sa(i=false, int=false, Min='0.5', Max='1.5', IDisp='0.1'), ta(i=false, int=false, Step='0.1', Min='0.5', Max='1.5'))
-				VariableProp('NumTorquePointsPerCycle', 'UD', '', '30', oa(i=false, int=false, Min='15', Max='45', MinStep='0.3', MaxStep='3', MinFocus='15', MaxFocus='45', UseManufacturableValues='false', Level='[15: 45]'), sa(i=false, int=false, Min='15', Max='45', IDisp='3'), ta(i=false, int=false, Step='3', Min='15', Max='45'))
+				VariableProp('StatorFrequency', 'UD', '', '50Hz')
 			$end 'Properties'
-			VariableOrders[44: 'AAA', 'DiaGap', 'DiaStatorYoke', 'DiaOuter', 'Airgap', 'StatorSkewAngle', 'Model_Length', 'Stator_Lam_Length', 'SlotNumber_Stator', 'SlotType_Stator', 'Hs0_Stator', 'Hs1_Stator', 'Hs2_Stator', 'Bs0_Stator', 'Bs1_Stator', 'Bs2_Stator', 'Rs_Stator', 'FilletType_Stator', 'Magnetic_Axial_Length', 'Layers', 'ParallelPaths', 'WireWidth', 'WireThick', 'WireRad', 'LayerGap', 'SpanExt_F', 'SpanExt_R', 'DiaGap_Hairpin', 'WdgExt_Avg', 'HalfAxial', 'SymmetryFactor', 'SegAngle', 'SegAngle_Coil_Armature', 'NumPoles', 'IPeak', 'PhaseAdvance', 'MachineRPM', 'Vpeak', 'MaxPhasorAngle', 'DriveOffsetED', 'InitialPositionMD', 'StatorFrequency', 'PeriodMultiplier', 'NumTorquePointsPerCycle']
+			VariableOrders[42: 'AAA', 'DiaGap', 'DiaStatorYoke', 'DiaOuter', 'Airgap', 'StatorSkewAngle', 'Model_Length', 'Stator_Lam_Length', 'SlotNumber_Stator', 'SlotType_Stator', 'Hs0_Stator', 'Hs1_Stator', 'Hs2_Stator', 'Bs0_Stator', 'Bs1_Stator', 'Bs2_Stator', 'Rs_Stator', 'FilletType_Stator', 'Magnetic_Axial_Length', 'Layers', 'ParallelPaths', 'WireWidth', 'WireThick', 'WireRad', 'LayerGap', 'SpanExt_F', 'SpanExt_R', 'DiaGap_Hairpin', 'WdgExt_Avg', 'HalfAxial', 'SymmetryFactor', 'SegAngle', 'SegAngle_Coil_Armature', 'NumPoles', 'IPeak', 'PhaseAdvance', 'MachineRPM', 'Vpeak', 'MaxPhasorAngle', 'DriveOffsetED', 'InitialPositionMD', 'StatorFrequency']
 			$begin 'Editor3D Doc Preferences'
 				BackgroundColorVersion=1
 				'Plane Background'=0
@@ -128649,103 +128176,14 @@ $begin 'AnsoftProject'
 		$end 'MeshSetup'
 		$begin 'AnalysisSetup'
 			$begin 'SolveSetups'
-				NextUniqueID=3
+				NextUniqueID=2
 				MoveBackwards=false
-				$begin 'MySetupAuto'
-					ID=2
-					SetupType='Transient'
-					Enabled=true
-					$begin 'MeshLink'
-						ImportMesh=false
-					$end 'MeshLink'
-					NonlinearSolverResidual='1e-08'
-					ScalarPotential='Second Order'
-					TimeIntegrationMethod=0
-					SmoothBHCurve=false
-					StopTime='1/StatorFrequency*1Hz*1s*PeriodMultiplier'
-					TimeStep='1/StatorFrequency*1Hz*1s/NumTorquePointsPerCycle'
-					OutputError=false
-					OutputPerObjectCoreLoss=true
-					OutputPerObjectSolidLoss=true
-					UseControlProgram=false
-					ControlProgramName=''
-					ControlProgramArg=''
-					CallCtrlProgAfterLastStep=false
-					FastReachSteadyState=false
-					AutoDetectSteadyState=false
-					IsGeneralTransient=true
-					IsHalfPeriodicTransient=false
-					SaveFieldsType='None'
-					UseNonLinearIterNum=false
-					CacheSaveKind='Count'
-					NumberSolveSteps=1
-					RangeStart='0s'
-					RangeEnd='0.1s'
-					UseAdaptiveTimeStep=false
-					InitialTimeStep='0.002s'
-					MinTimeStep='0.001s'
-					MaxTimeStep='0.003s'
-					TimeStepErrTolerance=0.0001
-					RelaxationFactor=1
-				$end 'MySetupAuto'
 			$end 'SolveSetups'
 		$end 'AnalysisSetup'
 		$begin 'Optimetrics'
 			$begin 'OptimetricsSetups'
-				NextUniqueID=1
+				NextUniqueID=0
 				MoveBackwards=false
-				$begin 'Optimetrics_CD'
-					ID=0
-					SetupType='OptiParametric'
-					IsEnabled=true
-					NextUniqueID=1
-					MoveBackwards=false
-					GoalSetupVersion=0
-					Version=0
-					$begin 'ProdOptiSetupDataV2'
-						SaveFields=false
-						CopyMesh=false
-						SolveWithCopiedMeshOnly=false
-					$end 'ProdOptiSetupDataV2'
-					InterpolationPoints=0
-					$begin 'StartingPoint'
-					$end 'StartingPoint'
-					'Sim. Setups'(1669)
-					$begin 'Sweeps'
-						$begin 'SweepDefinition'
-							Variable='AAA'
-							Data='1.0'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='MachineRPM'
-							Data='15000rpm'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='PhaseAdvance'
-							Data='79.41244351deg'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-						$begin 'SweepDefinition'
-							Variable='IPeak'
-							Data='231.129587A'
-							OffsetF1=false
-							Synchronize=0
-						$end 'SweepDefinition'
-					$end 'Sweeps'
-					$begin 'Sweep Operations'
-						add('2.0', '15000rpm', '75.66628551deg', '308.3753812A')
-						add('3.0', '15000rpm', '75.39984866deg', '411.7977408A')
-						add('4.0', '15000rpm', '77.59084809deg', '578.0743934A')
-						add('5.0', '15000rpm', '78.96214049deg', '645.8155811A')
-					$end 'Sweep Operations'
-					$begin 'Goals'
-					$end 'Goals'
-				$end 'Optimetrics_CD'
 			$end 'OptimetricsSetups'
 		$end 'Optimetrics'
 		$begin 'Solutions'
@@ -128756,9 +128194,8 @@ $begin 'AnsoftProject'
 				'Show Stack'=true
 			$end 'FieldsCalculator'
 			$begin 'PlotDefaults'
-				Default_SolutionId=1670
+				Default_SolutionId=1173
 				Default_PlotFolder='Automatic'
-				Default_Time='-1s'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
 				NextUniqueID=1
@@ -128778,369 +128215,9 @@ $begin 'AnsoftProject'
 			AntennaParametersPlotTablesOrder()
 		$end 'FieldsReporter'
 		$begin 'SolutionManager'
-			$begin 'SimSetup'
-				TypeName='BaseSetup'
-				ID=1669
-				Name='MySetupAuto'
-				$begin 'Solution'
-					ID=1670
-					Name='Transient'
-					$begin 'SimDataExtractor'
-						$begin 'QuantityIDs'
-							NextUniqueID=0
-							MoveBackwards=false
-							IDMap()
-						$end 'QuantityIDs'
-						SimValue('FluxLinkage(WG_Ph1_P1)', 1, 152, false, SimValueID=1677, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph2_P1)', 1, 152, false, SimValueID=1678, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph3_P1)', 1, 152, false, SimValueID=1679, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph1_P1)', 1, 76, false, SimValueID=1680, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph2_P1)', 1, 76, false, SimValueID=1681, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph3_P1)', 1, 76, false, SimValueID=1682, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_1)', 1, 58, false, SimValueID=1683, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_2)', 1, 58, false, SimValueID=1684, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_1)', 1, 58, false, SimValueID=1685, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_2)', 1, 58, false, SimValueID=1686, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_1)', 1, 58, false, SimValueID=1687, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_2)', 1, 58, false, SimValueID=1688, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_3)', 1, 58, false, SimValueID=1689, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_1)', 1, 58, false, SimValueID=1690, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_2)', 1, 58, false, SimValueID=1691, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_3)', 1, 58, false, SimValueID=1692, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet1N1_1)', 1, 58, false, SimValueID=1693, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet2N1_1)', 1, 58, false, SimValueID=1694, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet1N1_1)', 1, 58, false, SimValueID=1695, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet2N1_1)', 1, 58, false, SimValueID=1696, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph1_P1)', 1, 58, false, SimValueID=1697, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph2_P1)', 1, 58, false, SimValueID=1698, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph3_P1)', 1, 58, false, SimValueID=1699, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph1_P1)', 1, 76, false, SimValueID=1719, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph2_P1)', 1, 76, false, SimValueID=1720, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph3_P1)', 1, 76, false, SimValueID=1721, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph1_P1)', 1, 152, false, SimValueID=1722, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph2_P1)', 1, 152, false, SimValueID=1723, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph3_P1)', 1, 152, false, SimValueID=1724, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_1)', 1, 58, false, SimValueID=1725, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_2)', 1, 58, false, SimValueID=1726, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_1)', 1, 58, false, SimValueID=1727, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_2)', 1, 58, false, SimValueID=1728, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_1)', 1, 58, false, SimValueID=1729, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_2)', 1, 58, false, SimValueID=1730, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_3)', 1, 58, false, SimValueID=1731, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_1)', 1, 58, false, SimValueID=1732, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_2)', 1, 58, false, SimValueID=1733, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_3)', 1, 58, false, SimValueID=1734, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet1N1_1)', 1, 58, false, SimValueID=1735, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet2N1_1)', 1, 58, false, SimValueID=1736, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet1N1_1)', 1, 58, false, SimValueID=1737, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet2N1_1)', 1, 58, false, SimValueID=1738, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph1_P1)', 1, 58, false, SimValueID=1739, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph2_P1)', 1, 58, false, SimValueID=1740, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph3_P1)', 1, 58, false, SimValueID=1741, 3, 0, 2, 0, false, false, -2, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph1_P1)', 1, 76, false, SimValueID=1742, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph2_P1)', 1, 76, false, SimValueID=1743, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('InputCurrent(WG_Ph3_P1)', 1, 76, false, SimValueID=1744, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph1_P1)', 1, 152, false, SimValueID=1745, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph2_P1)', 1, 152, false, SimValueID=1746, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('FluxLinkage(WG_Ph3_P1)', 1, 152, false, SimValueID=1747, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_1)', 1, 58, false, SimValueID=1748, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Stator_2)', 1, 58, false, SimValueID=1749, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_1)', 1, 58, false, SimValueID=1750, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Stator_2)', 1, 58, false, SimValueID=1751, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_1)', 1, 58, false, SimValueID=1752, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_2)', 1, 58, false, SimValueID=1753, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('HysteresisLoss(Rotor_3)', 1, 58, false, SimValueID=1754, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_1)', 1, 58, false, SimValueID=1755, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_2)', 1, 58, false, SimValueID=1756, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('EddyCurrentLoss(Rotor_3)', 1, 58, false, SimValueID=1757, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet1N1_1)', 1, 58, false, SimValueID=1758, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L1_1Magnet2N1_1)', 1, 58, false, SimValueID=1759, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet1N1_1)', 1, 58, false, SimValueID=1760, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('SolidLoss(L2_1Magnet2N1_1)', 1, 58, false, SimValueID=1761, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph1_P1)', 1, 58, false, SimValueID=1762, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph2_P1)', 1, 58, false, SimValueID=1763, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						SimValue('PerWindingSolidLoss(WG_Ph3_P1)', 1, 58, false, SimValueID=1764, 3, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
-						$begin 'Sweeps'
-							$begin 'PostprocessSweep'
-								Variable='NormalizedDistance'
-								RegularSweep=1
-								Units=''
-								Minimum=0
-								Maximum=1
-								Increment=0.01
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'PostprocessSweep'
-								Variable='Phi'
-								RegularSweep=1
-								Units='deg'
-								Minimum=0
-								Maximum=6.28318530717959
-								Increment=0.0872664625997165
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'PostprocessSweep'
-								Variable='Theta'
-								RegularSweep=1
-								Units='deg'
-								Minimum=0
-								Maximum=6.28318530717959
-								Increment=0.0872664625997165
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'PostprocessSweep'
-								Variable='Phase'
-								RegularSweep=1
-								Units='deg'
-								Minimum=0
-								Maximum=6.28318530717959
-								Increment=0.0872664625997165
-								CreateIndexedSubsweepFlag=false
-							$end 'PostprocessSweep'
-							$begin 'Sweep'
-								Variable='AAA'
-								Column='1;2;3;4;5;1000'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaGap'
-								Column='142.54mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaStatorYoke'
-								Column='198mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaOuter'
-								Column='198mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Airgap'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='StatorSkewAngle'
-								Column='0deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Model_Length'
-								Column='0mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Stator_Lam_Length'
-								Column='0mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SlotNumber_Stator'
-								Column='48'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SlotType_Stator'
-								Column='3'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Hs0_Stator'
-								Column='1mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Hs1_Stator'
-								Column='0.282123169133541mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Hs2_Stator'
-								Column='12.5514634582265mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Bs0_Stator'
-								Column='1.43mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Bs1_Stator'
-								Column='4.63mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Bs2_Stator'
-								Column='4.63mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Rs_Stator'
-								Column='0mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='FilletType_Stator'
-								Column='1'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Magnetic_Axial_Length'
-								Column='150mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Layers'
-								Column='6'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='ParallelPaths'
-								Column='2'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WireWidth'
-								Column='3.711mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WireThick'
-								Column='1.686mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WireRad'
-								Column='0.3mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='LayerGap'
-								Column='0.35mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SpanExt_F'
-								Column='40.0950667946387mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SpanExt_R'
-								Column='32.9739241596785mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DiaGap_Hairpin'
-								Column='142.375463458226mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='WdgExt_Avg'
-								Column='5mm'
-								Units='mm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='HalfAxial'
-								Column='0'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SymmetryFactor'
-								Column='8'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SegAngle'
-								Column='0deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='SegAngle_Coil_Armature'
-								Column='10deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='NumPoles'
-								Column='8'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='IPeak'
-								Column='231.129587A;308.3753812A;411.7977408A;578.0743934A;645.8155811A;650.538238691624A'
-								Units='A'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='PhaseAdvance'
-								Column='43.33deg;75.39984866deg;75.66628551deg;77.59084809deg;78.96214049deg;79.41244351deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MachineRPM'
-								Column='750rpm;15000rpm'
-								Units='rpm'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Vpeak'
-								Column='0V'
-								Units='V'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='MaxPhasorAngle'
-								Column='120deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='DriveOffsetED'
-								Column='30deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='InitialPositionMD'
-								Column='7.5deg'
-								Units='deg'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='StatorFrequency'
-								Column='50Hz;1000Hz'
-								Units='Hz'
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='PeriodMultiplier'
-								Column='1'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='NumTorquePointsPerCycle'
-								Column='30'
-								Units=''
-							$end 'Sweep'
-							$begin 'Sweep'
-								Variable='Time'
-								Column='0.001s'
-								Units='s'
-							$end 'Sweep'
-						$end 'Sweeps'
-					$end 'SimDataExtractor'
-				$end 'Solution'
-			$end 'SimSetup'
 			$begin 'Version ID Map'
 				V=1169
-				$begin 'Setup'
-					N='MySetupAuto'
-					V=0
-					Soln(N='Transient', V=0)
-				$end 'Setup'
 			$end 'Version ID Map'
-			$begin 'ID Map'
-				$begin 'Setup'
-					N='MySetupAuto'
-					I=1669
-					Soln(N='Transient', I=1670)
-				$end 'Setup'
-			$end 'ID Map'
 			ValidationCacheHeader=''
 		$end 'SolutionManager'
 		$begin 'UserDefinedSolutionMgr'
@@ -129154,7 +128231,7 @@ $begin 'AnsoftProject'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR16FB2781217897303746.tmp'
+		CacheHeaderFile='HDR612B1224417870469814.tmp'
 	$end 'Maxwell2DModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -129195,7 +128272,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 0, 0, 1351, 423), OrientationMatrix(0.0257129743695259, 0, 0, 0, 0, 0.0257129743695259, 1.39041467228651e-09, 0, 0, 1.39041467228651e-09, 0.0257129743695259, 0, -1.27279222011566, -0.900000035762787, -5.11176919937134, 1, 0, -2.2700183391571, 2.2700183391571, -1, 1, -2.68245887756348, 12.9059982299805), Drawings[56: 'Whole_Region', 'OuterBand', 'RotatingBand', 'InnerBand', 'Stator_2', 'Rotor_2', 'Rotor_3', 'Shaft', 'Stator_1', 'Rotor_Pocket_9', 'Rotor_Pocket_17', 'Rotor_1', 'L1_1Magnet2N1_1', 'L1_1Magnet1N1_1', 'Rotor_Pocket_23', 'Rotor_Pocket_31', 'L2_1Magnet2N1_1', 'L2_1Magnet1N1_1', 'Ph2_P2_C10_1', 'Ph2_P1_C8_2', 'Ph1_P1_C1_2', 'Ph3_P1_C22_1', 'Ph3_P2_C7_2', 'Ph1_P2_C9_1', 'Ph2_P1_C4_2', 'Ph3_P2_C15_2', 'Ph2_P2_C22_1', 'Ph3_P1_C10_1', 'Ph1_P2_C21_1', 'Ph2_P1_C20_2', 'Ph2_P1_C16_2', 'Ph3_P2_C19_2', 'Ph1_P1_C17_2', 'Ph3_P2_C3_2', 'Ph1_P1_C5_2', 'Ph3_P1_C18_1', 'Ph1_P1_C13_2', 'Ph3_P1_C6_1', 'Ph1_P2_C17_1', 'Ph3_P1_C14_1', 'Ph2_P2_C18_1', 'Ph2_P2_C2_1', 'Ph2_P2_C6_1', 'Ph1_P2_C1_1', 'Ph2_P2_C14_1', 'Ph3_P1_C2_1', 'Ph1_P2_C5_1', 'Ph1_P1_C21_2', 'Ph1_P2_C13_1', 'Ph3_P2_C23_2', 'Ph2_P1_C24_2', 'Ph3_P2_C11_2', 'Ph2_P1_C12_2', 'Ph1_P1_C9_2', 'Independent', 'Dependent'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=5, dYForGrid=5, dZForGrid=5, dRForGrid=5, dThetaForGrid=10), 'View Solution Context'('Solution ID'=1361, 'View IntrinsicVar'='Time=\'-1s\''), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(5, -1, -1, -8, -31, 0, 0, 1351, 423), OrientationMatrix(0.0257129743695259, 0, 0, 0, 0, 0.0257129743695259, 1.39041467228651e-09, 0, 0, 1.39041467228651e-09, 0.0257129743695259, 0, -1.27279222011566, -0.900000035762787, -5.11176919937134, 1, 0, -2.66578912734985, 2.66578912734985, -1, 1, -2.68245935440063, 12.9059982299805), Drawings[56: 'Whole_Region', 'OuterBand', 'RotatingBand', 'InnerBand', 'Stator_2', 'Rotor_2', 'Rotor_3', 'Shaft', 'Stator_1', 'Rotor_Pocket_9', 'Rotor_Pocket_17', 'Rotor_1', 'L1_1Magnet2N1_1', 'L1_1Magnet1N1_1', 'Rotor_Pocket_23', 'Rotor_Pocket_31', 'L2_1Magnet2N1_1', 'L2_1Magnet1N1_1', 'Ph2_P2_C10_1', 'Ph2_P1_C8_2', 'Ph1_P1_C1_2', 'Ph3_P1_C22_1', 'Ph3_P2_C7_2', 'Ph1_P2_C9_1', 'Ph2_P1_C4_2', 'Ph3_P2_C15_2', 'Ph2_P2_C22_1', 'Ph3_P1_C10_1', 'Ph1_P2_C21_1', 'Ph2_P1_C20_2', 'Ph2_P1_C16_2', 'Ph3_P2_C19_2', 'Ph1_P1_C17_2', 'Ph3_P2_C3_2', 'Ph1_P1_C5_2', 'Ph3_P1_C18_1', 'Ph1_P1_C13_2', 'Ph3_P1_C6_1', 'Ph1_P2_C17_1', 'Ph3_P1_C14_1', 'Ph2_P2_C18_1', 'Ph2_P2_C2_1', 'Ph2_P2_C6_1', 'Ph1_P2_C1_1', 'Ph2_P2_C14_1', 'Ph3_P1_C2_1', 'Ph1_P2_C5_1', 'Ph1_P1_C21_2', 'Ph1_P2_C13_1', 'Ph3_P2_C23_2', 'Ph2_P1_C24_2', 'Ph3_P2_C11_2', 'Ph2_P1_C12_2', 'Ph1_P1_C9_2', 'Independent', 'Dependent'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=5, dYForGrid=5, dZForGrid=5, dRForGrid=5, dThetaForGrid=10), 'View Solution Context'('Solution ID'=-1, 'View IntrinsicVar'=''), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -129229,7 +128306,7 @@ $begin 'AnsoftProject'
 				DesignInstanceID=4
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(5, -1, -1, -8, -31, 26, 26, 1429, 511), OrientationMatrix(0.0202713143080473, 0, 0, 0, 0, 0.0202713124454021, 0, 0, 0, 0, 0.0202713143080473, 0, -1.00343000888824, -0.709532141685486, -5.93088579177856, 1, 0, -2.46153855323792, 2.46153855323792, -1, 1, -0.21384334564209, 12.0756149291992), Drawings[56: 'Whole_Region', 'OuterBand', 'RotatingBand', 'InnerBand', 'Stator_2', 'Rotor_2', 'Rotor_3', 'Shaft', 'Stator_1', 'Rotor_Pocket_9', 'Rotor_Pocket_17', 'Rotor_1', 'L1_1Magnet2N1_1', 'L1_1Magnet1N1_1', 'Rotor_Pocket_23', 'Rotor_Pocket_31', 'L2_1Magnet2N1_1', 'L2_1Magnet1N1_1', 'Ph2_P2_C10_1', 'Ph2_P1_C8_2', 'Ph1_P1_C1_2', 'Ph3_P1_C22_1', 'Ph3_P2_C7_2', 'Ph1_P2_C9_1', 'Ph2_P1_C4_2', 'Ph3_P2_C15_2', 'Ph2_P2_C22_1', 'Ph3_P1_C10_1', 'Ph1_P2_C21_1', 'Ph2_P1_C20_2', 'Ph2_P1_C16_2', 'Ph3_P2_C19_2', 'Ph1_P1_C17_2', 'Ph3_P2_C3_2', 'Ph1_P1_C5_2', 'Ph3_P1_C18_1', 'Ph1_P1_C13_2', 'Ph3_P1_C6_1', 'Ph1_P2_C17_1', 'Ph3_P1_C14_1', 'Ph2_P2_C18_1', 'Ph2_P2_C2_1', 'Ph2_P2_C6_1', 'Ph1_P2_C1_1', 'Ph2_P2_C14_1', 'Ph3_P1_C2_1', 'Ph1_P2_C5_1', 'Ph1_P1_C21_2', 'Ph1_P2_C13_1', 'Ph3_P2_C23_2', 'Ph2_P1_C24_2', 'Ph3_P2_C11_2', 'Ph2_P1_C12_2', 'Ph1_P1_C9_2', 'Independent', 'Dependent'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=5, dYForGrid=5, dZForGrid=5, dRForGrid=5, dThetaForGrid=10), 'View Solution Context'('Solution ID'=1670, 'View IntrinsicVar'='Time=\'-1s\''), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 26, 26, 1429, 511), OrientationMatrix(0.0202713143080473, 0, 0, 0, 0, 0.0202713124454021, 0, 0, 0, 0, 0.0202713143080473, 0, -1.00343000888824, -0.709532141685486, -5.93088579177856, 1, 0, -1.87082731723785, 1.87082731723785, -1, 1, -0.21384334564209, 12.0756149291992), Drawings[56: 'Whole_Region', 'OuterBand', 'RotatingBand', 'InnerBand', 'Stator_2', 'Rotor_2', 'Rotor_3', 'Shaft', 'Stator_1', 'Rotor_Pocket_9', 'Rotor_Pocket_17', 'Rotor_1', 'L1_1Magnet2N1_1', 'L1_1Magnet1N1_1', 'Rotor_Pocket_23', 'Rotor_Pocket_31', 'L2_1Magnet2N1_1', 'L2_1Magnet1N1_1', 'Ph2_P2_C10_1', 'Ph2_P1_C8_2', 'Ph1_P1_C1_2', 'Ph3_P1_C22_1', 'Ph3_P2_C7_2', 'Ph1_P2_C9_1', 'Ph2_P1_C4_2', 'Ph3_P2_C15_2', 'Ph2_P2_C22_1', 'Ph3_P1_C10_1', 'Ph1_P2_C21_1', 'Ph2_P1_C20_2', 'Ph2_P1_C16_2', 'Ph3_P2_C19_2', 'Ph1_P1_C17_2', 'Ph3_P2_C3_2', 'Ph1_P1_C5_2', 'Ph3_P1_C18_1', 'Ph1_P1_C13_2', 'Ph3_P1_C6_1', 'Ph1_P2_C17_1', 'Ph3_P1_C14_1', 'Ph2_P2_C18_1', 'Ph2_P2_C2_1', 'Ph2_P2_C6_1', 'Ph1_P2_C1_1', 'Ph2_P2_C14_1', 'Ph3_P1_C2_1', 'Ph1_P2_C5_1', 'Ph1_P1_C21_2', 'Ph1_P2_C13_1', 'Ph3_P2_C23_2', 'Ph2_P1_C24_2', 'Ph3_P2_C11_2', 'Ph2_P1_C12_2', 'Ph1_P1_C9_2', 'Independent', 'Dependent'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=5, dYForGrid=5, dZForGrid=5, dRForGrid=5, dThetaForGrid=10), 'View Solution Context'('Solution ID'=-1, 'View IntrinsicVar'=''), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
@@ -129443,10 +128520,10 @@ v+If8Ag2w8d6hq/wAL/Ft7468C3f8Aw8u+DVp/YfirUPAnjX4aXmqeRY/CaKLU9/gn4ieMbLyLxLi2X\
 		Notes=''
 		Factory='Maxwell 2D'
 		IsSolved=false
-		'Nominal Setups'[1: 'MySetupAuto']
-		'Nominal Setup Types'[1: '']
-		'Optimetrics Setups'[1: 'Optimetrics_PWM']
-		'Optimetrics Experiment Types'[1: 0]
+		'Nominal Setups'[0:]
+		'Nominal Setup Types'[0:]
+		'Optimetrics Setups'[0:]
+		'Optimetrics Experiment Types'[0:]
 		Image64='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\
 BAQICAQECAQEBAgICAgICAgICAQICAgICAgICAgL/2wBDAQEBAQEBAQEBAQECAQEBAgICAgICAgICAg\
 ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAMgDASIAAhEBAxEB/\
@@ -129805,11 +128882,11 @@ oooAKKKKACiiigAooooAKKKKAP/Z'
 		DesignName='Sinusoidal_Current'
 		Notes=''
 		Factory='Maxwell 2D'
-		IsSolved=true
-		'Nominal Setups'[1: 'MySetupAuto']
-		'Nominal Setup Types'[1: '']
-		'Optimetrics Setups'[1: 'Optimetrics_CD']
-		'Optimetrics Experiment Types'[1: 0]
+		IsSolved=false
+		'Nominal Setups'[0:]
+		'Nominal Setup Types'[0:]
+		'Optimetrics Setups'[0:]
+		'Optimetrics Experiment Types'[0:]
 		Image64='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\
 BAQICAQECAQEBAgICAgICAgICAQICAgICAgICAgL/2wBDAQEBAQEBAQEBAQECAQEBAgICAgICAgICAg\
 ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAMgDASIAAhEBAxEB/\
